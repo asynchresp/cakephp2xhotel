@@ -1,0 +1,2 @@
+msgid "List Areas"
+msgstr "ffdfdsf"
