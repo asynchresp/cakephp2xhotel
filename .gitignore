@@ -3,4 +3,8 @@ tmp/*
 [Cc]onfig/database.php
 app/tmp/*
 app/[Cc]onfig/*
+/lib/Cake/Console/Templates/skel/tmp/
+.DS_Store
+/app/webroot/img/
+/app/webroot/files/
 !empty
