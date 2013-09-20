@@ -8,3 +8,4 @@ app/[Cc]onfig/*
 /app/webroot/img/
 /app/webroot/files/
 !empty
+/nbproject/private/
