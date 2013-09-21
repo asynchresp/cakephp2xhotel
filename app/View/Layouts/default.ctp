@@ -42,10 +42,12 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		<div id="header">
 			<h1><?php //echo $this->Html->link($cakeDescription, 'http://cakephp.org'); ?>
 			<ul>
-				<li><?php echo $this->Html->link(__('Home'), FULL_BASE_URL.'/bnbhotel'); ?></li>
-				<li><?php echo $this->Html->link(__('Hotels'), array('controller' => 'hotelgroups', 'action' => 'index')); ?></li>
+				<li><?php echo $this->Html->link(__('Home'), FULL_BASE_URL.'/bnbhotel/index'); ?></li>
+				<li><?php echo $this->Html->link(__('Hotels'), FULL_BASE_URL.'/bnbhotel/admin/hotelgroups'); ?></li>
+				<li><?php echo $this->Html->link(__('Extra'), FULL_BASE_URL.'/bnbhotel/admin/countries'); ?></li>
+				<?php /* ?><li><?php echo $this->Html->link(__('Hotels'), array('controller' => 'hotelgroups', 'action' => 'index')); ?></li>
 				<li><?php echo $this->Html->link(__('Extra'), array('controller' => 'countries', 'action' => 'index')); ?></li>
-			<?php /* ?><li><?php echo $this->Html->link(__('Site'), array('controller' => 'sites', 'action' => 'index')); ?></li><?php */ ?>
+			<li><?php echo $this->Html->link(__('Site'), array('controller' => 'sites', 'action' => 'index')); ?></li><?php */ ?>
 			</ul></h1>
 		</div>
 		<div id="content">
