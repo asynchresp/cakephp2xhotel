@@ -18,7 +18,7 @@
  */
 
 $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework');
-echo 'Default';
+//echo 'ADMIN';
 ?>
 <!DOCTYPE html>
 <html>
@@ -31,29 +31,47 @@ echo 'Default';
 	<?php
 		echo $this->Html->meta('icon');
 
-		echo $this->Html->css('cake.generic');
-                echo $this->fetch('meta');
+		echo $this->Html->css('admin');
+                echo $this->Html->css('/usermgmt/css/umstyle');
+		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');
 	?>
 </head>
 <body>
 	<div id="container">
-		<div id="header">
-			<h1><?php //echo $this->Html->link($cakeDescription, 'http://cakephp.org'); ?>
-			<ul>
-				<li><?php echo $this->Html->link(__('Home'), FULL_BASE_URL.'/bnbhotel'); ?></li>
-				<li><?php echo $this->Html->link(__('Hotels'), array('controller' => 'hotelgroups', 'action' => 'index')); ?></li>
-				<li><?php echo $this->Html->link(__('Extra'), array('controller' => 'countries', 'action' => 'index')); ?></li>
-			<?php /* ?><li><?php echo $this->Html->link(__('Site'), array('controller' => 'sites', 'action' => 'index')); ?></li><?php */ ?>
-			</ul></h1>
+		
+                <?php if($this->UserAuth->isLogged()){?>
+                
+                <div id="header">
+                    
+			<h1>ADMIN Logo</h1>
+                        <ul id="nav">
+                            <?php echo $this->element('topnavigation'); ?>
+			</ul>
+                        
+                        <p class="you_are">
+                        Hello,
+                        
+                        <?php $getLogedInUser=$this->UserAuth->getUser();?>
+                        
+                        <a href="#"><?php echo $getLogedInUser['User']['first_name'].' '.$getLogedInUser['User']['last_name'];?></a>
+                        |
+                        <!--<a href="index.html">Logout</a>-->
+                        <?php echo $this->Html->link('Logout', '/logout', array('class' => 'logout')); ?>
+                        </p>
+                        
 		</div>
+            
+            
+                <?php }?>
 		<div id="content">
 
 			<?php echo $this->Session->flash(); ?>
 
 			<?php echo $this->fetch('content'); ?>
 		</div>
+            
 		<div id="footer">Powered by Softbranch
 			<?php /* ?><?php echo $this->Html->link(
 					$this->Html->image('cake.power.gif', array('alt' => $cakeDescription, 'border' => '0')),
@@ -63,6 +81,6 @@ echo 'Default';
 			?><?php */ ?>
 		</div>
 	</div>
-	<?php echo $this->element('sql_dump'); ?>
+	<?php // echo $this->element('sql_dump'); ?>
 </body>
 </html>
