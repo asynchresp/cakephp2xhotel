@@ -42,7 +42,7 @@ echo 'Default';
 		<div id="header">
 			<h1><?php //echo $this->Html->link($cakeDescription, 'http://cakephp.org'); ?>
 			<ul>
-				<li><?php echo $this->Html->link(__('Home'), FULL_BASE_URL.'/bnbhotel'); ?></li>
+				<li><?php echo $this->Html->link(__('Home'), FULL_BASE_URL.'/hotel'); ?></li>
 				<li><?php echo $this->Html->link(__('Hotels'), array('controller' => 'hotelgroups', 'action' => 'index')); ?></li>
 				<li><?php echo $this->Html->link(__('Extra'), array('controller' => 'countries', 'action' => 'index')); ?></li>
 			<?php /* ?><li><?php echo $this->Html->link(__('Site'), array('controller' => 'sites', 'action' => 'index')); ?></li><?php */ ?>
