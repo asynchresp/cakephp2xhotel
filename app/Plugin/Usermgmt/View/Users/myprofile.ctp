@@ -18,21 +18,15 @@
 	along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
 */
 ?>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-            <?php echo $this->element('admin_left'); ?>
-	</ul>
-</div>
-<div class="sites form">
+<div class="umtop">
 	<?php echo $this->Session->flash(); ?>
-	<?php // echo $this->element('dashboard'); ?>
+	<?php echo $this->element('dashboard'); ?>
 	<div class="um_box_up"></div>
 	<div class="um_box_mid">
 		<div class="um_box_mid_content">
 			<div class="um_box_mid_content_top">
 				<span class="umstyle1"><?php echo __('My Profile'); ?></span>
-				<span class="umstyle2" style="float:right"><?php // echo $this->Html->link(__("Home",true),"/") ?></span>
+				<span class="umstyle2" style="float:right"><?php echo $this->Html->link(__("Home",true),"/") ?></span>
 				<div style="clear:both"></div>
 			</div>
 			<div class="umhr"></div>
