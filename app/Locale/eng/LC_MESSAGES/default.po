@@ -1,2 +1,122 @@
+msgid "List Sites"
+msgstr "Sites"
+
+msgid "New Site"
+msgstr "Add Site"
+
+msgid "List Countries"
+msgstr "Countries"
+
 msgid "List Areas"
-msgstr "ffdfdsf"
+msgstr "Areas"
+
+msgid "New Country"
+msgstr "Add Country"
+
+msgid "List States"
+msgstr "States"
+
+msgid "New State"
+msgstr "Add State"
+
+msgid "List Cities"
+msgstr "Cities"
+
+msgid "New City"
+msgstr "Add City"
+
+msgid "List Activity Types"
+msgstr "Activity Types"
+
+msgid "New Activity Type"
+msgstr "Add Activity Type"
+
+msgid "List Coupons"
+msgstr "Coupons"
+
+msgid "New Coupon"
+msgstr "Add Coupon"
+
+msgid "List Food Menu Types"
+msgstr "Food Menu Types"
+
+msgid "New Food Menu Type"
+msgstr "Add Food Menu Type"
+
+msgid "List Hotel Cancellation Policies"
+msgstr "Cancellation Policies"
+
+msgid "New Hotel Cancellation Policy"
+msgstr "Add Cancellation Policy"
+
+msgid "List Hotel Facilities"
+msgstr "Hotel Facilities"
+
+msgid "New Hotel Facility"
+msgstr "Add Hotel Facility"
+
+msgid "List Hotel Facility Categories"
+msgstr "Hotel Facility Categories"
+
+msgid "New Hotel Facility Category"
+msgstr "Add Facility Category"
+
+msgid "List Hotel Groups"
+msgstr "Hotel Groups"
+
+msgid "New Hotel Group"
+msgstr "Add Hotel Group"
+
+msgid "List Hotel Informative Pages"
+msgstr "Informative Pages"
+
+msgid "New Hotel Informative Page"
+msgstr "Add Informative Page"
+
+msgid "List Hotel Modification Policies"
+msgstr "Modification Policies"
+
+msgid "New Hotel Modification Policy"
+msgstr "Add Modification Policy"
+
+msgid "List Hotel Themes"
+msgstr "Hotel Themes"
+
+msgid "New Hotel Theme"
+msgstr "Add Hotel Theme"
+
+msgid "List Hotel Types"
+msgstr "Hotel Types"
+
+msgid "New Hotel Type"
+msgstr "Add Hotel Type"
+
+msgid "List Hotels"
+msgstr "Hotels"
+
+msgid "New Hotel"
+msgstr "Add Hotel"
+
+msgid "List Point Near By Hotels"
+msgstr "Points Near By Hotels"
+
+msgid "New Point Near By Hotel"
+msgstr "Add Points Near By Hotel"
+
+msgid "List Popular Points"
+msgstr "Popular Points"
+
+msgid "New Popular Point"
+msgstr "Add Popular Point"
+
+msgid "List Taxes"
+msgstr "Taxes"
+
+msgid "New Tax"
+msgstr "Add Tax"
+
+msgid "List Tour Packages"
+msgstr "Tour Packages"
+
+msgid "New Tour Package"
+msgstr "Add Tour Package"
