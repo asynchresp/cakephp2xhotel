@@ -120,3 +120,14 @@ msgstr "Tour Packages"
 
 msgid "New Tour Package"
 msgstr "Add Tour Package"
+
+
+msgid "Country"
+msgstr "Select Country"
+
+msgid "State"
+msgstr "Select State"
+
+msgid "City"
+msgstr "Select City"
+
