@@ -76,12 +76,12 @@
 	</div>
 
 </div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
+<div class="leftnav">
+	<h3><?php // echo __('Actions'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('New Site'), array('action' => 'add')); ?></li>
 		<li><?php echo $this->Html->link(__('List Countries'), array('controller' => 'countries', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Country'), array('controller' => 'countries', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Country'), array('controller' => 'countries', 'action' => 'add'),array('class'=>'current')); ?> </li>
 		<li><?php echo $this->Html->link(__('List States'), array('controller' => 'states', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New State'), array('controller' => 'states', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Cities'), array('controller' => 'cities', 'action' => 'index')); ?> </li>

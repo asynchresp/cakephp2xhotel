@@ -18,7 +18,14 @@
 	along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
 */
 ?>
-<div class="">
+<div class="actions">
+	<h3><?php echo __('Actions'); ?></h3>
+	<ul>
+		<?php echo $this->element('admin_left'); ?>
+	</ul>
+</div>
+
+<div class="sites form">
 	<?php echo $this->Session->flash(); ?>
 	<?php // echo $this->element('dashboard'); ?>
 	<div class="um_box_up"></div>
