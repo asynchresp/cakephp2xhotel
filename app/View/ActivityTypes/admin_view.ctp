@@ -6,11 +6,11 @@
 			<?php echo h($activityType['ActivityType']['id']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Site'); ?></dt>
+		<?php /* ?><dt><?php echo __('Site'); ?></dt>
 		<dd>
 			<?php echo $this->Html->link($activityType['Site']['name'], array('controller' => 'sites', 'action' => 'view', $activityType['Site']['id'])); ?>
 			&nbsp;
-		</dd>
+		</dd><?php */ ?>
 		<dt><?php echo __('Name'); ?></dt>
 		<dd>
 			<?php echo h($activityType['ActivityType']['name']); ?>
@@ -38,9 +38,8 @@
 		</dd>
 		<dt><?php echo __('Status'); ?></dt>
 		<dd>
-			<?php echo h($activityType['ActivityType']['status']); ?>
+			<?php if(h($activityType['ActivityType']['status'])) { echo "Active"; } else { echo "Inactive"; } ?>
 			&nbsp;
-		</dd>
 		<dt><?php echo __('Modified'); ?></dt>
 		<dd>
 			<?php echo h($activityType['ActivityType']['modified']); ?>
@@ -68,6 +67,7 @@
 		<li><?php echo $this->Html->link(__('New Tour Package'), array('controller' => 'tour_packages', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
+<?php /* ?>
 <div class="related">
 	<h3><?php echo __('Related Popular Points'); ?></h3>
 	<?php if (!empty($activityType['PopularPoint'])): ?>
@@ -273,4 +273,4 @@
 			<li><?php echo $this->Html->link(__('New Tour Package'), array('controller' => 'tour_packages', 'action' => 'add')); ?> </li>
 		</ul>
 	</div>
-</div>
+</div><?php */ ?>

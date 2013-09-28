@@ -5,7 +5,9 @@
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('food_menu_type_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('title'); ?></th>
-			<th><?php echo $this->Paginator->sort('child_age_below1'); ?></th>
+			<th><?php echo $this->Paginator->sort('status'); ?></th>
+			
+			<?php /* ?><th><?php echo $this->Paginator->sort('child_age_below1'); ?></th>
 			<th><?php echo $this->Paginator->sort('price_age_below1'); ?></th>
 			<th><?php echo $this->Paginator->sort('child_age_below2'); ?></th>
 			<th><?php echo $this->Paginator->sort('price_age_below2'); ?></th>
@@ -21,9 +23,8 @@
 			<th><?php echo $this->Paginator->sort('meta_title'); ?></th>
 			<th><?php echo $this->Paginator->sort('meta_description'); ?></th>
 			<th><?php echo $this->Paginator->sort('meta_keyword'); ?></th>
-			<th><?php echo $this->Paginator->sort('status'); ?></th>
 			<th><?php echo $this->Paginator->sort('modified'); ?></th>
-			<th><?php echo $this->Paginator->sort('created'); ?></th>
+			<th><?php echo $this->Paginator->sort('created'); ?></th><?php */ ?>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php foreach ($foodPackages as $foodPackage): ?>
@@ -33,7 +34,9 @@
 			<?php echo $this->Html->link($foodPackage['FoodMenuType']['name'], array('controller' => 'food_menu_types', 'action' => 'view', $foodPackage['FoodMenuType']['id'])); ?>
 		</td>
 		<td><?php echo h($foodPackage['FoodPackage']['title']); ?>&nbsp;</td>
-		<td><?php echo h($foodPackage['FoodPackage']['child_age_below1']); ?>&nbsp;</td>
+		<td><?php if(h($foodPackage['FoodPackage']['status'])) { echo "Active"; } else { echo "Inactive"; } ?>&nbsp;</td>
+		
+		<?php /* ?><td><?php echo h($foodPackage['FoodPackage']['child_age_below1']); ?>&nbsp;</td>
 		<td><?php echo h($foodPackage['FoodPackage']['price_age_below1']); ?>&nbsp;</td>
 		<td><?php echo h($foodPackage['FoodPackage']['child_age_below2']); ?>&nbsp;</td>
 		<td><?php echo h($foodPackage['FoodPackage']['price_age_below2']); ?>&nbsp;</td>
@@ -49,9 +52,8 @@
 		<td><?php echo h($foodPackage['FoodPackage']['meta_title']); ?>&nbsp;</td>
 		<td><?php echo h($foodPackage['FoodPackage']['meta_description']); ?>&nbsp;</td>
 		<td><?php echo h($foodPackage['FoodPackage']['meta_keyword']); ?>&nbsp;</td>
-		<td><?php echo h($foodPackage['FoodPackage']['status']); ?>&nbsp;</td>
 		<td><?php echo h($foodPackage['FoodPackage']['modified']); ?>&nbsp;</td>
-		<td><?php echo h($foodPackage['FoodPackage']['created']); ?>&nbsp;</td>
+		<td><?php echo h($foodPackage['FoodPackage']['created']); ?>&nbsp;</td><?php */ ?>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $foodPackage['FoodPackage']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $foodPackage['FoodPackage']['id'])); ?>

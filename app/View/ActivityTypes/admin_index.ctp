@@ -3,31 +3,32 @@
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
-			<th><?php echo $this->Paginator->sort('site_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('name'); ?></th>
+			<th><?php echo $this->Paginator->sort('status'); ?></th>
+			<?php /* ?><th><?php echo $this->Paginator->sort('site_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('description'); ?></th>
 			<th><?php echo $this->Paginator->sort('meta_title'); ?></th>
 			<th><?php echo $this->Paginator->sort('meta_description'); ?></th>
-			<th><?php echo $this->Paginator->sort('meta_keyword'); ?></th>
-			<th><?php echo $this->Paginator->sort('status'); ?></th>
+			<th><?php echo $this->Paginator->sort('meta_keyword'); ?></th>			
 			<th><?php echo $this->Paginator->sort('modified'); ?></th>
-			<th><?php echo $this->Paginator->sort('created'); ?></th>
+			<th><?php echo $this->Paginator->sort('created'); ?></th><?php */ ?>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php foreach ($activityTypes as $activityType): ?>
 	<tr>
 		<td><?php echo h($activityType['ActivityType']['id']); ?>&nbsp;</td>
+		<td><?php echo h($activityType['ActivityType']['name']); ?>&nbsp;</td>
+		<td><?php if(h($activityType['ActivityType']['status'])) { echo "Active"; } else { echo "Inactive"; } ?>&nbsp;</td>
+		<?php /* ?>
 		<td>
 			<?php echo $this->Html->link($activityType['Site']['name'], array('controller' => 'sites', 'action' => 'view', $activityType['Site']['id'])); ?>
-		</td>
-		<td><?php echo h($activityType['ActivityType']['name']); ?>&nbsp;</td>
+		</td>		
 		<td><?php echo h($activityType['ActivityType']['description']); ?>&nbsp;</td>
 		<td><?php echo h($activityType['ActivityType']['meta_title']); ?>&nbsp;</td>
 		<td><?php echo h($activityType['ActivityType']['meta_description']); ?>&nbsp;</td>
 		<td><?php echo h($activityType['ActivityType']['meta_keyword']); ?>&nbsp;</td>
-		<td><?php echo h($activityType['ActivityType']['status']); ?>&nbsp;</td>
 		<td><?php echo h($activityType['ActivityType']['modified']); ?>&nbsp;</td>
-		<td><?php echo h($activityType['ActivityType']['created']); ?>&nbsp;</td>
+		<td><?php echo h($activityType['ActivityType']['created']); ?>&nbsp;</td><?php */ ?>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $activityType['ActivityType']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $activityType['ActivityType']['id'])); ?>
