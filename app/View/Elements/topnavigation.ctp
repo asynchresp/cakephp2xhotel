@@ -6,4 +6,4 @@
 <?php   } else {?>
 	<li><?php echo $this->Html->link(__("Profile",true),"/myprofile") ?></li>
 <?php   } ?>
-	
+	<li><?php echo $this->Html->link(__("Sites",true),'/admin/sites') ?></li>

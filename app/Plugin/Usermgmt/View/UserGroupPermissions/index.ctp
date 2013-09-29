@@ -19,7 +19,8 @@
 */
 echo $this->Html->script('/usermgmt/js/umupdate');
 ?>
-<div class="">
+<?php echo $this->element('admin_left');?>
+<div class="form sites">
 	<?php echo $this->Session->flash(); ?>
 	<?php // echo $this->element('dashboard'); ?>
 	<div class="um_box_up"></div>
