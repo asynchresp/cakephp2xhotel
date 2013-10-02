@@ -2,9 +2,33 @@
 $controller=  strtolower($this->request->params['controller']);
 $action=  strtolower($this->request->params['action']);
 ?>
+
+
+<div id='cssmenu'>
+<ul>
+   <li><a href='index.html'><span>Home</span></a></li>
+   <li class='has-sub'><a href='#'><span>Products</span></a>
+      <ul>
+         <li><a href='#'><span>Widgets</span></a></li>
+         <li><a href='#'><span>Menus</span></a></li>
+         <li class='last'><a href='#'><span>Products</span></a></li>
+      </ul>
+   </li>
+   <li class='has-sub'><a href='#'><span>Company</span></a>
+      <ul>
+         <li><a href='#'><span>About</span></a></li>
+         <li class='last'><a href='#'><span>Location</span></a></li>
+      </ul>
+   </li>
+   <li class='last'><a href='#'><span>Contact</span></a></li>
+</ul>
+</div>
+
+
 <div class="leftnav">
 	<h3><?php // echo __('Actions'); ?></h3>
 	<ul>
+            
 		<li><?php echo $this->Html->link(__('New Site'), array('action' => 'add')); ?></li>
 		<li><?php echo $this->Html->link(__('List Countries'), array('controller' => 'countries', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Country'), array('controller' => 'countries', 'action' => 'add'),array('class'=>'current')); ?> </li>
@@ -46,3 +70,28 @@ $action=  strtolower($this->request->params['action']);
 		<li><?php echo $this->Html->link(__('New Tour Package'), array('controller' => 'tour_packages', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
+
+<script>
+    $( document ).ready(function() {
+    $('#cssmenu ul ul li:odd').addClass('odd');
+    $('#cssmenu ul ul li:even').addClass('even');
+    $('#cssmenu > ul > li > a').click(function() {
+      $('#cssmenu li').removeClass('active');
+      $(this).closest('li').addClass('active');	
+      var checkElement = $(this).next();
+      if((checkElement.is('ul')) && (checkElement.is(':visible'))) {
+        $(this).closest('li').removeClass('active');
+        checkElement.slideUp('normal');
+      }
+      if((checkElement.is('ul')) && (!checkElement.is(':visible'))) {
+        $('#cssmenu ul ul:visible').slideUp('normal');
+        checkElement.slideDown('normal');
+      }
+      if($(this).closest('li').find('ul').children().length == 0) {
+        return true;
+      } else {
+        return false;	
+      }		
+    });
+    });
+</script>

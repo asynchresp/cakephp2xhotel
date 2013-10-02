@@ -1,7 +1,9 @@
 <div class="hotelFacilityCategories form">
+    <div class="um_box_mid_content_top"><span class="umstyle1"><?php echo __('Add Hotel Facility Category'); ?></span></div>
+    <div class="content_mid">
 <?php echo $this->Form->create('HotelFacilityCategory'); ?>
 	<fieldset>
-		<legend><?php echo __('Add Hotel Facility Category'); ?></legend>
+		<!--<legend><?php // echo __('Add Hotel Facility Category'); ?></legend>-->
 	<?php
 		//echo $this->Form->input('site_id');
 		echo $this->Form->input('name');
@@ -26,18 +28,5 @@
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>
 </div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-
-		<li><?php echo $this->Html->link(__('List Hotel Facility Categories'), array('action' => 'index')); ?></li>
-		<li><?php echo $this->Html->link(__('List Sites'), array('controller' => 'sites', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Site'), array('controller' => 'sites', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Hotel Facilities'), array('controller' => 'hotel_facilities', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Hotel Facility'), array('controller' => 'hotel_facilities', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Hotel Rooms'), array('controller' => 'hotel_rooms', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Hotel Room'), array('controller' => 'hotel_rooms', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Hotels'), array('controller' => 'hotels', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Hotel'), array('controller' => 'hotels', 'action' => 'add')); ?> </li>
-	</ul>
 </div>
+<?php echo $this->element('left_nav');?>

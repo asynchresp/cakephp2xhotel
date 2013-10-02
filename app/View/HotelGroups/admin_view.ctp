@@ -1,5 +1,7 @@
 <div class="hotelGroups view">
-<h2><?php echo __('Hotel Group'); ?></h2>
+    <div class="um_box_mid_content_top"><span class="umstyle1"><?php echo __('Hotel Group'); ?></span></div>
+    <div class="content_mid">
+<!--<h2><?php // echo __('Hotel Group'); ?></h2>-->
 	<dl>
 		<dt><?php echo __('Id'); ?></dt>
 		<dd>
@@ -63,17 +65,8 @@
 		</dd>
 	</dl>
 </div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('Edit Hotel Group'), array('action' => 'edit', $hotelGroup['HotelGroup']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Hotel Group'), array('action' => 'delete', $hotelGroup['HotelGroup']['id']), null, __('Are you sure you want to delete # %s?', $hotelGroup['HotelGroup']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Hotel Groups'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Hotel Group'), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Hotels'), array('controller' => 'hotels', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Hotel'), array('controller' => 'hotels', 'action' => 'add')); ?> </li>
-	</ul>
 </div>
+<?php echo $this->element('left_nav');?>
 <?php /* ?>
 <div class="related">
 	<h3><?php echo __('Related Hotels'); ?></h3>

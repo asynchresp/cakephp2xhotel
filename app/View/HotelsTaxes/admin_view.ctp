@@ -1,5 +1,7 @@
 <div class="hotelsTaxes view">
-<h2><?php echo __('Hotels Tax'); ?></h2>
+    <div class="um_box_mid_content_top"><span class="umstyle1"><?php echo __('Hotels Tax'); ?></span></div>
+        <div class="content_mid">
+<!--<h2><?php // echo __('Hotels Tax'); ?></h2>-->
 	<dl>
 		<dt><?php echo __('Id'); ?></dt>
 		<dd>
@@ -18,16 +20,5 @@
 		</dd>
 	</dl>
 </div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('Edit Hotels Tax'), array('action' => 'edit', $hotelsTax['HotelsTax']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Hotels Tax'), array('action' => 'delete', $hotelsTax['HotelsTax']['id']), null, __('Are you sure you want to delete # %s?', $hotelsTax['HotelsTax']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Hotels Taxes'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Hotels Tax'), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Hotels'), array('controller' => 'hotels', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Hotel'), array('controller' => 'hotels', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Taxes'), array('controller' => 'taxes', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Tax'), array('controller' => 'taxes', 'action' => 'add')); ?> </li>
-	</ul>
 </div>
+<?php echo $this->element('left_nav');?>

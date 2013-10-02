@@ -1,5 +1,7 @@
 <div class="hotelRoomsHotelFacilities index">
-	<h2><?php echo __('Hotel Rooms Hotel Facilities'); ?></h2>
+    <div class="um_box_mid_content_top"><span class="umstyle1"><?php echo __('Hotel Rooms Hotel Facilities'); ?></span></div>
+    <div class="content_mid">
+	<!--<h2><?php // echo __('Hotel Rooms Hotel Facilities'); ?></h2>-->
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
@@ -38,13 +40,5 @@
 	?>
 	</div>
 </div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('New Hotel Rooms Hotel Facility'), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('List Hotel Rooms'), array('controller' => 'hotel_rooms', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Hotel Room'), array('controller' => 'hotel_rooms', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Hotel Facilities'), array('controller' => 'hotel_facilities', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Hotel Facility'), array('controller' => 'hotel_facilities', 'action' => 'add')); ?> </li>
-	</ul>
 </div>
+<?php echo $this->element('left_nav');?>

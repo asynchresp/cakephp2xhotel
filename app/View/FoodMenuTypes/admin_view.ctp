@@ -1,5 +1,7 @@
 <div class="foodMenuTypes view">
-<h2><?php echo __('Food Menu Type'); ?></h2>
+    <div class="um_box_mid_content_top"><span class="umstyle1"><?php echo __('Food Menu Type'); ?></span></div>
+    <div class="content_mid">
+<!--<h2><?php // echo __('Food Menu Type'); ?></h2>-->
 	<dl>
 		<dt><?php echo __('Id'); ?></dt>
 		<dd>
@@ -53,21 +55,8 @@
 		</dd>
 	</dl>
 </div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('Edit Food Menu Type'), array('action' => 'edit', $foodMenuType['FoodMenuType']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Food Menu Type'), array('action' => 'delete', $foodMenuType['FoodMenuType']['id']), null, __('Are you sure you want to delete # %s?', $foodMenuType['FoodMenuType']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Food Menu Types'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Food Menu Type'), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Sites'), array('controller' => 'sites', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Site'), array('controller' => 'sites', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Food Packages'), array('controller' => 'food_packages', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Food Package'), array('controller' => 'food_packages', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Hotel Rooms'), array('controller' => 'hotel_rooms', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Hotel Room'), array('controller' => 'hotel_rooms', 'action' => 'add')); ?> </li>
-	</ul>
 </div>
+<?php echo $this->element('left_nav');?>
 <div class="related">
 	<h3><?php echo __('Related Food Packages'); ?></h3>
 	<?php if (!empty($foodMenuType['FoodPackage'])): ?>

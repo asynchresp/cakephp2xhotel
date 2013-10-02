@@ -1,7 +1,9 @@
 <div class="hotelInformativePages form">
+    <div class="um_box_mid_content_top"><span class="umstyle1"><?php echo __('Edit Hotel Informative Page'); ?></span></div>
+    <div class="content_mid">
 <?php echo $this->Form->create('HotelInformativePage'); ?>
 	<fieldset>
-		<legend><?php echo __('Edit Hotel Informative Page'); ?></legend>
+		<!--<legend><?php // echo __('Edit Hotel Informative Page'); ?></legend>-->
 	<?php
 		echo $this->Form->input('id');
 		echo $this->Form->input('site_id');
@@ -17,15 +19,5 @@
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>
 </div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-
-		<li><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('HotelInformativePage.id')), null, __('Are you sure you want to delete # %s?', $this->Form->value('HotelInformativePage.id'))); ?></li>
-		<li><?php echo $this->Html->link(__('List Hotel Informative Pages'), array('action' => 'index')); ?></li>
-		<li><?php echo $this->Html->link(__('List Sites'), array('controller' => 'sites', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Site'), array('controller' => 'sites', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Hotels'), array('controller' => 'hotels', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Hotel'), array('controller' => 'hotels', 'action' => 'add')); ?> </li>
-	</ul>
 </div>
+<?php echo $this->element('left_nav');?>
