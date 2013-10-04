@@ -188,17 +188,21 @@ p {
 div.form,
 div.index,
 div.view {
-	float:right;
+/*	float:right;
 	width:76%;
 	border-left:1px solid #D2D2D2;
-	padding:10px 2%;
+	padding:10px 2%;*/
+
+        float: right;
+        padding: 10px 0;
+        width: 83%;
 }
-div.actions {
+div.leftnav {
 	float:left;
 	width:16%;
-	padding:10px 1.5%;
+	/*padding:10px 1.5%;*/
 }
-div.actions h3 {
+div.leftnav h3 {
 	padding-top:0;
 	color:#777;
 }
@@ -359,7 +363,7 @@ fieldset fieldset div {
 }
 form div {
 	clear: both;
-	margin-bottom: 1em;
+	margin-bottom: 0em;
 	padding: .5em;
 	vertical-align: text-top;
 }
@@ -380,16 +384,23 @@ form div.submit {
 	margin-top: 10px;
 }
 label {
-	display: block;
+/*	display: block;
 	font-size: 110%;
-	margin-bottom:3px;
+	margin-bottom:3px;*/
+        
+        float: left;
+        font-size: 110%;
+        margin-bottom: 3px;
+        width: 20%;
 }
 input, textarea {
 	clear: both;
-	font-size: 140%;
+	font-size: 120%;
 	font-family: "frutiger linotype", "lucida grande", "verdana", sans-serif;
-	padding: 1%;
-	width:98%;
+	/*padding: 1%;*/
+/*	width:98%;*/
+        padding: 0.7%;
+        width: 50%;
 }
 select {
 	clear: both;
@@ -397,7 +408,8 @@ select {
 	vertical-align: text-bottom;
 }
 select[multiple=multiple] {
-	width: 100%;
+	/*width: 100%;*/
+        width: 52%;
 }
 option {
 	font-size: 120%;
@@ -405,7 +417,7 @@ option {
 }
 input[type=checkbox] {
 	clear: left;
-	float: left;
+	/*float: left;*/
 	margin: 0px 6px 7px 2px;
 	width: auto;
 }
@@ -415,9 +427,11 @@ div.checkbox label {
 input[type=radio] {
 	float:left;
 	width:auto;
-	margin: 6px 0;
+	margin: 6px 4px;
 	padding: 0;
 	line-height: 26px;
+        
+        clear: none;
 }
 .radio label {
 	margin: 0 0 6px 20px;
@@ -569,25 +583,87 @@ p.error em {
 }
 
 /**  Actions  **/
-.actions ul {
+.leftnav ul {
 	margin: 0;
 	padding: 0;
 }
-.actions li {
-	margin:0 0 0.5em 0;
+.leftnav li {
+	/*margin:0 0 0.5em 0;*/
+        margin: 0px;
 	list-style-type: none;
 	white-space: nowrap;
 	padding: 0;
 }
-.actions ul li a {
+.leftnav ul li a {
 	font-weight: normal;
 	display: block;
 	clear: both;
 }
 
+.leftnav ul li a{
+        font-weight:normal;
+	/*padding: 4px 8px;*/
+        padding: 9px;
+        background-color: #F3F3F3;
+/*	background: #dcdcdc;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#fefefe), to(#dcdcdc));
+	background-image: -webkit-linear-gradient(top, #fefefe, #dcdcdc);
+	background-image: -moz-linear-gradient(top, #fefefe, #dcdcdc);
+	background-image: -ms-linear-gradient(top, #fefefe, #dcdcdc);
+	background-image: -o-linear-gradient(top, #fefefe, #dcdcdc);
+	background-image: linear-gradient(top, #fefefe, #dcdcdc);*/
+	color:#333;
+/*	border:1px solid #bbb;*/
+        border-bottom: 1px solid #DEDEDE;
+        
+/*	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;*/
+
+	text-decoration: none;
+	text-shadow: #fff 0px 1px 0px;
+	min-width: 0;
+	-moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0px 1px 1px rgba(0, 0, 0, 0.2);
+	-webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0px 1px 1px rgba(0, 0, 0, 0.2);
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0px 1px 1px rgba(0, 0, 0, 0.2);
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+.leftnav ul li a.current, .leftnav ul li a.current:hover{
+        font-weight:normal;
+	/*padding: 4px 8px;*/
+        padding: 9px;
+        background-color: #F9F9F9;
+/*	background: #dcdcdc;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#fefefe), to(#dcdcdc));
+	background-image: -webkit-linear-gradient(top, #fefefe, #dcdcdc);
+	background-image: -moz-linear-gradient(top, #fefefe, #dcdcdc);
+	background-image: -ms-linear-gradient(top, #fefefe, #dcdcdc);
+	background-image: -o-linear-gradient(top, #fefefe, #dcdcdc);
+	background-image: linear-gradient(top, #fefefe, #dcdcdc);*/
+	color:#333;
+/*	border:1px solid #bbb;*/
+        border-bottom: 1px solid #DEDEDE;
+        border-left: 2px solid #5A81A3;
+/*	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;*/
+
+	text-decoration: none;
+	text-shadow: #fff 0px 1px 0px;
+	min-width: 0;
+	-moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0px 1px 1px rgba(0, 0, 0, 0.2);
+	-webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0px 1px 1px rgba(0, 0, 0, 0.2);
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0px 1px 1px rgba(0, 0, 0, 0.2);
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+
+
 /* Buttons and button links */
 input[type=submit],
-.actions ul li a,
 .actions a {
 	font-weight:normal;
 	padding: 4px 8px;
@@ -612,14 +688,18 @@ input[type=submit],
 	-webkit-user-select: none;
 	user-select: none;
 }
-.actions ul li a:hover,
 .actions a:hover {
 	background: #ededed;
 	border-color: #acacac;
 	text-decoration: none;
 }
+
+.leftnav ul li a:hover{
+        background: #EDEDED;
+	border-color: #EDEDED;
+	text-decoration: none;
+}
 input[type=submit]:active,
-.actions ul li a:active,
 .actions a:active {
 	background: #eee;
 	background-image: -webkit-gradient(linear, left top, left bottom, from(#dfdfdf), to(#eee));
@@ -635,6 +715,23 @@ input[type=submit]:active,
 	border-color: #aaa;
 	text-decoration: none;
 }
+
+.leftnav ul li a:active{
+        background: #eee;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#dfdfdf), to(#eee));
+	background-image: -webkit-linear-gradient(top, #dfdfdf, #eee);
+	background-image: -moz-linear-gradient(top, #dfdfdf, #eee);
+	background-image: -ms-linear-gradient(top, #dfdfdf, #eee);
+	background-image: -o-linear-gradient(top, #dfdfdf, #eee);
+	background-image: linear-gradient(top, #dfdfdf, #eee);
+	text-shadow: #eee 0px 1px 0px;
+	-moz-box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.3);
+	-webkit-box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.3);
+	box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.3);
+	border-color: #aaa;
+	text-decoration: none;
+}
+
 
 /** Related **/
 .related {
@@ -819,3 +916,115 @@ pre {
 #url-rewriting-warning {
 	display:none;
 }
+
+
+.content_mid {
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    
+    float: right;
+    padding: 10px;
+    width: 98%;
+    
+    /*overflow-x: scroll;*/
+}
+
+
+/*============================*/
+
+#cssmenu,
+#cssmenu ul,
+#cssmenu li,
+#cssmenu a {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  list-style: none;
+  font-weight: normal;
+  text-decoration: none;
+  line-height: 1;
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+  position: relative;
+}
+#cssmenu a {
+  line-height: 1.3;
+  padding: 6px 15px;
+}
+#cssmenu {
+  width: 200px;
+}
+#cssmenu > ul > li {
+  cursor: pointer;
+  background: #000;
+  border-bottom: 1px solid #797a80;
+}
+#cssmenu > ul > li:last-child {
+  border-bottom: 1px solid #3e3d3c;
+}
+#cssmenu > ul > li > a {
+  font-size: 13px;
+  display: block;
+  color: #ffffff;
+  text-shadow: 0 1px 1px #000;
+  background: #6a6b72;
+  background: -moz-linear-gradient(#6a6b72 0%, #4c4e53 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #6a6b72), color-stop(100%, #4c4e53));
+  background: -webkit-linear-gradient(#6a6b72 0%, #4c4e53 100%);
+  background: linear-gradient(#6a6b72 0%, #4c4e53 100%);
+}
+#cssmenu > ul > li > a:hover {
+  text-decoration: none;
+}
+#cssmenu > ul > li.active {
+  border-bottom: none;
+}
+#cssmenu > ul > li.active > a {
+  background: #a5ce27;
+  background: -moz-linear-gradient(#a5ce27 0%, #709400 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #a5ce27), color-stop(100%, #709400));
+  background: -webkit-linear-gradient(#a5ce27 0%, #709400 100%);
+  background: linear-gradient(#a5ce27 0%, #709400 100%);
+  color: #4e5800;
+  text-shadow: 0 1px 1px #a5ce27;
+}
+#cssmenu > ul > li.has-sub > a:after {
+  content: '';
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: 5px solid transparent;
+  border-left: 5px solid #ffffff;
+}
+#cssmenu > ul > li.has-sub.active > a:after {
+  right: 14px;
+  top: 12px;
+  border: 5px solid transparent;
+  border-top: 5px solid #4e5800;
+}
+/* Sub menu */
+#cssmenu ul ul {
+  padding: 0;
+  display: none;
+}
+#cssmenu ul ul a {
+  background: #efefef;
+  display: block;
+  color: #797979;
+  font-size: 13px;
+}
+#cssmenu ul ul li {
+  border-bottom: 1px solid #c9c9c9;
+}
+#cssmenu ul ul li.odd a {
+  background: #e5e5e5;
+}
+#cssmenu ul ul li:last-child {
+  border: none;
+}
+
+
+
+/*============================*/

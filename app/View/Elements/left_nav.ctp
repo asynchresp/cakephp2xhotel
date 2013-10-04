@@ -3,33 +3,20 @@ $controller=  strtolower($this->request->params['controller']);
 $action=  strtolower($this->request->params['action']);
 ?>
 
-
-<div id='cssmenu'>
-<ul>
-   <li><a href='index.html'><span>Home</span></a></li>
-   <li class='has-sub'><a href='#'><span>Products</span></a>
-      <ul>
-         <li><a href='#'><span>Widgets</span></a></li>
-         <li><a href='#'><span>Menus</span></a></li>
-         <li class='last'><a href='#'><span>Products</span></a></li>
-      </ul>
-   </li>
-   <li class='has-sub'><a href='#'><span>Company</span></a>
-      <ul>
-         <li><a href='#'><span>About</span></a></li>
-         <li class='last'><a href='#'><span>Location</span></a></li>
-      </ul>
-   </li>
-   <li class='last'><a href='#'><span>Contact</span></a></li>
-</ul>
-</div>
-
-
 <div class="leftnav">
 	<h3><?php // echo __('Actions'); ?></h3>
 	<ul>
             
-		<li><?php echo $this->Html->link(__('New Site'), array('action' => 'add')); ?></li>
+		
+                <li class='has-sub active'><?php echo $this->Html->link(__('Hotel'),'#'); ?> 
+                    <ul>
+                        <li><?php echo $this->Html->link(__('All Hotel'), array('controller' => 'hotels', 'action' => 'index')); ?> </li>
+                        <li><?php echo $this->Html->link(__('New Hotel'), array('controller' => 'hotels', 'action' => 'add')); ?> </li>
+                        <li><a href='#34' class="selectedChild"><span>Menus</span></a></li>
+                        
+                    </ul>
+                </li>
+                <li><?php echo $this->Html->link(__('New Site'), array('action' => 'add')); ?>
 		<li><?php echo $this->Html->link(__('List Countries'), array('controller' => 'countries', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Country'), array('controller' => 'countries', 'action' => 'add'),array('class'=>'current')); ?> </li>
 		<li><?php echo $this->Html->link(__('List States'), array('controller' => 'states', 'action' => 'index')); ?> </li>
@@ -59,7 +46,7 @@ $action=  strtolower($this->request->params['action']);
 		<li><?php echo $this->Html->link(__('List Hotel Types'), array('controller' => 'hotel_types', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Hotel Type'), array('controller' => 'hotel_types', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Hotels'), array('controller' => 'hotels', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Hotel'), array('controller' => 'hotels', 'action' => 'add')); ?> </li>
+		
 		<li><?php echo $this->Html->link(__('List Point Near By Hotels'), array('controller' => 'point_near_by_hotels', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Point Near By Hotel'), array('controller' => 'point_near_by_hotels', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Popular Points'), array('controller' => 'popular_points', 'action' => 'index')); ?> </li>
@@ -73,10 +60,10 @@ $action=  strtolower($this->request->params['action']);
 
 <script>
     $( document ).ready(function() {
-    $('#cssmenu ul ul li:odd').addClass('odd');
-    $('#cssmenu ul ul li:even').addClass('even');
-    $('#cssmenu > ul > li > a').click(function() {
-      $('#cssmenu li').removeClass('active');
+    $('.leftnav ul ul li:odd').addClass('odd');
+    $('.leftnav ul ul li:even').addClass('even');
+    $('.leftnav > ul > li > a').click(function() {
+      $('.leftnav li').removeClass('active');
       $(this).closest('li').addClass('active');	
       var checkElement = $(this).next();
       if((checkElement.is('ul')) && (checkElement.is(':visible'))) {
@@ -84,7 +71,7 @@ $action=  strtolower($this->request->params['action']);
         checkElement.slideUp('normal');
       }
       if((checkElement.is('ul')) && (!checkElement.is(':visible'))) {
-        $('#cssmenu ul ul:visible').slideUp('normal');
+        $('.leftnav ul ul:visible').slideUp('normal');
         checkElement.slideDown('normal');
       }
       if($(this).closest('li').find('ul').children().length == 0) {
@@ -93,5 +80,20 @@ $action=  strtolower($this->request->params['action']);
         return false;	
       }		
     });
+    
+    
+    var checkOnSelection = $('.leftnav > ul > li.active a').next();
+    if(checkOnSelection.is('ul')) {
+        checkOnSelection.slideDown('normal');
+            
+        checkOnSelection.find('li a').each(function(){
+            var current=$(this);
+            console.log(current.attr('href'))
+        });
+        
+    }
+    
+//    $('a').addClass('selectedChild');
+//    var href = $(this).attr('href');
     });
 </script>
