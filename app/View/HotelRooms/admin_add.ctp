@@ -1,11 +1,50 @@
+<script language="javascript" type="text/javascript">
+
+	function getStatesByAjax(countryId) {
+		jQuery.ajax({
+            type:'POST',
+ 			url:'<?php echo Router::url(array('controller'=>'hotel_rooms','action'=>'getstate'),false);?>',
+            data:'country_id='+countryId,
+            success:function(data){
+                $('#stateDiv').html(data);
+            },
+            error:function(message){
+                alert(message);
+            }
+        });	
+	}
+
+	function getCitiesByAjax(stateId){
+       
+        jQuery.ajax({
+            type:'POST',
+			url:'<?php echo Router::url(array('controller'=>'hotel_rooms','action'=>'getcity'),false);?>',
+            data:'state_id='+stateId,
+            success:function(data){
+                $('#cityDiv').html(data);
+            },
+            error:function(message){
+                alert(message);
+            }
+        });
+       
+    }	
+</script>
 <div class="hotelRooms form">
 <?php echo $this->Form->create('HotelRoom'); ?>
 	<fieldset>
 		<legend><?php echo __('Add Hotel Room'); ?></legend>
 	<?php
-		echo $this->Form->input('country_id');
+		/*echo $this->Form->input('country_id');
 		echo $this->Form->input('state_id');
-		echo $this->Form->input('city_id');
+		echo $this->Form->input('city_id');*/
+		echo $this->Form->input('country_id', array('id'=>'HotelRoomCountryId', 'label'=>'Country','class'=>'{validate:{required : true, messages:{required:"Please enter Country"}}}','onchange'=>"getStatesByAjax(this.value);",'empty'=>'Select Country'));
+		echo '<div id="stateDiv">';
+		echo $this->Form->input('state_id', array('id'=>'HotelRoomStateId', 'label'=>'State','class'=>'{validate:{required : true, messages:{required:"Please enter State"}}}','onchange'=>"getCitiesByAjax(this.value);",'empty'=>'Select State'));
+		echo '</div>';	
+		echo '<div id="cityDiv">';
+		echo $this->Form->input('city_id',array('id'=>'HotelRoomCityId','label'=>'City','class'=>'{validate:{required : true, messages:{required:"Please select City"}}}','empty'=>'Select City'));
+		echo '</div>';		
 		echo $this->Form->input('hotel_id');
 		echo $this->Form->input('room_type_id');
 		echo $this->Form->input('inventory');
@@ -53,7 +92,11 @@
 		echo $this->Form->input('meta_title');
 		echo $this->Form->input('meta_description');
 		echo $this->Form->input('meta_keyword');
-		echo $this->Form->input('status');
+		//echo $this->Form->input('status');
+		echo $this->Form->label('hotelroom.status');
+		$options = array('1' => 'Active', '0' => 'Inactive');
+		$attributes = array('legend' => false);
+		echo $this->Form->radio('status', $options, $attributes);
 		echo $this->Form->input('Coupon');
 		echo $this->Form->input('FoodMenuType');
 		echo $this->Form->input('FoodPackage');

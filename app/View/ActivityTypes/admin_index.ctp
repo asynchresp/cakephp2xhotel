@@ -18,7 +18,7 @@
 	<tr>
 		<td><?php echo h($activityType['ActivityType']['id']); ?>&nbsp;</td>
 		<td><?php echo h($activityType['ActivityType']['name']); ?>&nbsp;</td>
-		<td><?php if(h($activityType['ActivityType']['status'])) { echo "Active"; } else { echo "Inactive"; } ?>&nbsp;</td>
+		<td><?php if(h($activityType['ActivityType']['status']) == 1) { echo "Active"; } else { echo "Inactive"; } ?>&nbsp;</td>
 		<?php /* ?>
 		<td>
 			<?php echo $this->Html->link($activityType['Site']['name'], array('controller' => 'sites', 'action' => 'view', $activityType['Site']['id'])); ?>

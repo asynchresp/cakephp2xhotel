@@ -3,8 +3,14 @@
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
-			<th><?php echo $this->Paginator->sort('site_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('name'); ?></th>
+			<th><?php echo $this->Paginator->sort('area'); ?></th>
+			<th><?php echo $this->Paginator->sort('city_id'); ?></th>
+			<th><?php echo $this->Paginator->sort('state_id'); ?></th>
+			<th><?php echo $this->Paginator->sort('country_id'); ?></th>
+			<th><?php echo $this->Paginator->sort('status'); ?></th>
+			
+			<?php /* ?><th><?php echo $this->Paginator->sort('site_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('description'); ?></th>
 			<th><?php echo $this->Paginator->sort('activity_type_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('best_time_visit_to'); ?></th>
@@ -12,10 +18,6 @@
 			<th><?php echo $this->Paginator->sort('suitable'); ?></th>
 			<th><?php echo $this->Paginator->sort('age_group'); ?></th>
 			<th><?php echo $this->Paginator->sort('entry_fees'); ?></th>
-			<th><?php echo $this->Paginator->sort('country_id'); ?></th>
-			<th><?php echo $this->Paginator->sort('state_id'); ?></th>
-			<th><?php echo $this->Paginator->sort('city_id'); ?></th>
-			<th><?php echo $this->Paginator->sort('area'); ?></th>
 			<th><?php echo $this->Paginator->sort('latitude'); ?></th>
 			<th><?php echo $this->Paginator->sort('longitude'); ?></th>
 			<th><?php echo $this->Paginator->sort('visit_duration'); ?></th>
@@ -26,18 +28,29 @@
 			<th><?php echo $this->Paginator->sort('meta_title'); ?></th>
 			<th><?php echo $this->Paginator->sort('meta_description'); ?></th>
 			<th><?php echo $this->Paginator->sort('meta_keyword'); ?></th>
-			<th><?php echo $this->Paginator->sort('status'); ?></th>
 			<th><?php echo $this->Paginator->sort('modified'); ?></th>
-			<th><?php echo $this->Paginator->sort('created'); ?></th>
+			<th><?php echo $this->Paginator->sort('created'); ?></th><?php */ ?>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php foreach ($popularPoints as $popularPoint): ?>
 	<tr>
 		<td><?php echo h($popularPoint['PopularPoint']['id']); ?>&nbsp;</td>
+		<td><?php echo h($popularPoint['PopularPoint']['name']); ?>&nbsp;</td>
+		<td><?php echo h($popularPoint['PopularPoint']['area']); ?>&nbsp;</td>
 		<td>
+			<?php echo $this->Html->link($popularPoint['City']['name'], array('controller' => 'cities', 'action' => 'view', $popularPoint['City']['id'])); ?>
+		</td>
+		<td>
+			<?php echo $this->Html->link($popularPoint['State']['name'], array('controller' => 'states', 'action' => 'view', $popularPoint['State']['id'])); ?>
+		</td>
+		<td>
+			<?php echo $this->Html->link($popularPoint['Country']['name'], array('controller' => 'countries', 'action' => 'view', $popularPoint['Country']['id'])); ?>
+		</td>
+		<td><?php if(h($popularPoint['PopularPoint']['status']) == 1) { echo "Active"; } else { echo "Inactive"; } ?>&nbsp;</td>
+		
+		<?php /* ?><td>
 			<?php echo $this->Html->link($popularPoint['Site']['name'], array('controller' => 'sites', 'action' => 'view', $popularPoint['Site']['id'])); ?>
 		</td>
-		<td><?php echo h($popularPoint['PopularPoint']['name']); ?>&nbsp;</td>
 		<td><?php echo h($popularPoint['PopularPoint']['description']); ?>&nbsp;</td>
 		<td>
 			<?php echo $this->Html->link($popularPoint['ActivityType']['name'], array('controller' => 'activity_types', 'action' => 'view', $popularPoint['ActivityType']['id'])); ?>
@@ -47,16 +60,6 @@
 		<td><?php echo h($popularPoint['PopularPoint']['suitable']); ?>&nbsp;</td>
 		<td><?php echo h($popularPoint['PopularPoint']['age_group']); ?>&nbsp;</td>
 		<td><?php echo h($popularPoint['PopularPoint']['entry_fees']); ?>&nbsp;</td>
-		<td>
-			<?php echo $this->Html->link($popularPoint['Country']['name'], array('controller' => 'countries', 'action' => 'view', $popularPoint['Country']['id'])); ?>
-		</td>
-		<td>
-			<?php echo $this->Html->link($popularPoint['State']['name'], array('controller' => 'states', 'action' => 'view', $popularPoint['State']['id'])); ?>
-		</td>
-		<td>
-			<?php echo $this->Html->link($popularPoint['City']['name'], array('controller' => 'cities', 'action' => 'view', $popularPoint['City']['id'])); ?>
-		</td>
-		<td><?php echo h($popularPoint['PopularPoint']['area']); ?>&nbsp;</td>
 		<td><?php echo h($popularPoint['PopularPoint']['latitude']); ?>&nbsp;</td>
 		<td><?php echo h($popularPoint['PopularPoint']['longitude']); ?>&nbsp;</td>
 		<td><?php echo h($popularPoint['PopularPoint']['visit_duration']); ?>&nbsp;</td>
@@ -67,9 +70,8 @@
 		<td><?php echo h($popularPoint['PopularPoint']['meta_title']); ?>&nbsp;</td>
 		<td><?php echo h($popularPoint['PopularPoint']['meta_description']); ?>&nbsp;</td>
 		<td><?php echo h($popularPoint['PopularPoint']['meta_keyword']); ?>&nbsp;</td>
-		<td><?php echo h($popularPoint['PopularPoint']['status']); ?>&nbsp;</td>
 		<td><?php echo h($popularPoint['PopularPoint']['modified']); ?>&nbsp;</td>
-		<td><?php echo h($popularPoint['PopularPoint']['created']); ?>&nbsp;</td>
+		<td><?php echo h($popularPoint['PopularPoint']['created']); ?>&nbsp;</td><?php */ ?>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $popularPoint['PopularPoint']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $popularPoint['PopularPoint']['id'])); ?>

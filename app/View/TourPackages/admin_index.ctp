@@ -3,16 +3,18 @@
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
-			<th><?php echo $this->Paginator->sort('site_id'); ?></th>
-			<th><?php echo $this->Paginator->sort('hotel_id'); ?></th>
-			<th><?php echo $this->Paginator->sort('room_type_id'); ?></th>
-			<th><?php echo $this->Paginator->sort('hotel_room_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('name'); ?></th>
+			<th><?php echo $this->Paginator->sort('hotel_id'); ?></th>
+			<th><?php echo $this->Paginator->sort('hotel_room_id'); ?></th>
+			<th><?php echo $this->Paginator->sort('activity_type_id'); ?></th>
+			<th><?php echo $this->Paginator->sort('status'); ?></th>
+			
+			<?php /* ?><th><?php echo $this->Paginator->sort('site_id'); ?></th>
+			<th><?php echo $this->Paginator->sort('room_type_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('short_description'); ?></th>
 			<th><?php echo $this->Paginator->sort('long_description'); ?></th>
 			<th><?php echo $this->Paginator->sort('tp_order'); ?></th>
 			<th><?php echo $this->Paginator->sort('no_person'); ?></th>
-			<th><?php echo $this->Paginator->sort('activity_type_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('st_pt_state'); ?></th>
 			<th><?php echo $this->Paginator->sort('st_pt_city'); ?></th>
 			<th><?php echo $this->Paginator->sort('st_pt_area'); ?></th>
@@ -48,27 +50,29 @@
 			<th><?php echo $this->Paginator->sort('meta_title'); ?></th>
 			<th><?php echo $this->Paginator->sort('meta_description'); ?></th>
 			<th><?php echo $this->Paginator->sort('meta_keyword'); ?></th>
-			<th><?php echo $this->Paginator->sort('status'); ?></th>
 			<th><?php echo $this->Paginator->sort('modified'); ?></th>
-			<th><?php echo $this->Paginator->sort('created'); ?></th>
+			<th><?php echo $this->Paginator->sort('created'); ?></th><?php */ ?>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php foreach ($tourPackages as $tourPackage): ?>
+
 	<tr>
 		<td><?php echo h($tourPackage['TourPackage']['id']); ?>&nbsp;</td>
-		<td>
-			<?php echo $this->Html->link($tourPackage['Site']['name'], array('controller' => 'sites', 'action' => 'view', $tourPackage['Site']['id'])); ?>
-		</td>
+		<td><?php echo h($tourPackage['TourPackage']['name']); ?>&nbsp;</td>
 		<td>
 			<?php echo $this->Html->link($tourPackage['Hotel']['name'], array('controller' => 'hotels', 'action' => 'view', $tourPackage['Hotel']['id'])); ?>
 		</td>
 		<td>
-			<?php echo $this->Html->link($tourPackage['RoomType']['name'], array('controller' => 'room_types', 'action' => 'view', $tourPackage['RoomType']['id'])); ?>
-		</td>
-		<td>
 			<?php echo $this->Html->link($tourPackage['HotelRoom']['name'], array('controller' => 'hotel_rooms', 'action' => 'view', $tourPackage['HotelRoom']['id'])); ?>
 		</td>
-		<td><?php echo h($tourPackage['TourPackage']['name']); ?>&nbsp;</td>
+		<td>
+			<?php echo $this->Html->link($tourPackage['RoomType']['name'], array('controller' => 'room_types', 'action' => 'view', $tourPackage['RoomType']['id'])); ?>
+		</td>
+		<td><?php if(h($tourPackage['TourPackage']['status']) == 1) { echo "Active"; } else { echo "Inactive"; } ?>&nbsp;</td>
+		
+		<?php /* ?><td>
+			<?php echo $this->Html->link($tourPackage['Site']['name'], array('controller' => 'sites', 'action' => 'view', $tourPackage['Site']['id'])); ?>
+		</td>
 		<td><?php echo h($tourPackage['TourPackage']['short_description']); ?>&nbsp;</td>
 		<td><?php echo h($tourPackage['TourPackage']['long_description']); ?>&nbsp;</td>
 		<td><?php echo h($tourPackage['TourPackage']['tp_order']); ?>&nbsp;</td>
@@ -115,9 +119,8 @@
 		<td><?php echo h($tourPackage['TourPackage']['meta_title']); ?>&nbsp;</td>
 		<td><?php echo h($tourPackage['TourPackage']['meta_description']); ?>&nbsp;</td>
 		<td><?php echo h($tourPackage['TourPackage']['meta_keyword']); ?>&nbsp;</td>
-		<td><?php echo h($tourPackage['TourPackage']['status']); ?>&nbsp;</td>
 		<td><?php echo h($tourPackage['TourPackage']['modified']); ?>&nbsp;</td>
-		<td><?php echo h($tourPackage['TourPackage']['created']); ?>&nbsp;</td>
+		<td><?php echo h($tourPackage['TourPackage']['created']); ?>&nbsp;</td><?php */ ?>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $tourPackage['TourPackage']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $tourPackage['TourPackage']['id'])); ?>

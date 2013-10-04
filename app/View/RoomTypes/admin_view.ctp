@@ -3,7 +3,7 @@
 	<dl>
 		<dt><?php echo __('Int'); ?></dt>
 		<dd>
-			<?php echo h($roomType['RoomType']['int']); ?>
+			<?php echo h($roomType['RoomType']['id']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Name'); ?></dt>
@@ -18,7 +18,7 @@
 		</dd>
 		<dt><?php echo __('Status'); ?></dt>
 		<dd>
-			<?php echo h($roomType['RoomType']['status']); ?>
+			<?php if(h($roomType['RoomType']['status']) == 1) { echo "Active"; } else { echo "Inactive"; } ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Modified'); ?></dt>

@@ -1,3 +1,36 @@
+<script language="javascript" type="text/javascript">
+	function getCitiesByAjax(stateId){
+       
+        jQuery.ajax({
+            type:'POST',
+           /* url:'<?php echo Router::url('/admin/sites/getcity/',false);?>',*/
+			url:'<?php echo Router::url(array('controller'=>'sites','action'=>'getcity'),false);?>',
+            data:'state_id='+stateId,
+            success:function(data){
+                $('#cityDiv').html(data);
+            },
+            error:function(message){
+                alert(message);
+            }
+        });
+       
+    }
+	
+	function getStatesByAjax(countryId) {
+		jQuery.ajax({
+            type:'POST',
+ 			url:'<?php echo Router::url(array('controller'=>'sites','action'=>'getstate'),false);?>',
+            data:'country_id='+countryId,
+            success:function(data){
+                $('#stateDiv').html(data);
+            },
+            error:function(message){
+                alert(message);
+            }
+        });	
+	}
+	
+</script>
 <div class="sites form">
 <?php echo $this->Form->create('Site'); ?>
 	<fieldset>
@@ -14,9 +47,16 @@
 		echo $this->Form->input('address_line1');
 		echo $this->Form->input('address_line2');
 		echo $this->Form->input('zipcode');
-		echo $this->Form->input('country_id');
+		/*echo $this->Form->input('country_id');
 		echo $this->Form->input('state_id');
-		echo $this->Form->input('city_id');
+		echo $this->Form->input('city_id');*/
+		echo $this -> Form -> input('country_id', array('id' => 'SiteCountryId', 'label' => 'Country','class'=>'{validate:{required : true, messages:{required:"Please enter Country"}}}','onchange'=>"getStatesByAjax(this.value);",'empty'=>'Select Country'));
+		echo '<div id="stateDiv">';
+		echo $this -> Form -> input('state_id', array('id' => 'SiteStateId', 'label' => 'State','class'=>'{validate:{required : true, messages:{required:"Please enter State"}}}','onchange'=>"getCitiesByAjax(this.value);",'empty'=>'Select State'));
+		echo '</div>';	
+		echo '<div id="cityDiv">';
+		echo $this->Form->input('city_id',array('id'=>'SiteCityId','label'=>'City','empty'=>'','class'=>'{validate:{required : true, messages:{required:"Please select City"}}}','empty'=>'Select City'));
+		echo '</div>';		
 		echo $this->Form->input('meta_title');
 		echo $this->Form->input('meta_description');
 		echo $this->Form->input('meta_keyword');

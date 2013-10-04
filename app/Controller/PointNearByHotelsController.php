@@ -55,11 +55,11 @@ class PointNearByHotelsController extends AppController {
 				$this->Session->setFlash(__('The point near by hotel could not be saved. Please, try again.'));
 			}
 		}
-		$sites = $this->PointNearByHotel->Site->find('list');
-		$countries = $this->PointNearByHotel->Country->find('list');
-		$states = $this->PointNearByHotel->State->find('list');
-		$cities = $this->PointNearByHotel->City->find('list');
-		$hotels = $this->PointNearByHotel->Hotel->find('list');
+		$sites = $this->PointNearByHotel->Site->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
+		$countries = $this->PointNearByHotel->Country->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
+		$states = $this->PointNearByHotel->State->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
+		$cities = $this->PointNearByHotel->City->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
+		$hotels = $this->PointNearByHotel->Hotel->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
 		$this->set(compact('sites', 'countries', 'states', 'cities', 'hotels'));
 	}
 
@@ -84,12 +84,14 @@ class PointNearByHotelsController extends AppController {
 		} else {
 			$options = array('conditions' => array('PointNearByHotel.' . $this->PointNearByHotel->primaryKey => $id));
 			$this->request->data = $this->PointNearByHotel->find('first', $options);
+			$selCountry = $this->request->data['Country']['id'];
+			$selState = $this->request->data['State']['id'];
 		}
-		$sites = $this->PointNearByHotel->Site->find('list');
-		$countries = $this->PointNearByHotel->Country->find('list');
-		$states = $this->PointNearByHotel->State->find('list');
-		$cities = $this->PointNearByHotel->City->find('list');
-		$hotels = $this->PointNearByHotel->Hotel->find('list');
+		$sites = $this->PointNearByHotel->Site->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
+		$countries = $this->PointNearByHotel->Country->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
+		$states = $this->PointNearByHotel->State->find('list',array('conditions'=>array('country_id'=>$selCountry,'status'=>1),'order'=>'name'));
+		$cities = $this->PointNearByHotel->City->find('list',array('conditions'=>array('state_id'=>$selState,'status'=>1),'order'=>'name'));
+		$hotels = $this->PointNearByHotel->Hotel->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
 		$this->set(compact('sites', 'countries', 'states', 'cities', 'hotels'));
 	}
 
@@ -113,4 +115,20 @@ class PointNearByHotelsController extends AppController {
 		$this->Session->setFlash(__('Point near by hotel was not deleted'));
 		return $this->redirect(array('action' => 'index'));
 	}
+	
+	public function admin_getcity(){
+            //pr($this->data);
+            $stateId = $this->data['state_id'];
+		    $cities = $this->PointNearByHotel->City->find('list',array('conditions'=>array('state_id'=>$stateId,'status'=>1),'recursive'=>'-1','order'=>'name'));
+            $this->set(compact('cities'));
+			$this->layout = 'ajax';
+    }
+
+	public function admin_getstate(){
+            //pr($this->data);
+            $countryId = $this->data['country_id'];
+		    $states = $this->PointNearByHotel->State->find('list',array('conditions'=>array('country_id'=>$countryId,'status'=>1),'recursive'=>'-1','order'=>'name'));
+            $this->set(compact('states'));
+			$this->layout = 'ajax';
+    }	
 }

@@ -131,3 +131,32 @@ msgstr "Select State"
 msgid "City"
 msgstr "Select City"
 
+msgid "Tp Order"
+msgstr "Tour Package Order"
+
+msgid "No Person"
+msgstr "Total No. of Person"
+
+msgid "St Pt State"
+msgstr "Tour Package Starting State"
+
+msgid "End Pt State"
+msgstr "Tour Package End State"
+
+msgid "St Pt City"
+msgstr "Tour Package Starting City"
+
+msgid "End Pt City"
+msgstr "Tour Package End City"
+
+msgid "St Pt Area
+msgstr "Tour Package Starting Area"
+
+msgid "End Pt Area"
+msgstr "Tour Package End Area"
+
+msgid "St Date"
+msgstr "Start Date & Time"
+
+msgid "End Date"
+msgstr "End Date & Time"

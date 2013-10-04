@@ -28,7 +28,9 @@ class HotelFacilityCategory extends AppModel {
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
-		),
+		)
+	);
+		public $validate = array(
 		'name' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),

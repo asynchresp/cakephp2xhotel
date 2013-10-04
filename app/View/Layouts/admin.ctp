@@ -30,12 +30,12 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 	</title>
 	<?php
 		echo $this->Html->meta('icon');
-
 		echo $this->Html->css('admin');
-                echo $this->Html->css('/usermgmt/css/umstyle');
+        echo $this->Html->css('/usermgmt/css/umstyle');
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');
+		echo $this->Html->script('jquery-2.0.3.min');
 	?>
 </head>
 <body>
