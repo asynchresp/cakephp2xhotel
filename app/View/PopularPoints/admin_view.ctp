@@ -18,7 +18,7 @@
 		</dd>
 		<dt><?php echo __('Description'); ?></dt>
 		<dd>
-			<?php echo h($popularPoint['PopularPoint']['description']); ?>
+			<?php echo html_entity_decode(h($popularPoint['PopularPoint']['description'])); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Activity Type'); ?></dt>
@@ -98,7 +98,14 @@
 		</dd>
 		<dt><?php echo __('Pp Image'); ?></dt>
 		<dd>
-			<?php echo h($popularPoint['PopularPoint']['pp_image']); ?>
+			<?php //echo h($popularPoint['PopularPoint']['pp_image']);
+				$filename = ROOT.DS."app".DS."webroot".DS."img".DS."popular_point_image".DS.h($popularPoint['PopularPoint']['pp_image_dir']).DS.h($popularPoint['PopularPoint']['pp_image']);
+				if(file_exists($filename)) {
+					echo $this->Html->image('/app/webroot/img/popular_point_image/' . h($popularPoint['PopularPoint']['pp_image_dir'] . "/small_".h($popularPoint['PopularPoint']['pp_image'])), array('alt'=>h($popularPoint['PopularPoint']['name'])));
+				} else {
+					echo $this->Html->image('/app/webroot/img/admin/small_no_image.png', array('alt'=>h($popularPoint['PopularPoint']['name'])));
+				}
+			?>			
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Pp Video'); ?></dt>

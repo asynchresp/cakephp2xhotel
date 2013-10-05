@@ -36,14 +36,23 @@
 	<fieldset>
 		<legend><?php echo __('Edit Site'); ?></legend>
 	<?php
+		$data = $this->request->data;
+		
 		echo $this->Form->input('id');
 		echo $this->Form->input('name');
-		echo $this->Form->input('description');
+		echo $this->Form->input('description', array('class'=>'ckeditor'));
 		echo $this->Form->input('site_base_url');
 		echo $this->Form->input('site_base_path');
+		 
 		echo $this->Form->input('site_logo',array('type'=>'file'));
-                echo $this->Form->input('Site.site_logo.remove', array('type' => 'checkbox', 'label' => 'Remove existing file'));
-
+		$filename = ROOT.DS."app".DS."webroot".DS."img".DS."site_logo".DS.h($data['Site']['site_logo_dir']).DS.h($data['Site']['site_logo']);
+		if(file_exists($filename)) {
+			echo $this->Html->image('/app/webroot/img/site_logo/' . h($data['Site']['site_logo_dir'] . "/thumb_".h($data['Site']['site_logo'])), array('alt'=>h($data['Site']['name'])));
+		} else {
+			echo $this->Html->image('/app/webroot/img/admin/thumb_no_image.png', array('alt'=>h($data['Site']['name'])));
+		}
+				
+        echo $this->Form->input('Site.site_logo.remove', array('type' => 'checkbox', 'label' => 'Remove existing file'));
 		echo $this->Form->input('site_bckgrd_color');
 		echo $this->Form->input('site_foregrd_color');
 		echo $this->Form->input('address_line1');

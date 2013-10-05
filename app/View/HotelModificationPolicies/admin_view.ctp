@@ -18,7 +18,7 @@
 		</dd>
 		<dt><?php echo __('Description'); ?></dt>
 		<dd>
-			<?php echo h($hotelModificationPolicy['HotelModificationPolicy']['description']); ?>
+			<?php echo html_entity_decode(h($hotelModificationPolicy['HotelModificationPolicy']['description'])); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('No Before Days'); ?></dt>

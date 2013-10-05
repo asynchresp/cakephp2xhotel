@@ -37,7 +37,7 @@
 		<legend><?php echo __('Add Site'); ?></legend>
 	<?php
 		echo $this->Form->input('name');
-		echo $this->Form->input('description');
+		echo $this->Form->input('description', array('class'=>'ckeditor'));
 		echo $this->Form->input('site_base_url');
 		echo $this->Form->input('site_base_path');
 		echo $this->Form->input('site_logo',array('type'=>'file'));

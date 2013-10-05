@@ -8,7 +8,7 @@
 		echo $this->Form->input('hotel_group_id');
 		echo $this->Form->input('name');
 		echo $this->Form->input('short_description');
-		echo $this->Form->input('long_description');
+		echo $this->Form->input('long_description', array('class'=>'ckeditor'));
 		echo $this->Form->input('hotel_logo');
 		echo $this->Form->input('hotel_order');
 		echo $this->Form->input('point_near_by_hotel');

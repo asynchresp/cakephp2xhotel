@@ -23,12 +23,12 @@
 		</dd>
 		<dt><?php echo __('Short Description'); ?></dt>
 		<dd>
-			<?php echo h($hotelInformativePage['HotelInformativePage']['short_description']); ?>
+			<?php echo html_entity_decode(h($hotelInformativePage['HotelInformativePage']['short_description'])); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Long Description'); ?></dt>
 		<dd>
-			<?php echo h($hotelInformativePage['HotelInformativePage']['long_description']); ?>
+			<?php echo html_entity_decode(h($hotelInformativePage['HotelInformativePage']['long_description'])); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Meta Title'); ?></dt>

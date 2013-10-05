@@ -18,7 +18,7 @@
 		</dd>
 		<dt><?php echo __('Description'); ?></dt>
 		<dd>
-			<?php echo h($hotelType['HotelType']['description']); ?>
+			<?php echo html_entity_decode(h($hotelType['HotelType']['description'])); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Status'); ?></dt>

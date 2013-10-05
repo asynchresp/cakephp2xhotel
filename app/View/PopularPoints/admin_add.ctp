@@ -31,13 +31,13 @@
     }	
 </script>
 <div class="popularPoints form">
-<?php echo $this->Form->create('PopularPoint'); ?>
+<?php echo $this->Form->create('PopularPoint',array('type'=>'file')); ?>
 	<fieldset>
 		<legend><?php echo __('Add Popular Point'); ?></legend>
 	<?php
 		//echo $this->Form->input('site_id');
 		echo $this->Form->input('name');
-		echo $this->Form->input('description');
+		echo $this->Form->input('description', array('class'=>'ckeditor'));
 		echo $this->Form->input('activity_type_id');
 		echo $this->Form->input('best_time_visit_to');
 		echo $this->Form->input('best_time_visit_from');
@@ -60,7 +60,8 @@
 		echo $this->Form->input('visit_duration');
 		echo $this->Form->input('opening_time');
 		echo $this->Form->input('closing_time');
-		echo $this->Form->input('pp_image');
+		//echo $this->Form->input('pp_image');
+		echo $this->Form->input('pp_image',array('type'=>'file'));
 		echo $this->Form->input('pp_video');
 		echo $this->Form->input('meta_title');
 		echo $this->Form->input('meta_description');

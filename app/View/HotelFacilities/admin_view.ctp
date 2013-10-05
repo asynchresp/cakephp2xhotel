@@ -23,7 +23,7 @@
 		</dd>
 		<dt><?php echo __('Description'); ?></dt>
 		<dd>
-			<?php echo h($hotelFacility['HotelFacility']['description']); ?>
+			<?php echo html_entity_decode(h($hotelFacility['HotelFacility']['description'])); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Hf Order'); ?></dt>

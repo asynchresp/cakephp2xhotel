@@ -31,13 +31,13 @@
     }	
 </script>
 <div class="pointNearByHotels form">
-<?php echo $this->Form->create('PointNearByHotel'); ?>
+<?php echo $this->Form->create('PointNearByHotel',array('type'=>'file')); ?>
 	<fieldset>
 		<legend><?php echo __('Add Point Near By Hotel'); ?></legend>
 	<?php
 		//echo $this->Form->input('site_id');
 		echo $this->Form->input('name');
-		echo $this->Form->input('description');
+		echo $this->Form->input('description', array('class'=>'ckeditor'));
 		/*echo $this->Form->input('country_id');
 		echo $this->Form->input('state_id');
 		echo $this->Form->input('city_id');*/
@@ -52,11 +52,15 @@
 		echo $this->Form->input('latitude');
 		echo $this->Form->input('longitude');
 		//echo $this->Form->input('image');
-		echo $this->Form->input('image', array('type' => 'file'));		
+		echo $this->Form->input('image',array('type'=>'file'));		
 		echo $this->Form->input('meta_title');
 		echo $this->Form->input('meta_description');
 		echo $this->Form->input('meta_keyword');
-		echo $this->Form->input('status');
+		//echo $this->Form->input('status');
+		echo $this->Form->label('PointNearByHotel.status');
+		$options = array('1' => 'Active', '0' => 'Inactive');
+		$attributes = array('legend' => false);
+		echo $this->Form->radio('status', $options, $attributes);
 		echo $this->Form->input('Hotel');
 	?>
 	</fieldset>

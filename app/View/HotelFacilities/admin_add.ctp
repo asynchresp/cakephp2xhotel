@@ -1,12 +1,12 @@
 <div class="hotelFacilities form">
-<?php echo $this->Form->create('HotelFacility'); ?>
+<?php echo $this->Form->create('HotelFacility',array('type'=>'file')); ?>
 	<fieldset>
 		<legend><?php echo __('Add Hotel Facility'); ?></legend>
 	<?php
 		//echo $this->Form->input('site_id');
 		echo $this->Form->input('hotel_facility_category_id');
 		echo $this->Form->input('name');
-		echo $this->Form->input('description');
+		echo $this->Form->input('description', array('class'=>'ckeditor'));
 		echo $this->Form->input('hf_order');
 		//echo $this->Form->input('hf_image');
 		echo $this->Form->input('hf_image', array('type' => 'file'));		

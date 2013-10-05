@@ -1,16 +1,28 @@
 <div class="hotelFacilities form">
-<?php echo $this->Form->create('HotelFacility'); ?>
+<?php echo $this->Form->create('HotelFacility',array('type'=>'file')); ?>
 	<fieldset>
 		<legend><?php echo __('Edit Hotel Facility'); ?></legend>
 	<?php
+		$data = $this->request->data;
+		//pr($data);
 		echo $this->Form->input('id');
 		//echo $this->Form->input('site_id');
 		echo $this->Form->input('hotel_facility_category_id');
 		echo $this->Form->input('name');
-		echo $this->Form->input('description');
+		echo $this->Form->input('description', array('class'=>'ckeditor'));
 		echo $this->Form->input('hf_order');
 		//echo $this->Form->input('hf_image');
-		echo $this->Form->input('hf_image', array('type' => 'file'));		
+	
+		
+		echo $this->Form->input('hf_image', array('type' => 'file'));
+		$filename = ROOT.DS."app".DS."webroot".DS."img".DS."hf_image".DS.h($data['HotelFacility']['hf_image_dir']).DS.h($data['HotelFacility']['hf_image']);
+		if(file_exists($filename)) {
+			echo $this->Html->image('/app/webroot/img/hf_image/' . h($data['HotelFacility']['hf_image_dir'] . "/thumb_".h($data['HotelFacility']['hf_image'])), array('alt'=>h($data['HotelFacility']['name'])));
+		} else {
+			echo $this->Html->image('/app/webroot/img/admin/thumb_no_image.png', array('alt'=>h($data['HotelFacility']['name'])));
+		}
+		echo $this->Form->input('HotelFacility.hf_image.remove', array('type' => 'checkbox', 'label' => 'Remove existing file'));
+		
 		echo $this->Form->input('show_at_checkout');
 		echo $this->Form->input('price_for_adults');
 		echo $this->Form->input('child_age_above');

@@ -18,7 +18,7 @@
 		</dd>
 		<dt><?php echo __('Description'); ?></dt>
 		<dd>
-			<?php echo h($pointNearByHotel['PointNearByHotel']['description']); ?>
+			<?php echo html_entity_decode(h($pointNearByHotel['PointNearByHotel']['description'])); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Country'); ?></dt>
@@ -53,7 +53,14 @@
 		</dd>
 		<dt><?php echo __('Image'); ?></dt>
 		<dd>
-			<?php echo h($pointNearByHotel['PointNearByHotel']['image']); ?>
+			<?php //echo h($pointNearByHotel['PointNearByHotel']['image']);
+			$filename = ROOT.DS."app".DS."webroot".DS."img".DS."point_near_by_hotel_image".DS.h($pointNearByHotel['PointNearByHotel']['image_dir']).DS.h($pointNearByHotel['PointNearByHotel']['image']);
+			if(file_exists($filename)) {
+				echo $this->Html->image('/app/webroot/img/point_near_by_hotel_image/' . h($pointNearByHotel['PointNearByHotel']['image_dir'] . "/small_".h($pointNearByHotel['PointNearByHotel']['image'])), array('alt'=>h($pointNearByHotel['PointNearByHotel']['name'])));
+			} else {
+				echo $this->Html->image('/app/webroot/img/admin/small_no_image.png', array('alt'=>h($pointNearByHotel['PointNearByHotel']['name'])));
+			}
+			?>			
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Meta Title'); ?></dt>

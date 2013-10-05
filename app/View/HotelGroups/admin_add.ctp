@@ -1,11 +1,11 @@
 <div class="hotelGroups form">
-<?php echo $this->Form->create('HotelGroup'); ?>
+<?php echo $this->Form->create('HotelGroup',array('type'=>'file')); ?>
 	<fieldset>
 		<legend><?php echo __('Add Hotel Group'); ?></legend>
 	<?php
 		//echo $this->Form->input('site_id');
 		echo $this->Form->input('name');
-		echo $this->Form->input('description');
+		echo $this->Form->input('description', array('class'=>'ckeditor'));
 		//echo $this->Form->input('hotel_group_logo');
         echo $this->Form->input('hotel_group_logo', array('type' => 'file'));
 		

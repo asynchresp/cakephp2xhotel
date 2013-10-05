@@ -31,14 +31,16 @@
     }	
 </script>
 <div class="popularPoints form">
-<?php echo $this->Form->create('PopularPoint'); ?>
+<?php echo $this->Form->create('PopularPoint',array('type'=>'file')); ?>
 	<fieldset>
 		<legend><?php echo __('Edit Popular Point'); ?></legend>
 	<?php
+		$data = $this->request->data;
+		
 		echo $this->Form->input('id');
 		//echo $this->Form->input('site_id');
 		echo $this->Form->input('name');
-		echo $this->Form->input('description');
+		echo $this->Form->input('description', array('class'=>'ckeditor'));
 		echo $this->Form->input('activity_type_id');
 		echo $this->Form->input('best_time_visit_to');
 		echo $this->Form->input('best_time_visit_from');
@@ -61,7 +63,15 @@
 		echo $this->Form->input('visit_duration');
 		echo $this->Form->input('opening_time');
 		echo $this->Form->input('closing_time');
-		echo $this->Form->input('pp_image');
+		//echo $this->Form->input('pp_image');
+		
+		echo $this->Form->input('pp_image',array('type'=>'file'));
+		$filename = ROOT.DS."app".DS."webroot".DS."img".DS."popular_point_image".DS.h($data['PopularPoint']['pp_image_dir']).DS.h($data['PopularPoint']['pp_image']);
+		if(file_exists($filename)) {
+			echo $this->Html->image('/app/webroot/img/popular_point_image/' . h($data['PopularPoint']['pp_image_dir'] . "/thumb_".h($data['PopularPoint']['pp_image'])), array('alt'=>h($data['PopularPoint']['name'])));
+		} else {
+			echo $this->Html->image('/app/webroot/img/admin/thumb_no_image.png', array('alt'=>h($data['PopularPoint']['name'])));
+		}
 		echo $this->Form->input('pp_video');
 		echo $this->Form->input('meta_title');
 		echo $this->Form->input('meta_description');

@@ -6,7 +6,7 @@
 		echo $this->Form->input('id');
 		//echo $this->Form->input('site_id');
 		echo $this->Form->input('name');
-		echo $this->Form->input('description');
+		echo $this->Form->input('description', array('class'=>'ckeditor'));
 		echo $this->Form->input('no_before_days');
 		echo $this->Form->input('perentage_deducted');
 		//echo $this->Form->input('status');

@@ -17,7 +17,8 @@
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
-$cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework');
+//$cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework');
+$cakeDescription = __d('cake_dev', 'Orange BNB - Single Platform for Hotel(s), Tour Operaor(s) & Agent(s)');
 ?>
 <!DOCTYPE html>
 <html>
@@ -35,6 +36,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		echo $this->fetch('css');
 		echo $this->fetch('script');
 		echo $this->Html->script('jquery-2.0.3.min');
+		echo $this->Html->script('/js/ckeditor/ckeditor');
 	?>
 </head>
 <body>

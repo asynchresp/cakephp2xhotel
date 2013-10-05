@@ -7,7 +7,7 @@
 		echo $this->Form->input('hotel_id');
 		echo $this->Form->input('name');
 		echo $this->Form->input('short_description');
-		echo $this->Form->input('long_description');
+		echo $this->Form->input('long_description', array('class'=>'ckeditor'));
 		echo $this->Form->input('meta_title');
 		echo $this->Form->input('meta_description');
 		echo $this->Form->input('meta_keyword');
