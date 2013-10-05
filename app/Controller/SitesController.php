@@ -72,10 +72,15 @@ class SitesController extends AppController {
 	public function admin_edit($id = null) {
 	
 		if (!$this->Site->exists($id)) {
+
 			throw new NotFoundException(__('Invalid site'));
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
-			if ($this->Site->save($this->request->data)) {
+			
+//                        pr($this->request->data);
+//                        die;
+                    
+                        if ($this->Site->save($this->request->data)) {
 				$this->Session->setFlash(__('The site has been saved'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
