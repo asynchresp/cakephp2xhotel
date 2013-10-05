@@ -32,4 +32,22 @@ App::uses('Controller', 'Controller');
  * @link		http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
+    
+    var $helpers = array('Form', 'Html', 'Session', 'Js', 'Usermgmt.UserAuth');
+    public $components = array('Session','RequestHandler', 'Usermgmt.UserAuth');
+    
+    function beforeFilter(){
+            $this->userAuth();
+            
+            $controller=  strtolower($this->params['controller']);
+            if ((isset($this->params['prefix']) && ($this->params['prefix'] == 'admin')) ||  (isset($this->params['controller']) && (substr($controller,0,4) == 'user'))) {
+                $this->layout = 'admin';
+            }
+            
+    }
+    private function userAuth(){
+            $this->UserAuth->beforeFilter($this);
+    }
+
+    
 }

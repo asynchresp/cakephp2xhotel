@@ -55,8 +55,8 @@ class CitiesController extends AppController {
 				$this->Session->setFlash(__('The city could not be saved. Please, try again.'));
 			}
 		}
-		$countries = $this->City->Country->find('list');
-		$states = $this->City->State->find('list');
+		$countries = $this->City->Country->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
+		$states = $this->City->State->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
 		$this->set(compact('countries', 'states'));
 	}
 
@@ -82,8 +82,8 @@ class CitiesController extends AppController {
 			$options = array('conditions' => array('City.' . $this->City->primaryKey => $id));
 			$this->request->data = $this->City->find('first', $options);
 		}
-		$countries = $this->City->Country->find('list');
-		$states = $this->City->State->find('list');
+		$countries = $this->City->Country->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
+		$states = $this->City->State->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
 		$this->set(compact('countries', 'states'));
 	}
 
@@ -107,4 +107,11 @@ class CitiesController extends AppController {
 		$this->Session->setFlash(__('City was not deleted'));
 		return $this->redirect(array('action' => 'index'));
 	}
+	
+	public function admin_getstate(){
+            $countryId = $this->data['country_id'];
+		    $states = $this->City->State->find('list',array('conditions'=>array('country_id'=>$countryId,'status'=>1),'recursive'=>'-1','order'=>'name'));
+            $this->set(compact('states'));
+			$this->layout = 'ajax';
+    }	
 }

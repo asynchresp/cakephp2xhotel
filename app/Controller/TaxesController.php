@@ -55,13 +55,13 @@ class TaxesController extends AppController {
 				$this->Session->setFlash(__('The tax could not be saved. Please, try again.'));
 			}
 		}
-		$sites = $this->Tax->Site->find('list');
-		$countries = $this->Tax->Country->find('list');
-		$states = $this->Tax->State->find('list');
-		$cities = $this->Tax->City->find('list');
-		$hotelRooms = $this->Tax->HotelRoom->find('list');
-		$hotels = $this->Tax->Hotel->find('list');
-		$tourPackages = $this->Tax->TourPackage->find('list');
+		$sites = $this->Tax->Site->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
+		$countries = $this->Tax->Country->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
+		$states = $this->Tax->State->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
+		$cities = $this->Tax->City->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
+		$hotelRooms = $this->Tax->HotelRoom->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
+		$hotels = $this->Tax->Hotel->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
+		$tourPackages = $this->Tax->TourPackage->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
 		$this->set(compact('sites', 'countries', 'states', 'cities', 'hotelRooms', 'hotels', 'tourPackages'));
 	}
 
@@ -86,14 +86,16 @@ class TaxesController extends AppController {
 		} else {
 			$options = array('conditions' => array('Tax.' . $this->Tax->primaryKey => $id));
 			$this->request->data = $this->Tax->find('first', $options);
+			$selCountry = $this->request->data['Country']['id'];
+			$selState = $this->request->data['State']['id'];
 		}
-		$sites = $this->Tax->Site->find('list');
-		$countries = $this->Tax->Country->find('list');
-		$states = $this->Tax->State->find('list');
-		$cities = $this->Tax->City->find('list');
-		$hotelRooms = $this->Tax->HotelRoom->find('list');
-		$hotels = $this->Tax->Hotel->find('list');
-		$tourPackages = $this->Tax->TourPackage->find('list');
+		$sites = $this->Tax->Site->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
+		$countries = $this->Tax->Country->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
+		$states = $this->Tax->State->find('list',array('conditions'=>array('country_id'=>$selCountry,'status'=>1),'order'=>'name'));
+		$cities = $this->Tax->City->find('list',array('conditions'=>array('state_id'=>$selState,'status'=>1),'order'=>'name'));
+		$hotelRooms = $this->Tax->HotelRoom->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
+		$hotels = $this->Tax->Hotel->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
+		$tourPackages = $this->Tax->TourPackage->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
 		$this->set(compact('sites', 'countries', 'states', 'cities', 'hotelRooms', 'hotels', 'tourPackages'));
 	}
 
@@ -117,4 +119,20 @@ class TaxesController extends AppController {
 		$this->Session->setFlash(__('Tax was not deleted'));
 		return $this->redirect(array('action' => 'index'));
 	}
+
+	public function admin_getcity(){
+            //pr($this->data);
+            $stateId = $this->data['state_id'];
+		    $cities = $this->Tax->City->find('list',array('conditions'=>array('state_id'=>$stateId,'status'=>1),'recursive'=>'-1','order'=>'name'));
+            $this->set(compact('cities'));
+			$this->layout = 'ajax';
+    }
+
+	public function admin_getstate(){
+            //pr($this->data);
+            $countryId = $this->data['country_id'];
+		    $states = $this->Tax->State->find('list',array('conditions'=>array('country_id'=>$countryId,'status'=>1),'recursive'=>'-1','order'=>'name'));
+            $this->set(compact('states'));
+			$this->layout = 'ajax';
+    }	
 }

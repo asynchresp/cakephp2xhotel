@@ -3,13 +3,17 @@
 	<fieldset>
 		<legend><?php echo __('Add Food Menu Type'); ?></legend>
 	<?php
-		echo $this->Form->input('site_id');
+		//echo $this->Form->input('site_id');
 		echo $this->Form->input('name');
 		echo $this->Form->input('description');
 		echo $this->Form->input('meta_title');
 		echo $this->Form->input('meta_description');
 		echo $this->Form->input('meta_keyword');
-		echo $this->Form->input('status');
+		//echo $this->Form->input('status');
+		echo $this->Form->label('FoodMenuType.status');
+		$options = array('1' => 'Active', '0' => 'Inactive');
+		$attributes = array('legend' => false);
+		echo $this->Form->radio('status', $options, $attributes);			
 		echo $this->Form->input('HotelRoom');
 	?>
 	</fieldset>
@@ -19,7 +23,7 @@
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
 
-		<li><?php echo $this->Html->link(__('List Food Menu Types'), array('action' => 'index')); ?></li>
+		<?php /* ?><li><?php echo $this->Html->link(__('List Food Menu Types'), array('action' => 'index')); ?></li><?php */ ?>
 		<li><?php echo $this->Html->link(__('List Sites'), array('controller' => 'sites', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Site'), array('controller' => 'sites', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Food Packages'), array('controller' => 'food_packages', 'action' => 'index')); ?> </li>

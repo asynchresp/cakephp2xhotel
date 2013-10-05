@@ -98,7 +98,7 @@
 		</dd>
 		<dt><?php echo __('Status'); ?></dt>
 		<dd>
-			<?php echo h($foodPackage['FoodPackage']['status']); ?>
+			<?php if(h($foodPackage['FoodPackage']['status'])) { echo "Active"; } else { echo "Inactive"; } ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Modified'); ?></dt>
@@ -126,6 +126,7 @@
 		<li><?php echo $this->Html->link(__('New Hotel Room'), array('controller' => 'hotel_rooms', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
+<?php /* ?>
 <div class="related">
 	<h3><?php echo __('Related Hotel Rooms'); ?></h3>
 	<?php if (!empty($foodPackage['HotelRoom'])): ?>
@@ -260,4 +261,4 @@
 			<li><?php echo $this->Html->link(__('New Hotel Room'), array('controller' => 'hotel_rooms', 'action' => 'add')); ?> </li>
 		</ul>
 	</div>
-</div>
+</div><?php */ ?>

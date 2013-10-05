@@ -1,10 +1,31 @@
+<script language="javascript" type="text/javascript">
+
+	function getStatesByAjax(countryId) {
+		jQuery.ajax({
+            type:'POST',
+ 			url:'<?php echo Router::url(array('controller'=>'cities','action'=>'getstate'),false);?>',
+            data:'country_id='+countryId,
+            success:function(data){
+                $('#stateDiv').html(data);
+            },
+            error:function(message){
+                alert(message);
+            }
+        });	
+	}
+	
+</script>
 <div class="cities form">
 <?php echo $this->Form->create('City'); ?>
 	<fieldset>
 		<legend><?php echo __('Add City'); ?></legend>
 	<?php
-		echo $this->Form->input('country_id');
-		echo $this->Form->input('state_id');
+		/*echo $this->Form->input('country_id',array('empty'=>'Select Country'));
+		echo $this->Form->input('state_id',array('empty'=>'Select State'));*/
+		echo $this->Form->input('country_id', array('id' => 'CityCountryId', 'label' => 'Country','class'=>'{validate:{required : true, messages:{required:"Please enter Country"}}}','onchange'=>"getStatesByAjax(this.value);",'empty'=>'Select Country'));
+		echo '<div id="stateDiv">';
+		echo $this->Form->input('state_id', array('id' => 'CityStateId', 'label' => 'State','class'=>'{validate:{required : true, messages:{required:"Please enter State"}}}','empty'=>'Select State'));
+		echo '</div>';		
 		echo $this->Form->input('name');
 		echo $this->Form->input('description');
 		//echo $this->Form->input('status');

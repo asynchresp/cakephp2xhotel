@@ -55,23 +55,23 @@ class HotelRoomsController extends AppController {
 				$this->Session->setFlash(__('The hotel room could not be saved. Please, try again.'));
 			}
 		}
-		$countries = $this->HotelRoom->Country->find('list');
-		$states = $this->HotelRoom->State->find('list');
-		$cities = $this->HotelRoom->City->find('list');
-		$hotels = $this->HotelRoom->Hotel->find('list');
-		$roomTypes = $this->HotelRoom->RoomType->find('list');
-		$foodMenuTypes = $this->HotelRoom->FoodMenuType->find('list');
-		$foodPackages = $this->HotelRoom->FoodPackage->find('list');
-		$hotelFacilityCategories = $this->HotelRoom->HotelFacilityCategory->find('list');
+		$countries = $this->HotelRoom->Country->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
+		$states = $this->HotelRoom->State->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
+		$cities = $this->HotelRoom->City->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
+		$hotels = $this->HotelRoom->Hotel->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
+		$roomTypes = $this->HotelRoom->RoomType->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
+		$foodMenuTypes = $this->HotelRoom->FoodMenuType->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
+		$foodPackages = $this->HotelRoom->FoodPackage->find('list',array('conditions'=>array('status'=>1),'order'=>'title'));
+		$hotelFacilityCategories = $this->HotelRoom->HotelFacilityCategory->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
 		$hotelFacilities = $this->HotelRoom->HotelFacility->find('list');
-		$taxes = $this->HotelRoom->Tax->find('list');
-		$coupons = $this->HotelRoom->Coupon->find('list');
-		$foodMenuTypes = $this->HotelRoom->FoodMenuType->find('list');
-		$foodPackages = $this->HotelRoom->FoodPackage->find('list');
-		$hotelFacilities = $this->HotelRoom->HotelFacility->find('list');
-		$hotelFacilityCategories = $this->HotelRoom->HotelFacilityCategory->find('list');
-		$taxes = $this->HotelRoom->Tax->find('list');
-		$tourPackages = $this->HotelRoom->TourPackage->find('list');
+		$taxes = $this->HotelRoom->Tax->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
+		$coupons = $this->HotelRoom->Coupon->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
+		$foodMenuTypes = $this->HotelRoom->FoodMenuType->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
+		$foodPackages = $this->HotelRoom->FoodPackage->find('list',array('conditions'=>array('status'=>1),'order'=>'title'));
+		$hotelFacilities = $this->HotelRoom->HotelFacility->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
+		$hotelFacilityCategories = $this->HotelRoom->HotelFacilityCategory->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
+		$taxes = $this->HotelRoom->Tax->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
+		$tourPackages = $this->HotelRoom->TourPackage->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
 		$this->set(compact('countries', 'states', 'cities', 'hotels', 'roomTypes', 'foodMenuTypes', 'foodPackages', 'hotelFacilityCategories', 'hotelFacilities', 'taxes', 'coupons', 'foodMenuTypes', 'foodPackages', 'hotelFacilities', 'hotelFacilityCategories', 'taxes', 'tourPackages'));
 	}
 
@@ -96,24 +96,27 @@ class HotelRoomsController extends AppController {
 		} else {
 			$options = array('conditions' => array('HotelRoom.' . $this->HotelRoom->primaryKey => $id));
 			$this->request->data = $this->HotelRoom->find('first', $options);
+			//pr($this->request->data);
+			$selCountry = $this->request->data['Country']['id'];
+			$selState = $this->request->data['State']['id'];
 		}
-		$countries = $this->HotelRoom->Country->find('list');
-		$states = $this->HotelRoom->State->find('list');
-		$cities = $this->HotelRoom->City->find('list');
-		$hotels = $this->HotelRoom->Hotel->find('list');
-		$roomTypes = $this->HotelRoom->RoomType->find('list');
-		$foodMenuTypes = $this->HotelRoom->FoodMenuType->find('list');
-		$foodPackages = $this->HotelRoom->FoodPackage->find('list');
-		$hotelFacilityCategories = $this->HotelRoom->HotelFacilityCategory->find('list');
-		$hotelFacilities = $this->HotelRoom->HotelFacility->find('list');
-		$taxes = $this->HotelRoom->Tax->find('list');
-		$coupons = $this->HotelRoom->Coupon->find('list');
-		$foodMenuTypes = $this->HotelRoom->FoodMenuType->find('list');
-		$foodPackages = $this->HotelRoom->FoodPackage->find('list');
-		$hotelFacilities = $this->HotelRoom->HotelFacility->find('list');
-		$hotelFacilityCategories = $this->HotelRoom->HotelFacilityCategory->find('list');
-		$taxes = $this->HotelRoom->Tax->find('list');
-		$tourPackages = $this->HotelRoom->TourPackage->find('list');
+		$countries = $this->HotelRoom->Country->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
+		$states = $this->HotelRoom->State->find('list',array('conditions'=>array('country_id'=>$selCountry,'status'=>1),'order'=>'name'));
+		$cities = $this->HotelRoom->City->find('list',array('conditions'=>array('state_id'=>$selState,'status'=>1),'order'=>'name'));
+		$hotels = $this->HotelRoom->Hotel->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
+		$roomTypes = $this->HotelRoom->RoomType->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
+		$foodMenuTypes = $this->HotelRoom->FoodMenuType->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
+		$foodPackages = $this->HotelRoom->FoodPackage->find('list',array('conditions'=>array('status'=>1),'order'=>'title'));
+		$hotelFacilityCategories = $this->HotelRoom->HotelFacilityCategory->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
+		$hotelFacilities = $this->HotelRoom->HotelFacility->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
+		$taxes = $this->HotelRoom->Tax->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
+		$coupons = $this->HotelRoom->Coupon->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
+		$foodMenuTypes = $this->HotelRoom->FoodMenuType->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
+		$foodPackages = $this->HotelRoom->FoodPackage->find('list',array('conditions'=>array('status'=>1),'order'=>'title'));
+		$hotelFacilities = $this->HotelRoom->HotelFacility->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
+		$hotelFacilityCategories = $this->HotelRoom->HotelFacilityCategory->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
+		$taxes = $this->HotelRoom->Tax->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
+		$tourPackages = $this->HotelRoom->TourPackage->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
 		$this->set(compact('countries', 'states', 'cities', 'hotels', 'roomTypes', 'foodMenuTypes', 'foodPackages', 'hotelFacilityCategories', 'hotelFacilities', 'taxes', 'coupons', 'foodMenuTypes', 'foodPackages', 'hotelFacilities', 'hotelFacilityCategories', 'taxes', 'tourPackages'));
 	}
 
@@ -137,4 +140,20 @@ class HotelRoomsController extends AppController {
 		$this->Session->setFlash(__('Hotel room was not deleted'));
 		return $this->redirect(array('action' => 'index'));
 	}
+	
+	public function admin_getcity(){
+            //pr($this->data);
+            $stateId = $this->data['state_id'];
+		    $cities = $this->HotelRoom->City->find('list',array('conditions'=>array('state_id'=>$stateId,'status'=>1),'recursive'=>'-1','order'=>'name'));
+            $this->set(compact('cities'));
+			$this->layout = 'ajax';
+    }
+
+	public function admin_getstate(){
+            //pr($this->data);
+            $countryId = $this->data['country_id'];
+		    $states = $this->HotelRoom->State->find('list',array('conditions'=>array('country_id'=>$countryId,'status'=>1),'recursive'=>'-1','order'=>'name'));
+            $this->set(compact('states'));
+			$this->layout = 'ajax';
+    }	
 }

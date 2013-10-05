@@ -258,7 +258,7 @@
 		</dd>
 		<dt><?php echo __('Status'); ?></dt>
 		<dd>
-			<?php echo h($hotelRoom['HotelRoom']['status']); ?>
+			<?php if(h($hotelRoom['HotelRoom']['status']) == 1) { echo "Active"; } else { echo "Inactive"; } ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Modified'); ?></dt>
@@ -306,7 +306,8 @@
 		<li><?php echo $this->Html->link(__('New Tour Package'), array('controller' => 'tour_packages', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
-<div class="related">
+
+<?php /*?><div class="related">
 	<h3><?php echo __('Related Coupons'); ?></h3>
 	<?php if (!empty($hotelRoom['Coupon'])): ?>
 	<table cellpadding = "0" cellspacing = "0">
@@ -778,4 +779,4 @@
 			<li><?php echo $this->Html->link(__('New Tax'), array('controller' => 'taxes', 'action' => 'add')); ?> </li>
 		</ul>
 	</div>
-</div>
+</div><?php */?>

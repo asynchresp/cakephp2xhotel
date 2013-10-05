@@ -123,7 +123,7 @@
 		</dd>
 		<dt><?php echo __('Status'); ?></dt>
 		<dd>
-			<?php echo h($popularPoint['PopularPoint']['status']); ?>
+			<?php if(h($popularPoint['PopularPoint']['status']) == 1) { echo "Active"; } else { echo "Inactive"; } ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Modified'); ?></dt>

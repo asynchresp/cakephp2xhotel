@@ -38,7 +38,7 @@
 		</dd>
 		<dt><?php echo __('Status'); ?></dt>
 		<dd>
-			<?php echo h($foodMenuType['FoodMenuType']['status']); ?>
+			<?php if(h($foodMenuType['FoodMenuType']['status'])) { echo "Active"; } else { echo "Inactive"; } ?>			
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Modified'); ?></dt>
@@ -68,6 +68,7 @@
 		<li><?php echo $this->Html->link(__('New Hotel Room'), array('controller' => 'hotel_rooms', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
+<?php /* ?>
 <div class="related">
 	<h3><?php echo __('Related Food Packages'); ?></h3>
 	<?php if (!empty($foodMenuType['FoodPackage'])): ?>
@@ -273,4 +274,4 @@
 			<li><?php echo $this->Html->link(__('New Hotel Room'), array('controller' => 'hotel_rooms', 'action' => 'add')); ?> </li>
 		</ul>
 	</div>
-</div>
+</div><?php */ ?>

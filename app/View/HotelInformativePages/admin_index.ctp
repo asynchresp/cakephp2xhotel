@@ -3,37 +3,39 @@
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
-			<th><?php echo $this->Paginator->sort('site_id'); ?></th>
-			<th><?php echo $this->Paginator->sort('hotel_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('name'); ?></th>
+			<th><?php echo $this->Paginator->sort('hotel_id'); ?></th>
+			<th><?php echo $this->Paginator->sort('status'); ?></th>
+			
+			<?php /* ?><th><?php echo $this->Paginator->sort('site_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('short_description'); ?></th>
 			<th><?php echo $this->Paginator->sort('long_description'); ?></th>
 			<th><?php echo $this->Paginator->sort('meta_title'); ?></th>
 			<th><?php echo $this->Paginator->sort('meta_description'); ?></th>
 			<th><?php echo $this->Paginator->sort('meta_keyword'); ?></th>
-			<th><?php echo $this->Paginator->sort('status'); ?></th>
 			<th><?php echo $this->Paginator->sort('modified'); ?></th>
-			<th><?php echo $this->Paginator->sort('created'); ?></th>
+			<th><?php echo $this->Paginator->sort('created'); ?></th><?php */ ?>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php foreach ($hotelInformativePages as $hotelInformativePage): ?>
 	<tr>
 		<td><?php echo h($hotelInformativePage['HotelInformativePage']['id']); ?>&nbsp;</td>
-		<td>
-			<?php echo $this->Html->link($hotelInformativePage['Site']['name'], array('controller' => 'sites', 'action' => 'view', $hotelInformativePage['Site']['id'])); ?>
-		</td>
+		<td><?php echo h($hotelInformativePage['HotelInformativePage']['name']); ?>&nbsp;</td>
 		<td>
 			<?php echo $this->Html->link($hotelInformativePage['Hotel']['name'], array('controller' => 'hotels', 'action' => 'view', $hotelInformativePage['Hotel']['id'])); ?>
 		</td>
-		<td><?php echo h($hotelInformativePage['HotelInformativePage']['name']); ?>&nbsp;</td>
+		<td><?php if(h($hotelInformativePage['HotelInformativePage']['status']) == 1) { echo "Active"; } else { echo "Inactive"; } ?>&nbsp;</td>
+
+		<?php /* ?><td>
+			<?php echo $this->Html->link($hotelInformativePage['Site']['name'], array('controller' => 'sites', 'action' => 'view', $hotelInformativePage['Site']['id'])); ?>
+		</td>
 		<td><?php echo h($hotelInformativePage['HotelInformativePage']['short_description']); ?>&nbsp;</td>
 		<td><?php echo h($hotelInformativePage['HotelInformativePage']['long_description']); ?>&nbsp;</td>
 		<td><?php echo h($hotelInformativePage['HotelInformativePage']['meta_title']); ?>&nbsp;</td>
 		<td><?php echo h($hotelInformativePage['HotelInformativePage']['meta_description']); ?>&nbsp;</td>
 		<td><?php echo h($hotelInformativePage['HotelInformativePage']['meta_keyword']); ?>&nbsp;</td>
-		<td><?php echo h($hotelInformativePage['HotelInformativePage']['status']); ?>&nbsp;</td>
 		<td><?php echo h($hotelInformativePage['HotelInformativePage']['modified']); ?>&nbsp;</td>
-		<td><?php echo h($hotelInformativePage['HotelInformativePage']['created']); ?>&nbsp;</td>
+		<td><?php echo h($hotelInformativePage['HotelInformativePage']['created']); ?>&nbsp;</td><?php */ ?>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $hotelInformativePage['HotelInformativePage']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $hotelInformativePage['HotelInformativePage']['id'])); ?>

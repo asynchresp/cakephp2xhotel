@@ -55,9 +55,9 @@ class AreasController extends AppController {
 				$this->Session->setFlash(__('The area could not be saved. Please, try again.'));
 			}
 		}
-		$countries = $this->Area->Country->find('list');
-		$states = $this->Area->State->find('list');
-		$cities = $this->Area->City->find('list');
+		$countries = $this->Area->Country->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
+		$states = $this->Area->State->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
+		$cities = $this->Area->City->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
 		$this->set(compact('countries', 'states', 'cities'));
 	}
 
@@ -83,9 +83,9 @@ class AreasController extends AppController {
 			$options = array('conditions' => array('Area.' . $this->Area->primaryKey => $id));
 			$this->request->data = $this->Area->find('first', $options);
 		}
-		$countries = $this->Area->Country->find('list');
-		$states = $this->Area->State->find('list');
-		$cities = $this->Area->City->find('list');
+		$countries = $this->Area->Country->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
+		$states = $this->Area->State->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
+		$cities = $this->Area->City->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
 		$this->set(compact('countries', 'states', 'cities'));
 	}
 
@@ -109,4 +109,20 @@ class AreasController extends AppController {
 		$this->Session->setFlash(__('Area was not deleted'));
 		return $this->redirect(array('action' => 'index'));
 	}
+	
+	public function admin_getcity(){
+            //pr($this->data);
+            $stateId = $this->data['state_id'];
+		    $cities = $this->Area->City->find('list',array('conditions'=>array('state_id'=>$stateId,'status'=>1),'recursive'=>'-1','order'=>'name'));
+            $this->set(compact('cities'));
+			$this->layout = 'ajax';
+    }
+
+	public function admin_getstate(){
+            //pr($this->data);
+            $countryId = $this->data['country_id'];
+		    $states = $this->Area->State->find('list',array('conditions'=>array('country_id'=>$countryId,'status'=>1),'recursive'=>'-1','order'=>'name'));
+            $this->set(compact('states'));
+			$this->layout = 'ajax';
+    }	
 }

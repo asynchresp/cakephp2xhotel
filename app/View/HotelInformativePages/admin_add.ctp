@@ -11,7 +11,11 @@
 		echo $this->Form->input('meta_title');
 		echo $this->Form->input('meta_description');
 		echo $this->Form->input('meta_keyword');
-		echo $this->Form->input('status');
+		//echo $this->Form->input('status');
+		echo $this->Form->label('HotelInformativePage.status');
+		$options = array('1' => 'Active', '0' => 'Inactive');
+		$attributes = array('legend' => false);
+		echo $this->Form->radio('status', $options, $attributes);		
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>

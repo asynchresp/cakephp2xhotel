@@ -3,7 +3,7 @@
 	<fieldset>
 		<legend><?php echo __('Add Coupon'); ?></legend>
 	<?php
-		echo $this->Form->input('site_id');
+		//echo $this->Form->input('site_id');
 		echo $this->Form->input('hotel_id');
 		echo $this->Form->input('room_type_id');
 		echo $this->Form->input('hotel_room_id');
@@ -18,7 +18,11 @@
 		echo $this->Form->input('meta_title');
 		echo $this->Form->input('meta_description');
 		echo $this->Form->input('meta_keyword');
-		echo $this->Form->input('status');
+		//echo $this->Form->input('status');
+		echo $this->Form->label('coupon.status');
+		$options = array('1' => 'Active', '0' => 'Inactive');
+		$attributes = array('legend' => false);
+		echo $this->Form->radio('status', $options, $attributes);				
 		echo $this->Form->input('HotelRoom');
 	?>
 	</fieldset>

@@ -83,7 +83,7 @@
 		</dd>
 		<dt><?php echo __('Status'); ?></dt>
 		<dd>
-			<?php echo h($coupon['Coupon']['status']); ?>
+			<?php if(h($coupon['Coupon']['status'])) { echo "Active"; } else { echo "Inactive"; } ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Modified'); ?></dt>
@@ -115,6 +115,7 @@
 		<li><?php echo $this->Html->link(__('New Hotel Room'), array('controller' => 'hotel_rooms', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
+<?php /* ?>
 <div class="related">
 	<h3><?php echo __('Related Hotel Rooms'); ?></h3>
 	<?php if (!empty($coupon['HotelRoom'])): ?>
@@ -250,3 +251,4 @@
 		</ul>
 	</div>
 </div>
+<?php */ ?>

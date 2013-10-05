@@ -48,7 +48,7 @@
 		</dd>
 		<dt><?php echo __('Status'); ?></dt>
 		<dd>
-			<?php echo h($hotelInformativePage['HotelInformativePage']['status']); ?>
+			<?php if(h($hotelInformativePage['HotelInformativePage']['status']) == 1) { echo "Active"; } else { echo "Inactive"; } ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Modified'); ?></dt>
