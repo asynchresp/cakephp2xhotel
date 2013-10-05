@@ -8,7 +8,7 @@
 		echo $this->Form->input('room_type_id');
 		echo $this->Form->input('hotel_room_id');
 		echo $this->Form->input('name');
-		echo $this->Form->input('description');
+		echo $this->Form->input('description', array('class'=>'ckeditor'));
 		echo $this->Form->input('coupon_code');
 		echo $this->Form->input('coupon_st_date');
 		echo $this->Form->input('coupon_expiry_date');

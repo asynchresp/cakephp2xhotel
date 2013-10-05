@@ -14,8 +14,7 @@ class SitesController extends AppController {
  * @var array
  */
 	public $components = array('Paginator');
-	/*public $view   = 'Theme';
-    public $theme = 'default';*/
+
 /**
  * index method
  *
@@ -70,7 +69,7 @@ class SitesController extends AppController {
  * @return void
  */
 	public function admin_edit($id = null) {
-	
+		$selCountry = $selState = "";
 		if (!$this->Site->exists($id)) {
 
 			throw new NotFoundException(__('Invalid site'));

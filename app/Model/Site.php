@@ -25,7 +25,11 @@ App::uses('AppModel', 'Model');
  */
 class Site extends AppModel {
 
-    
+/**
+ * Imag Upload
+ *
+ * @var array
+ */    
     public $actsAs = array(
         'Upload.Upload' => array(
             'site_logo'=> array(
@@ -35,7 +39,6 @@ class Site extends AppModel {
                     'dir' => 'site_logo_dir'
                 ),
                 'pathMethod'=>'primaryKey',
-                
                 'path'=>'{ROOT}webroot{DS}img{DS}site_logo{DS}',
                 'thumbnailMethod'=>'php',
                 'thumbnailSizes' => array(

@@ -33,7 +33,7 @@
 		</dd>
 		<dt><?php echo __('Description'); ?></dt>
 		<dd>
-			<?php echo h($coupon['Coupon']['description']); ?>
+			<?php echo html_entity_decode(h($coupon['Coupon']['description'])); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Coupon Code'); ?></dt>

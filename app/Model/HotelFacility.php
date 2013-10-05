@@ -13,6 +13,25 @@ App::uses('AppModel', 'Model');
  */
 class HotelFacility extends AppModel {
 
+	public $actsAs = array(
+        'Upload.Upload' => array(
+            'hf_image'=> array(
+                'deleteOnUpdate'=>true,
+                'mode'=>0777,
+                'fields' => array(
+                    'dir' => 'hf_image_dir'
+                ),
+                'pathMethod'=>'primaryKey',
+                'path'=>'{ROOT}webroot{DS}img{DS}hf_image{DS}',
+                'thumbnailMethod'=>'php',
+                'thumbnailSizes' => array(
+                    'big' => '400w',
+                    'small' => '120w',
+                    'thumb' => '80w'
+                )
+            )   
+        )
+    );
 /**
  * Validation rules
  *

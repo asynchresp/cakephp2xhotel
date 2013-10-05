@@ -14,6 +14,31 @@ App::uses('AppModel', 'Model');
 class PopularPoint extends AppModel {
 
 /**
+ * Imag Upload
+ *
+ * @var array
+ */
+	public $actsAs = array(
+        'Upload.Upload' => array(
+            'pp_image'=> array(
+                'deleteOnUpdate'=>true,
+                'mode'=>0777,
+                'fields' => array(
+                    'dir' => 'pp_image_dir'
+                ),
+                'pathMethod'=>'primaryKey',
+                'path'=>'{ROOT}webroot{DS}img{DS}popular_point_image{DS}',
+                'thumbnailMethod'=>'php',
+                'thumbnailSizes' => array(
+                    'big' => '400w',
+                    'small' => '120w',
+                    'thumb' => '80w'
+                )
+            )   
+        )
+    );
+	
+/**
  * Validation rules
  *
  * @var array

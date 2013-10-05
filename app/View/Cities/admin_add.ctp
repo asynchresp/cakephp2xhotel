@@ -27,7 +27,7 @@
 		echo $this->Form->input('state_id', array('id' => 'CityStateId', 'label' => 'State','class'=>'{validate:{required : true, messages:{required:"Please enter State"}}}','empty'=>'Select State'));
 		echo '</div>';		
 		echo $this->Form->input('name');
-		echo $this->Form->input('description');
+		echo $this->Form->input('description', array('class'=>'ckeditor'));
 		//echo $this->Form->input('status');
 		echo $this->Form->label('city.status');
 		$options = array('1' => 'Active', '0' => 'Inactive');

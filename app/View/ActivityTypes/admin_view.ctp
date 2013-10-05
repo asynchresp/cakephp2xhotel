@@ -18,7 +18,7 @@
 		</dd>
 		<dt><?php echo __('Description'); ?></dt>
 		<dd>
-			<?php echo h($activityType['ActivityType']['description']); ?>
+			<?php echo html_entity_decode(h($activityType['ActivityType']['description'])); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Meta Title'); ?></dt>

@@ -4,7 +4,7 @@
 		<legend><?php echo __('Add Country'); ?></legend>
 	<?php
 		echo $this->Form->input('name');
-		echo $this->Form->input('description');
+		echo $this->Form->input('description', array('class'=>'ckeditor'));
 		//echo $this->Form->input('status');
 		echo $this->Form->label('country.status');
 		$options = array('1' => 'Active', '0' => 'Inactive');

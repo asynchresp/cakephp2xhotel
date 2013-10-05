@@ -160,3 +160,15 @@ msgstr "Start Date & Time"
 
 msgid "End Date"
 msgstr "End Date & Time"
+
+msgid "Hf Image"
+msgstr "Hotel Facility Image"
+
+msgid "Hf Order"
+msgstr "Hotel Facility Order"
+
+msgid "Pp Image"
+msgstr "Popular Point Image"
+
+msgid "Pp Video"
+msgstr "Popular Point Video"
