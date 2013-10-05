@@ -1,5 +1,5 @@
 <div class="sites form">
-<?php echo $this->Form->create('Site'); ?>
+<?php echo $this->Form->create('Site',array('type'=>'file')); ?>
 	<fieldset>
 		<legend><?php echo __('Edit Site'); ?></legend>
 	<?php
@@ -8,7 +8,9 @@
 		echo $this->Form->input('description');
 		echo $this->Form->input('site_base_url');
 		echo $this->Form->input('site_base_path');
-		echo $this->Form->input('site_logo');
+		echo $this->Form->input('site_logo',array('type'=>'file'));
+                echo $this->Form->input('Site.site_logo.remove', array('type' => 'checkbox', 'label' => 'Remove existing file'));
+
 		echo $this->Form->input('site_bckgrd_color');
 		echo $this->Form->input('site_foregrd_color');
 		echo $this->Form->input('address_line1');

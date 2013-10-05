@@ -25,6 +25,28 @@ App::uses('AppModel', 'Model');
  */
 class Site extends AppModel {
 
+    
+    public $actsAs = array(
+        'Upload.Upload' => array(
+            'site_logo'=> array(
+                'deleteOnUpdate'=>true,
+                'mode'=>0777,
+                'fields' => array(
+                    'dir' => 'site_logo_dir'
+                ),
+                'pathMethod'=>'primaryKey',
+                
+                'path'=>'{ROOT}webroot{DS}img{DS}site_logo{DS}',
+                'thumbnailMethod'=>'php',
+                'thumbnailSizes' => array(
+                    'big' => '400w',
+                    'small' => '120w',
+                    'thumb' => '80w'
+                )
+            )   
+        )
+    );
+    
 /**
  * Validation rules
  *
@@ -121,6 +143,11 @@ class Site extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
+                 'site_logo' => array(
+                    'rule' => array('isValidExtension', array('jpg','jpeg','png'),false),
+                    'message' => 'Only support jpg,png extension',
+                     
+                )
 		/*'site_bckgrd_color' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
