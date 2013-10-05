@@ -33,7 +33,7 @@
 		</dd>
 		<dt><?php echo __('Description'); ?></dt>
 		<dd>
-			<?php echo h($tax['Tax']['description']); ?>
+			<?php echo html_entity_decode(h($tax['Tax']['description'])); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Tax Percentage'); ?></dt>

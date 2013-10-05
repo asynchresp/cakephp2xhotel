@@ -10,7 +10,7 @@
 		echo $this->Form->input('hotel_room_id');
 		echo $this->Form->input('name');
 		echo $this->Form->input('short_description');
-		echo $this->Form->input('long_description');
+		echo $this->Form->input('long_description', array('class'=>'ckeditor'));
 		echo $this->Form->input('tp_order');
 		echo $this->Form->input('no_person');
 		echo $this->Form->input('activity_type_id');

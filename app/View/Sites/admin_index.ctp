@@ -4,13 +4,13 @@
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('name'); ?></th>
+			<th><?php echo $this->Paginator->sort('site_logo'); ?></th>
 			<th><?php echo $this->Paginator->sort('site_base_url'); ?></th>
 			<th><?php echo $this->Paginator->sort('state_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('country_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('status'); ?></th>
 			<?php /* ?>
 			<th><?php echo $this->Paginator->sort('site_base_path'); ?></th>
-			<th><?php echo $this->Paginator->sort('site_logo'); ?></th>
 			<th><?php echo $this->Paginator->sort('site_bckgrd_color'); ?></th>
 			<th><?php echo $this->Paginator->sort('site_foregrd_color'); ?></th>
 			<th><?php echo $this->Paginator->sort('address_line1'); ?></th>
@@ -29,7 +29,18 @@
 	<tr>
 		<td><?php echo h($site['Site']['id']); ?>&nbsp;</td>
 		<td><?php echo h($site['Site']['name']); ?>&nbsp;</td>
-		<td><a href="<?php echo h($site['Site']['site_base_url']); ?>" target="_blank"><?php echo h($site['Site']['site_base_url']); ?></a>&nbsp;</td>
+		<td>
+		<?php
+			//echo ROOT.DS."app".DS."webroot".DS."img".DS."site_logo".DS.h($site['Site']['site_logo_dir']).DS.h($site['Site']['site_logo']);
+			$filename = ROOT.DS."app".DS."webroot".DS."img".DS."site_logo".DS.h($site['Site']['site_logo_dir']).DS.h($site['Site']['site_logo']);
+			if(file_exists($filename)) {
+				echo $this->Html->image('/app/webroot/img/site_logo/' . h($site['Site']['site_logo_dir'] . "/thumb_".h($site['Site']['site_logo'])), array('alt'=>h($site['Site']['name'])));
+			} else {
+				echo $this->Html->image('/app/webroot/img/admin/thumb_no_image.png', array('alt'=>h($site['Site']['name'])));
+			}
+		?>&nbsp;
+		</td>
+		<td><?php echo h($site['Site']['site_base_url']); ?>&nbsp;</td>
 		<td>
 			<?php echo $this->Html->link($site['State']['name'], array('controller' => 'states', 'action' => 'view', $site['State']['id'])); ?>
 		</td>
@@ -39,7 +50,6 @@
 		<td><?php if(h($site['Site']['status']) == 1) { echo "Active"; } else { echo "Inactive"; } ?>&nbsp;</td>
 		
 		<?php /* ?><td><?php echo h($site['Site']['site_base_path']); ?>&nbsp;</td>
-		<td><?php echo h($site['Site']['site_logo']); ?>&nbsp;</td>
 		<td><?php echo h($site['Site']['site_bckgrd_color']); ?>&nbsp;</td>
 		<td><?php echo h($site['Site']['site_foregrd_color']); ?>&nbsp;</td>
 		<td><?php echo h($site['Site']['address_line1']); ?>&nbsp;</td>

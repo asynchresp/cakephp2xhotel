@@ -18,7 +18,7 @@
 		</dd>
 		<dt><?php echo __('Description'); ?></dt>
 		<dd>
-			<?php echo h($state['State']['description']); ?>
+			<?php echo html_entity_decode(h($state['State']['description'])); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Status'); ?></dt>

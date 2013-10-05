@@ -33,12 +33,12 @@
 		</dd>
 		<dt><?php echo __('Short Description'); ?></dt>
 		<dd>
-			<?php echo h($tourPackage['TourPackage']['short_description']); ?>
+			<?php echo html_entity_decode(h($tourPackage['TourPackage']['short_description'])); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Long Description'); ?></dt>
 		<dd>
-			<?php echo h($tourPackage['TourPackage']['long_description']); ?>
+			<?php echo html_entity_decode(h($tourPackage['TourPackage']['long_description'])); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Tp Order'); ?></dt>

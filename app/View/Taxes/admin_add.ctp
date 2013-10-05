@@ -47,7 +47,7 @@
 		echo $this->Form->input('city_id',array('id'=>'TaxCityId','label'=>'City','empty'=>'','class'=>'{validate:{required : true, messages:{required:"Please select City"}}}','empty'=>'Select City'));
 		echo '</div>';			
 		echo $this->Form->input('name');
-		echo $this->Form->input('description');
+		echo $this->Form->input('description', array('class'=>'ckeditor'));
 		echo $this->Form->input('tax_percentage');
 		//echo $this->Form->input('status');
 		echo $this->Form->label('tax.status');

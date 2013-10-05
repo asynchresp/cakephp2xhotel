@@ -13,7 +13,7 @@
 		</dd>
 		<dt><?php echo __('Description'); ?></dt>
 		<dd>
-			<?php echo h($site['Site']['description']); ?>
+			<?php echo html_entity_decode(h($site['Site']['description'])); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Site Base Url'); ?></dt>
@@ -28,7 +28,15 @@
 		</dd>
 		<dt><?php echo __('Site Logo'); ?></dt>
 		<dd>
-			<?php echo h($site['Site']['site_logo']); ?>
+			<?php //echo h($site['Site']['site_logo']); ?>
+			<?php
+			$filename = ROOT.DS."app".DS."webroot".DS."img".DS."site_logo".DS.h($site['Site']['site_logo_dir']).DS.h($site['Site']['site_logo']);
+			if(file_exists($filename)) {
+				echo $this->Html->image('/app/webroot/img/site_logo/' . h($site['Site']['site_logo_dir'] . "/small_".h($site['Site']['site_logo'])), array('alt'=>h($site['Site']['name'])));
+			} else {
+				echo $this->Html->image('/app/webroot/img/admin/small_no_image.png', array('alt'=>h($site['Site']['name'])));
+			}
+			?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Site Bckgrd Color'); ?></dt>
