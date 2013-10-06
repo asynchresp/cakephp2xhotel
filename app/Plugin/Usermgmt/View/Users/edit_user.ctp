@@ -38,28 +38,28 @@
 			<?php   if (count($userGroups) >2) { ?>
 						<div>
 							<div class="umstyle3"><?php echo __('Group');?><font color='red'>*</font></div>
-							<div class="umstyle4" ><?php echo $this->Form->input("user_group_id" ,array('type' => 'select', 'label' => false,'div' => false,'class'=>"umstyle5" ))?></div>
+							<div class="" ><?php echo $this->Form->input("user_group_id" ,array('type' => 'select', 'label' => false,'div' => false,'class'=>"" ))?></div>
 							<div style="clear:both"></div>
 						</div>
 			<?php   }   ?>
 					<div>
 						<div class="umstyle3"><?php echo __('Username');?><font color='red'>*</font></div>
-						<div class="umstyle4" ><?php echo $this->Form->input("username" ,array('label' => false,'div' => false,'class'=>"umstyle5" ))?></div>
+						<div class="" ><?php echo $this->Form->input("username" ,array('label' => false,'div' => false,'class'=>"" ))?></div>
 						<div style="clear:both"></div>
 					</div>
 					<div>
 						<div class="umstyle3"><?php echo __('First Name');?><font color='red'>*</font></div>
-						<div class="umstyle4" ><?php echo $this->Form->input("first_name" ,array('label' => false,'div' => false,'class'=>"umstyle5" ))?></div>
+						<div class="" ><?php echo $this->Form->input("first_name" ,array('label' => false,'div' => false,'class'=>"" ))?></div>
 						<div style="clear:both"></div>
 					</div>
 					<div>
 						<div class="umstyle3"><?php echo __('Last Name');?><font color='red'>*</font></div>
-						<div class="umstyle4" ><?php echo $this->Form->input("last_name" ,array('label' => false,'div' => false,'class'=>"umstyle5" ))?></div>
+						<div class="" ><?php echo $this->Form->input("last_name" ,array('label' => false,'div' => false,'class'=>"" ))?></div>
 						<div style="clear:both"></div>
 					</div>
 					<div>
 						<div class="umstyle3"><?php echo __('Email');?><font color='red'>*</font></div>
-						<div class="umstyle4" ><?php echo $this->Form->input("email" ,array('label' => false,'div' => false,'class'=>"umstyle5" ))?></div>
+						<div class="" ><?php echo $this->Form->input("email" ,array('label' => false,'div' => false,'class'=>"" ))?></div>
 						<div style="clear:both"></div>
 					</div>
 					<div>

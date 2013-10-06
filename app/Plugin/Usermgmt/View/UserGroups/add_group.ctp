@@ -35,13 +35,13 @@
 				<?php echo $this->Form->create('UserGroup', array('action' => 'addGroup')); ?>
 				<div>
 					<div class="umstyle3"><?php echo __('Group Name');?><font color='red'>*</font></div>
-					<div class="umstyle4" ><?php echo $this->Form->input("name" ,array('label' => false,'div' => false,'class'=>"umstyle5" ))?></div>
+					<div class="umstyle4" ><?php echo $this->Form->input("name" ,array('label' => false,'div' => false,'class'=>"",'style'=>'width:88%' ))?></div>
 					<div class="umstyle7">for ex. Business User</div>
 					<div style="clear:both"></div>
 				</div>
 				<div>
 					<div class="umstyle3"><?php echo __('Alias Group Name');?><font color='red'>*</font></div>
-					<div class="umstyle4" ><?php echo $this->Form->input("alias_name" ,array('label' => false,'div' => false,'class'=>"umstyle5" ))?></div>
+					<div class="umstyle4" ><?php echo $this->Form->input("alias_name" ,array('label' => false,'div' => false,'class'=>"",'style'=>'width:88%' ))?></div>
 					<div class="umstyle7">for ex. Business_User (Must not contain space)</div>
 					<div style="clear:both"></div>
 				</div>

@@ -718,7 +718,7 @@ display: block;
 display: block;
     font-weight:normal;
    
-    padding: 9px;
+    padding: 6px;
     background-color: #F9F9F9;
     color:#333;
     border-bottom: 1px solid #E6E6E6;
@@ -1007,5 +1007,3 @@ pre {
     
     /*overflow-x: scroll;*/
 }
-
-

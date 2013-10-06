@@ -35,12 +35,12 @@
 					<?php echo $this->Form->create('User', array('action' => 'login')); ?>
 					<div>
 						<div class="umstyle3"><?php echo __('Email / Username');?></div>
-						<div class="umstyle4" ><?php echo $this->Form->input("email" ,array('label' => false,'div' => false,'class'=>"" ))?></div>
+						<div class="" ><?php echo $this->Form->input("email" ,array('label' => false,'div' => false,'class'=>"" ,'style'=>'width:58%'))?></div>
 						<div style="clear:both"></div>
 					</div>
 					<div>
 						<div class="umstyle3"><?php echo __('Password');?></div>
-						<div class="umstyle4"><?php echo $this->Form->input("password" ,array("type"=>"password",'label' => false,'div' => false,'class'=>"" ))?></div>
+						<div class=""><?php echo $this->Form->input("password" ,array("type"=>"password",'label' => false,'div' => false,'class'=>"" ,'style'=>'width:58%'))?></div>
 						<div style="clear:both"></div>
 					</div>
 <!--					<div>

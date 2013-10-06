@@ -70,7 +70,7 @@ echo $this->Html->script('/usermgmt/js/umupdate');
 										} else {
 											$checked=false;
 										}
-										echo $this->Form->input($ugname,array('id'=>$ugname_alias.$k,'type'=>'checkbox','checked'=>$checked));
+										echo $this->Form->input($ugname,array('id'=>$ugname_alias.$k,'type'=>'checkbox','checked'=>$checked,'label'=>array('style'=>'float:none')));
 									}
 									echo "</td>";
 									echo "<td>";
