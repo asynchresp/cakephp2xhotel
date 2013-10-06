@@ -1,5 +1,7 @@
 <div class="hotelFacilityCategories view">
-<h2><?php echo __('Hotel Facility Category'); ?></h2>
+    <div class="um_box_mid_content_top"><span class="umstyle1"><?php echo __('Hotel Facility Category'); ?></span></div>
+    <div class="content_mid">
+<!--<h2><?php // echo __('Hotel Facility Category'); ?></h2>-->
 	<dl>
 		<dt><?php echo __('Id'); ?></dt>
 		<dd>
@@ -62,23 +64,8 @@
 		</dd>
 	</dl>
 </div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('Edit Hotel Facility Category'), array('action' => 'edit', $hotelFacilityCategory['HotelFacilityCategory']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Hotel Facility Category'), array('action' => 'delete', $hotelFacilityCategory['HotelFacilityCategory']['id']), null, __('Are you sure you want to delete # %s?', $hotelFacilityCategory['HotelFacilityCategory']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Hotel Facility Categories'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Hotel Facility Category'), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Sites'), array('controller' => 'sites', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Site'), array('controller' => 'sites', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Hotel Facilities'), array('controller' => 'hotel_facilities', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Hotel Facility'), array('controller' => 'hotel_facilities', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Hotel Rooms'), array('controller' => 'hotel_rooms', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Hotel Room'), array('controller' => 'hotel_rooms', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Hotels'), array('controller' => 'hotels', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Hotel'), array('controller' => 'hotels', 'action' => 'add')); ?> </li>
-	</ul>
 </div>
+<?php echo $this->element('left_nav');?>
 <?php /* ?><div class="related">
 	<h3><?php echo __('Related Hotel Facilities'); ?></h3>
 	<?php if (!empty($hotelFacilityCategory['HotelFacility'])): ?>

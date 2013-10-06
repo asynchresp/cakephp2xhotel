@@ -1,5 +1,7 @@
 <div class="popularPoints view">
-<h2><?php echo __('Popular Point'); ?></h2>
+    <div class="um_box_mid_content_top"><span class="umstyle1"><?php echo __('Popular Point'); ?></span></div>
+        <div class="content_mid">
+<!--<h2><?php // echo __('Popular Point'); ?></h2>-->
 	<dl>
 		<dt><?php echo __('Id'); ?></dt>
 		<dd>
@@ -145,27 +147,8 @@
 		</dd>
 	</dl>
 </div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('Edit Popular Point'), array('action' => 'edit', $popularPoint['PopularPoint']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Popular Point'), array('action' => 'delete', $popularPoint['PopularPoint']['id']), null, __('Are you sure you want to delete # %s?', $popularPoint['PopularPoint']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Popular Points'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Popular Point'), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Sites'), array('controller' => 'sites', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Site'), array('controller' => 'sites', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Activity Types'), array('controller' => 'activity_types', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Activity Type'), array('controller' => 'activity_types', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Countries'), array('controller' => 'countries', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Country'), array('controller' => 'countries', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List States'), array('controller' => 'states', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New State'), array('controller' => 'states', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Cities'), array('controller' => 'cities', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New City'), array('controller' => 'cities', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Tour Packages'), array('controller' => 'tour_packages', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Tour Package'), array('controller' => 'tour_packages', 'action' => 'add')); ?> </li>
-	</ul>
 </div>
+<?php echo $this->element('left_nav');?>
 <div class="related">
 	<h3><?php echo __('Related Tour Packages'); ?></h3>
 	<?php if (!empty($popularPoint['TourPackage'])): ?>

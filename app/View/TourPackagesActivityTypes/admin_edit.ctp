@@ -1,4 +1,6 @@
 <div class="tourPackagesActivityTypes form">
+    <div class="um_box_mid_content_top"><span class="umstyle1"><?php echo __('Edit Tour Packages Activity Type'); ?></span></div>
+    <div class="content_mid">
 <?php echo $this->Form->create('TourPackagesActivityType'); ?>
 	<fieldset>
 		<legend><?php echo __('Edit Tour Packages Activity Type'); ?></legend>
@@ -10,15 +12,5 @@
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>
 </div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-
-		<li><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('TourPackagesActivityType.id')), null, __('Are you sure you want to delete # %s?', $this->Form->value('TourPackagesActivityType.id'))); ?></li>
-		<li><?php echo $this->Html->link(__('List Tour Packages Activity Types'), array('action' => 'index')); ?></li>
-		<li><?php echo $this->Html->link(__('List Tour Packages'), array('controller' => 'tour_packages', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Tour Package'), array('controller' => 'tour_packages', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Activity Types'), array('controller' => 'activity_types', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Activity Type'), array('controller' => 'activity_types', 'action' => 'add')); ?> </li>
-	</ul>
 </div>
+<?php echo $this->element('left_nav');?>

@@ -1,5 +1,7 @@
 <div class="hotelCancellationPolicies view">
-<h2><?php echo __('Hotel Cancellation Policy'); ?></h2>
+     <div class="um_box_mid_content_top"><span class="umstyle1"><?php echo __('Hotel Cancellation Policy'); ?></span></div>
+    <div class="content_mid">
+<!--<h2><?php // echo __('Hotel Cancellation Policy'); ?></h2>-->
 	<dl>
 		<dt><?php echo __('Id'); ?></dt>
 		<dd>
@@ -47,19 +49,8 @@
 		</dd>
 	</dl>
 </div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('Edit Hotel Cancellation Policy'), array('action' => 'edit', $hotelCancellationPolicy['HotelCancellationPolicy']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Hotel Cancellation Policy'), array('action' => 'delete', $hotelCancellationPolicy['HotelCancellationPolicy']['id']), null, __('Are you sure you want to delete # %s?', $hotelCancellationPolicy['HotelCancellationPolicy']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Hotel Cancellation Policies'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Hotel Cancellation Policy'), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Sites'), array('controller' => 'sites', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Site'), array('controller' => 'sites', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Hotels'), array('controller' => 'hotels', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Hotel'), array('controller' => 'hotels', 'action' => 'add')); ?> </li>
-	</ul>
 </div>
+<?php echo $this->element('left_nav');?>
 <?php /* ?><div class="related">
 	<h3><?php echo __('Related Hotels'); ?></h3>
 	<?php if (!empty($hotelCancellationPolicy['Hotel'])): ?>

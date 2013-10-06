@@ -1,5 +1,7 @@
 <div class="tourPackagesTaxes view">
-<h2><?php echo __('Tour Packages Tax'); ?></h2>
+    <div class="um_box_mid_content_top"><span class="umstyle1"><?php echo __('Tour Packages Tax'); ?></span></div>
+    <div class="content_mid">
+<!--<h2><?php // echo __('Tour Packages Tax'); ?></h2>-->
 	<dl>
 		<dt><?php echo __('Id'); ?></dt>
 		<dd>
@@ -18,16 +20,5 @@
 		</dd>
 	</dl>
 </div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('Edit Tour Packages Tax'), array('action' => 'edit', $tourPackagesTax['TourPackagesTax']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Tour Packages Tax'), array('action' => 'delete', $tourPackagesTax['TourPackagesTax']['id']), null, __('Are you sure you want to delete # %s?', $tourPackagesTax['TourPackagesTax']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Tour Packages Taxes'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Tour Packages Tax'), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Tour Packages'), array('controller' => 'tour_packages', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Tour Package'), array('controller' => 'tour_packages', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Taxes'), array('controller' => 'taxes', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Tax'), array('controller' => 'taxes', 'action' => 'add')); ?> </li>
-	</ul>
 </div>
+<?php echo $this->element('left_nav');?>

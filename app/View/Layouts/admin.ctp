@@ -30,13 +30,15 @@ $cakeDescription = __d('cake_dev', 'Orange BNB - Single Platform for Hotel(s), T
 	</title>
 	<?php
 		echo $this->Html->meta('icon');
-		echo $this->Html->css('admin');
-        echo $this->Html->css('/usermgmt/css/umstyle');
+
+		echo $this->Html->css('admin')."\n";
+                echo $this->Html->css('/usermgmt/css/umstyle')."\n";
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');
-		echo $this->Html->script('jquery-2.0.3.min');
-		echo $this->Html->script('/js/ckeditor/ckeditor');
+                echo $this->Html->script('jquery-1.10.1.min')."\n";
+                echo $this->Html->script('/js/ckeditor/ckeditor')."\n";
+
 	?>
 </head>
 <body>

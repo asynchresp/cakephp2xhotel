@@ -19,7 +19,8 @@
 */
 echo $this->Html->script('/usermgmt/js/umupdate');
 ?>
-<div class="">
+<?php echo $this->element('admin_left');?>
+<div class="form sites">
 	<?php echo $this->Session->flash(); ?>
 	<?php // echo $this->element('dashboard'); ?>
 	<div class="um_box_up"></div>
@@ -69,7 +70,7 @@ echo $this->Html->script('/usermgmt/js/umupdate');
 										} else {
 											$checked=false;
 										}
-										echo $this->Form->input($ugname,array('id'=>$ugname_alias.$k,'type'=>'checkbox','checked'=>$checked));
+										echo $this->Form->input($ugname,array('id'=>$ugname_alias.$k,'type'=>'checkbox','checked'=>$checked,'label'=>array('style'=>'float:none')));
 									}
 									echo "</td>";
 									echo "<td>";

@@ -1,5 +1,7 @@
 <div class="hotelThemes view">
-<h2><?php echo __('Hotel Theme'); ?></h2>
+      <div class="um_box_mid_content_top"><span class="umstyle1"><?php echo __('Hotel Theme'); ?></span></div>
+        <div class="content_mid">
+<!--<h2><?php // echo __('Hotel Theme'); ?></h2>-->
 	<dl>
 		<dt><?php echo __('Id'); ?></dt>
 		<dd>
@@ -53,19 +55,8 @@
 		</dd>
 	</dl>
 </div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('Edit Hotel Theme'), array('action' => 'edit', $hotelTheme['HotelTheme']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Hotel Theme'), array('action' => 'delete', $hotelTheme['HotelTheme']['id']), null, __('Are you sure you want to delete # %s?', $hotelTheme['HotelTheme']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Hotel Themes'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Hotel Theme'), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Sites'), array('controller' => 'sites', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Site'), array('controller' => 'sites', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Hotels'), array('controller' => 'hotels', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Hotel'), array('controller' => 'hotels', 'action' => 'add')); ?> </li>
-	</ul>
 </div>
+<?php echo $this->element('left_nav');?>
 <?php /* ?>
 <div class="related">
 	<h3><?php echo __('Related Hotels'); ?></h3>

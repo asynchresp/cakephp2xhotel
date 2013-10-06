@@ -1,5 +1,7 @@
 <div class="tourPackagesPopularPoints view">
-<h2><?php echo __('Tour Packages Popular Point'); ?></h2>
+    <div class="um_box_mid_content_top"><span class="umstyle1"><?php echo __('Tour Packages Popular Point'); ?></span></div>
+    <div class="content_mid">
+<!--<h2><?php // echo __('Tour Packages Popular Point'); ?></h2>-->
 	<dl>
 		<dt><?php echo __('Id'); ?></dt>
 		<dd>
@@ -18,16 +20,5 @@
 		</dd>
 	</dl>
 </div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('Edit Tour Packages Popular Point'), array('action' => 'edit', $tourPackagesPopularPoint['TourPackagesPopularPoint']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Tour Packages Popular Point'), array('action' => 'delete', $tourPackagesPopularPoint['TourPackagesPopularPoint']['id']), null, __('Are you sure you want to delete # %s?', $tourPackagesPopularPoint['TourPackagesPopularPoint']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Tour Packages Popular Points'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Tour Packages Popular Point'), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Tour Packages'), array('controller' => 'tour_packages', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Tour Package'), array('controller' => 'tour_packages', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Popular Points'), array('controller' => 'popular_points', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Popular Point'), array('controller' => 'popular_points', 'action' => 'add')); ?> </li>
-	</ul>
 </div>
+<?php echo $this->element('left_nav');?>

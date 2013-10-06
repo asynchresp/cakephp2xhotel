@@ -1,7 +1,9 @@
 <div class="tourPackagesTaxes form">
+    <div class="um_box_mid_content_top"><span class="umstyle1"><?php echo __('Add Tour Packages Tax'); ?></span></div>
+    <div class="content_mid">
 <?php echo $this->Form->create('TourPackagesTax'); ?>
 	<fieldset>
-		<legend><?php echo __('Add Tour Packages Tax'); ?></legend>
+		<!--<legend><?php // echo __('Add Tour Packages Tax'); ?></legend>-->
 	<?php
 		echo $this->Form->input('tour_package_id');
 		echo $this->Form->input('tax_id');
@@ -9,14 +11,5 @@
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>
 </div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-
-		<li><?php echo $this->Html->link(__('List Tour Packages Taxes'), array('action' => 'index')); ?></li>
-		<li><?php echo $this->Html->link(__('List Tour Packages'), array('controller' => 'tour_packages', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Tour Package'), array('controller' => 'tour_packages', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Taxes'), array('controller' => 'taxes', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Tax'), array('controller' => 'taxes', 'action' => 'add')); ?> </li>
-	</ul>
 </div>
+<?php echo $this->element('left_nav');?>

@@ -18,7 +18,8 @@
 	along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
 */
 ?>
-<div class="">
+<?php echo $this->element('admin_left');?>
+<div class="form sites">
 	<?php echo $this->Session->flash(); ?>
 	<?php // echo $this->element('dashboard'); ?>
 	<div class="um_box_up"></div>
@@ -35,17 +36,17 @@
 					<?php echo $this->Form->create('User', array('action' => 'changePassword')); ?>
 					<div>
 						<div class="umstyle3"><?php echo __('Old Password');?></div>
-						<div class="umstyle4"><?php echo $this->Form->input("oldpassword" ,array("type"=>"password",'label' => false,'div' => false,'class'=>"umstyle5" ))?></div>
+						<div class=""><?php echo $this->Form->input("oldpassword" ,array("type"=>"password",'label' => false,'div' => false,'class'=>"",'autofocus'=>true ))?></div>
 						<div style="clear:both"></div>
 					</div>
 					<div>
 						<div class="umstyle3"><?php echo __('New Password');?></div>
-						<div class="umstyle4"><?php echo $this->Form->input("password" ,array("type"=>"password",'label' => false,'div' => false,'class'=>"umstyle5" ))?></div>
+						<div class=""><?php echo $this->Form->input("password" ,array("type"=>"password",'label' => false,'div' => false,'class'=>"" ))?></div>
 						<div style="clear:both"></div>
 					</div>
 					<div>
 						<div class="umstyle3"><?php echo __('Confirm Password');?></div>
-						<div class="umstyle4"><?php echo $this->Form->input("cpassword" ,array("type"=>"password",'label' => false,'div' => false,'class'=>"umstyle5" ))?></div>
+						<div class=""><?php echo $this->Form->input("cpassword" ,array("type"=>"password",'label' => false,'div' => false,'class'=>"" ))?></div>
 						<div style="clear:both"></div>
 					</div>
 					<div>
@@ -62,6 +63,3 @@
 	</div>
 	<div class="um_box_down"></div>
 </div>
-<script>
-document.getElementById("UserPassword").focus();
-</script>

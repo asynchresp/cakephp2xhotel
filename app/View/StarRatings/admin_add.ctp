@@ -1,7 +1,9 @@
 <div class="starRatings form">
+    <div class="um_box_mid_content_top"><span class="umstyle1"><?php echo __('Add Star Rating'); ?></span></div>
+    <div class="content_mid">
 <?php echo $this->Form->create('StarRating'); ?>
 	<fieldset>
-		<legend><?php echo __('Add Star Rating'); ?></legend>
+		<!--<legend><?php // echo __('Add Star Rating'); ?></legend>-->
 	<?php
 		echo $this->Form->input('name');
 		echo $this->Form->input('shortcode');
@@ -19,12 +21,5 @@
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>
 </div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-
-		<li><?php echo $this->Html->link(__('List Star Ratings'), array('action' => 'index')); ?></li>
-		<li><?php echo $this->Html->link(__('List Hotels'), array('controller' => 'hotels', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Hotel'), array('controller' => 'hotels', 'action' => 'add')); ?> </li>
-	</ul>
 </div>
+<?php echo $this->element('left_nav');?>
