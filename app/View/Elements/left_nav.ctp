@@ -9,7 +9,7 @@ else
     $matchHref='/'.$controller.'/'.$actionForHref;
 
 
-$hotelManagementControllerArr=array('hotels','hotel_groups','hotel_themes','hotel_types');
+$hotelManagementControllerArr=array('hotels','hotel_groups','hotel_themes','hotel_types','hotel_facilities','hotel_facility_categories','food_menu_types');
 $generalControllerArr=array('sites','countries','states','cities');
 $promoControllerArr=array('tour_packages','coupons');
 $cmsControllerArr=array('activity_types','hotel_cancellation_policies','hotel_informative_pages','hotel_modification_policies','point_near_by_hotels','popular_points','taxes');
@@ -52,7 +52,7 @@ $cmsControllerArr=array('activity_types','hotel_cancellation_policies','hotel_in
                         <li><?php echo $this->Html->link(__('New Hotel Facility Category'), array('controller' => 'hotel_facility_categories', 'action' => 'add')); ?> </li>
                         <li><?php echo $this->Html->link(__('List Food Menu Types'), array('controller' => 'food_menu_types', 'action' => 'index')); ?> </li>
                         <li><?php echo $this->Html->link(__('New Food Menu Type'), array('controller' => 'food_menu_types', 'action' => 'add')); ?> </li>
-                        
+                       
                     </ul>
                 </li>
                 

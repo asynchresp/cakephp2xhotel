@@ -134,6 +134,10 @@ p {
     text-decoration: none;
 }
 
+#header ul li a.selected {
+    color: #FFFFFF;
+    text-decoration: none;
+}
 
 #header .you_are{
     float: right;
@@ -313,11 +317,12 @@ table td.actions a {
 dl {
 	line-height: 2em;
 	margin: 0em 0em;
-	width: 60%;
+	/*width: 60%;*/
+	width: 95%;
 }
 dl dd:nth-child(4n+2),
 dl dt:nth-child(4n+1) {
-	background: #f4f4f4;
+	/*background: #f4f4f4;*/
 }
 
 dt {
@@ -327,7 +332,8 @@ dt {
 	width: 10em;
 }
 dd {
-	margin-left: 10em;
+	/*margin-left: 10em;*/
+	margin-left: 13em;
 	margin-top: -2em;
 	vertical-align: top;
 }
