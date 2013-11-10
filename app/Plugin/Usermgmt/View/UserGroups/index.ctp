@@ -59,9 +59,9 @@
 								echo"</td>";
 								echo "<td>".date('d-M-Y',strtotime($row['UserGroup']['created']))."</td>";
 								echo "<td>";
-									echo "<span class='icon'><a href='".$this->Html->url('/editGroup/'.$row['UserGroup']['id'])."'><img src='".SITE_URL."usermgmt/img/edit.png' border='0' alt='Edit' title='Edit'></a></span>";
+									echo "<span class='icon'><a href='".$this->Html->url('/editGroup/'.$row['UserGroup']['id'])."'>Edit</a></span>";
 									if ($row['UserGroup']['id']!=1) {
-										echo $this->Form->postLink($this->Html->image(SITE_URL.'usermgmt/img/delete.png', array("alt" => __('Delete'), "title" => __('Delete'))), array('action' => 'deleteGroup', $row['UserGroup']['id']), array('escape' => false, 'confirm' => __('Are you sure you want to delete this group? Delete it your own risk')));
+										echo "<span class='icon'>".$this->Form->postLink('Delete', array('action' => 'deleteGroup', $row['UserGroup']['id']), array('escape' => false, 'confirm' => __('Are you sure you want to delete this group? Delete it your own risk')))."</span>";
 									}
 								echo "</td>";
 								echo "</tr>";

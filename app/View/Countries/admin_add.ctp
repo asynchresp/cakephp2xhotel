@@ -11,7 +11,10 @@
 		echo $this->Form->label('country.status');
 		$options = array('1' => 'Active', '0' => 'Inactive');
 		$attributes = array('legend' => false);
-		echo $this->Form->radio('status', $options, $attributes);		
+		echo $this->Form->radio('status', $options, $attributes);
+                
+                echo $this->element('price');
+                
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>
