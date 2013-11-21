@@ -1,9 +1,23 @@
 <script language="javascript" type="text/javascript">
+	function getStatesByAjax(countryId) {
+		jQuery.ajax({
+            type:'POST',
+ 			url:'<?php echo Router::url(array('controller'=>'sites','action'=>'getstate'),false);?>',
+            data:'country_id='+countryId,
+            success:function(data){
+                $('#stateDiv').html(data);
+				getCitiesByAjax(0);
+            },
+            error:function(message){
+                alert(message);
+            }
+        });	
+	}
+	
 	function getCitiesByAjax(stateId){
        
         jQuery.ajax({
             type:'POST',
-           /* url:'<?php echo Router::url('/admin/sites/getcity/',false);?>',*/
 			url:'<?php echo Router::url(array('controller'=>'sites','action'=>'getcity'),false);?>',
             data:'state_id='+stateId,
             success:function(data){
@@ -15,20 +29,6 @@
         });
        
     }
-	
-	function getStatesByAjax(countryId) {
-		jQuery.ajax({
-            type:'POST',
- 			url:'<?php echo Router::url(array('controller'=>'sites','action'=>'getstate'),false);?>',
-            data:'country_id='+countryId,
-            success:function(data){
-                $('#stateDiv').html(data);
-            },
-            error:function(message){
-                alert(message);
-            }
-        });	
-	}
 	
 </script>
 <div class="sites form">    
@@ -48,13 +48,16 @@
 		 
 		echo $this->Form->input('site_logo',array('type'=>'file'));
 		$filename = ROOT.DS."app".DS."webroot".DS."img".DS."site_logo".DS.h($data['Site']['site_logo_dir']).DS.h($data['Site']['site_logo']);
+		$fileExistChk = 0;
 		if(file_exists($filename)) {
+			$fileExistChk = 1;
 			echo $this->Html->image('/app/webroot/img/site_logo/' . h($data['Site']['site_logo_dir'] . "/thumb_".h($data['Site']['site_logo'])), array('alt'=>h($data['Site']['name'])));
 		} else {
 			echo $this->Html->image('/app/webroot/img/admin/thumb_no_image.png', array('alt'=>h($data['Site']['name'])));
 		}
-				
+		if($fileExistChk == 1) {	
         echo $this->Form->input('Site.site_logo.remove', array('type' => 'checkbox', 'label' => 'Remove existing file'));
+		}
 		echo $this->Form->input('site_bckgrd_color');
 		echo $this->Form->input('site_foregrd_color');
 		echo $this->Form->input('address_line1');

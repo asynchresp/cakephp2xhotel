@@ -59,9 +59,10 @@ class HotelsController extends AppController {
 		$hotelGroups = $this->Hotel->HotelGroup->find('list');
 		$hotelTypes = $this->Hotel->HotelType->find('list');
 		$hotelThemes = $this->Hotel->HotelTheme->find('list');
-		$countries = $this->Hotel->Country->find('list');
-		$states = $this->Hotel->State->find('list');
-		$cities = $this->Hotel->City->find('list');
+		//$countries = $this->Hotel->Country->find('list');
+		$countries = $this->Hotel->Country->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
+		/*$states = $this->Hotel->State->find('list');
+		$cities = $this->Hotel->City->find('list');*/
 		$starRatings = $this->Hotel->StarRating->find('list');
 		$hotelFacilityCategories = $this->Hotel->HotelFacilityCategory->find('list');
 		$hotelFacilities = $this->Hotel->HotelFacility->find('list');
@@ -100,6 +101,8 @@ class HotelsController extends AppController {
 		} else {
 			$options = array('conditions' => array('Hotel.' . $this->Hotel->primaryKey => $id));
 			$this->request->data = $this->Hotel->find('first', $options);
+			$selCountry = $this->request->data['Country']['id'];
+			$selState = $this->request->data['State']['id'];
 		}
 		$sites = $this->Hotel->Site->find('list');
 		$hotelGroups = $this->Hotel->HotelGroup->find('list');
@@ -145,4 +148,21 @@ class HotelsController extends AppController {
 		$this->Session->setFlash(__('Hotel was not deleted'));
 		return $this->redirect(array('action' => 'index'));
 	}
+	
+	public function admin_getcity(){
+            //pr($this->data);
+            $stateId = $this->data['state_id'];
+		    $cities = $this->Hotel->City->find('list',array('conditions'=>array('state_id'=>$stateId,'status'=>1),'recursive'=>'-1','order'=>'name'));
+            $this->set(compact('cities'));
+			$this->layout = 'ajax';
+    }
+
+	public function admin_getstate(){
+            //pr($this->data);
+            $countryId = $this->data['country_id'];
+		    $states = $this->Hotel->State->find('list',array('conditions'=>array('country_id'=>$countryId,'status'=>1),'recursive'=>'-1','order'=>'name'));
+            $this->set(compact('states'));
+			$this->layout = 'ajax';
+    }
+	
 }

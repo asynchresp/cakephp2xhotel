@@ -31,15 +31,85 @@ App::uses('AppModel', 'Model');
  */
 class Hotel extends AppModel {
 
+
+/**
+ * Imag Upload
+ *
+ * @var array
+ */    
+    public $actsAs = array(
+        'Upload.Upload' => array(
+            'hotel_logo'=> array(
+                'deleteOnUpdate'=>true,
+                'mode'=>0777,
+                'fields' => array(
+                    'dir' => 'hotel_logo_dir'
+                ),
+                'pathMethod'=>'primaryKey',
+                'path'=>'{ROOT}webroot{DS}img{DS}hotel_logo{DS}',
+                'thumbnailMethod'=>'php',
+                'thumbnailSizes' => array(
+                    'big' => '400w',
+                    'small' => '120w',
+                    'thumb' => '80w'
+                )
+            ), 
+			
+			'hotel_image'=> array(
+				'deleteOnUpdate'=>true,
+				'mode'=>0777,
+				'fields' => array(
+					'dir' => 'hotel_image_dir'
+				),
+				'pathMethod'=>'primaryKey',
+				'path'=>'{ROOT}webroot{DS}img{DS}hotel_image{DS}',
+				'thumbnailMethod'=>'php',
+				'thumbnailSizes' => array(
+					'big' => '400w',
+					'small' => '120w',
+					'thumb' => '80w'
+				)
+			), 
+			
+			'hotel_video'=> array(
+				'deleteOnUpdate'=>true,
+				'mode'=>0777,
+				'fields' => array(
+					'dir' => 'hotel_video_dir'
+				),
+				'pathMethod'=>'primaryKey',
+				'path'=>'{ROOT}webroot{DS}img{DS}hotel_video{DS}',
+				'thumbnailMethod'=>'php',
+				'thumbnailSizes' => array(
+					'big' => '400w',
+					'small' => '120w',
+					'thumb' => '80w'
+				)
+			)			
+			
+			 
+        )
+    );
+	
 /**
  * Validation rules
  *
  * @var array
  */
 	public $validate = array(
-		'hotel_facility_id' => array(
-			'numeric' => array(
-				'rule' => array('numeric'),
+		//'hotel_facility_id' => array(
+			//'numeric' => array(
+				//'rule' => array('numeric'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			//),
+		//),
+		'site_id' => array(
+			'notempty' => array(
+				'rule' => array('notempty'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -47,6 +117,17 @@ class Hotel extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
+		'hotel_group_id' => array(
+			'notempty' => array(
+				'rule' => array('notempty'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),				
+		
 		'name' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
@@ -78,25 +159,20 @@ class Hotel extends AppModel {
 			),
 		),
 		'hotel_logo' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
+                    'rule' => array('isValidExtension', array('jpg','jpeg','png'),false),
+                    'message' => 'Only support jpg,png extension',
+                     
+         ),		
+		//'point_near_by_hotel' => array(
+			//'numeric' => array(
+				//'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
-		'point_near_by_hotel' => array(
-			'numeric' => array(
-				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
+			//),
+		//),
 		'hotel_type_id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
@@ -198,7 +274,7 @@ class Hotel extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'checkindatetime' => array(
+		/*'checkindatetime' => array(
 			'date' => array(
 				'rule' => array('date'),
 				//'message' => 'Your custom message here',
@@ -227,7 +303,13 @@ class Hotel extends AppModel {
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
-		),
+		),*/
+		'hotel_image' => array(
+                    'rule' => array('isValidExtension', array('jpg','jpeg','png'),false),
+                    'message' => 'Only support jpg,png extension',
+                     
+         ),
+		 
 		'status' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),

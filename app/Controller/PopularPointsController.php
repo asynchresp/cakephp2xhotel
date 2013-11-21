@@ -58,8 +58,8 @@ class PopularPointsController extends AppController {
 		$sites = $this->PopularPoint->Site->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
 		$activityTypes = $this->PopularPoint->ActivityType->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
 		$countries = $this->PopularPoint->Country->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
-		$states = $this->PopularPoint->State->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
-		$cities = $this->PopularPoint->City->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
+		//$states = $this->PopularPoint->State->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
+		//$cities = $this->PopularPoint->City->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
 		$tourPackages = $this->PopularPoint->TourPackage->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
 		$this->set(compact('sites', 'activityTypes', 'countries', 'states', 'cities', 'tourPackages'));
 	}

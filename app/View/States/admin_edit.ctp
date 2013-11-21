@@ -6,7 +6,8 @@
 		<!--<legend><?php // echo __('Edit State'); ?></legend>-->
 	<?php
 		echo $this->Form->input('id');
-		echo $this->Form->input('country_id');
+		//echo $this->Form->input('country_id');
+		echo $this -> Form -> input('country_id', array('id' => 'StateCountryId', 'label' => 'Country','class'=>'{validate:{required : true, messages:{required:"Please enter Country"}}}','empty'=>'Select Country'));
 		echo $this->Form->input('name');
 		echo $this->Form->input('description', array('class'=>'ckeditor'));
 		//echo $this->Form->input('status');

@@ -56,8 +56,8 @@ class HotelRoomsController extends AppController {
 			}
 		}
 		$countries = $this->HotelRoom->Country->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
-		$states = $this->HotelRoom->State->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
-		$cities = $this->HotelRoom->City->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
+		//$states = $this->HotelRoom->State->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
+		//$cities = $this->HotelRoom->City->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
 		$hotels = $this->HotelRoom->Hotel->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
 		$roomTypes = $this->HotelRoom->RoomType->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
 		$foodMenuTypes = $this->HotelRoom->FoodMenuType->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));

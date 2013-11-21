@@ -27,9 +27,9 @@
 		$attributes = array('legend' => false);
 		echo $this->Form->radio('status', $options, $attributes);
 				
-		echo $this->Form->input('HotelFacilityCategory');
+		/*echo $this->Form->input('HotelFacilityCategory');
 		echo $this->Form->input('HotelRoom');
-		echo $this->Form->input('Hotel');
+		echo $this->Form->input('Hotel');*/
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>

@@ -25,7 +25,15 @@
 		</dd>
 		<dt><?php echo __('Hfc Image'); ?></dt>
 		<dd>
-			<?php echo h($hotelFacilityCategory['HotelFacilityCategory']['hfc_image']); ?>
+			<?php //echo h($hotelFacilityCategory['HotelFacilityCategory']['hfc_image']); ?>
+			<?php
+			$filename = ROOT.DS."app".DS."webroot".DS."img".DS."hfc_image".DS.h($hotelFacilityCategory['HotelFacilityCategory']['hfc_image_dir']).DS.h($hotelFacilityCategory['HotelFacilityCategory']['hfc_image']);
+			if(file_exists($filename)) {
+				echo $this->Html->image('/app/webroot/img/hfc_image/' . h($hotelFacilityCategory['HotelFacilityCategory']['hfc_image_dir'] . "/small_".h($hotelFacilityCategory['HotelFacilityCategory']['hfc_image'])), array('alt'=>h($hotelFacilityCategory['HotelFacilityCategory']['name'])));
+			} else {
+				echo $this->Html->image('/app/webroot/img/admin/small_no_image.png', array('alt'=>h($hotelFacilityCategory['HotelFacilityCategory']['name'])));
+			}
+			?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Hfc Order'); ?></dt>

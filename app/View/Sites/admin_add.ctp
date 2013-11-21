@@ -7,6 +7,7 @@
             data:'country_id='+countryId,
             success:function(data){
                 $('#stateDiv').html(data);
+				getCitiesByAjax(0);
             },
             error:function(message){
                 alert(message);
@@ -18,7 +19,6 @@
        
         jQuery.ajax({
             type:'POST',
-           /* url:'<?php echo Router::url('/admin/sites/getcity/',false);?>',*/
 			url:'<?php echo Router::url(array('controller'=>'sites','action'=>'getcity'),false);?>',
             data:'state_id='+stateId,
             success:function(data){
@@ -43,6 +43,7 @@
 		echo $this->Form->input('site_base_url');
 		echo $this->Form->input('site_base_path');
 		echo $this->Form->input('site_logo',array('type'=>'file'));
+		
 		echo $this->Form->input('site_bckgrd_color');
 		echo $this->Form->input('site_foregrd_color');
 		echo $this->Form->input('address_line1');

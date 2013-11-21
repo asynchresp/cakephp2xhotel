@@ -1,5 +1,5 @@
 <div class="sites index">
-	<!--<h2><?php // echo __('Sites'); ?></h2>-->
+	<?php /* ?><h2><?php echo __('Sites'); ?></h2><?php */ ?>
         
         <div class="um_box_mid_content_top"><span class="umstyle1"><?php echo __('Sites'); ?></span></div>
         <div class="content_mid">
@@ -68,7 +68,7 @@
 		<td><?php echo h($site['Site']['modified']); ?>&nbsp;</td>
 		<td><?php echo h($site['Site']['created']); ?>&nbsp;</td><?php */ ?>
 		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $site['Site']['id']),array('class'=>'view')); ?>
+			<?php echo $this->Html->link(__('View'), array('action' => 'view', $site['Site']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $site['Site']['id'])); ?>
 			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $site['Site']['id']), null, __('Are you sure you want to delete # %s?', $site['Site']['id'])); ?>
 		</td>

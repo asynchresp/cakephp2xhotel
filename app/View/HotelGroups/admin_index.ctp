@@ -23,7 +23,16 @@
 	<tr>
 		<td><?php echo h($hotelGroup['HotelGroup']['id']); ?>&nbsp;</td>
 		<td><?php echo h($hotelGroup['HotelGroup']['name']); ?>&nbsp;</td>
-		<td><?php echo h($hotelGroup['HotelGroup']['hotel_group_logo']); ?>&nbsp;</td>
+		<td>
+		<?php
+			$filename = ROOT.DS."app".DS."webroot".DS."img".DS."hotel_group_logo".DS.h($hotelGroup['HotelGroup']['hotel_group_logo_dir']).DS.h($hotelGroup['HotelGroup']['hotel_group_logo']);
+			if(file_exists($filename)) {
+				echo $this->Html->image('/app/webroot/img/hotel_group_logo/' . h($hotelGroup['HotelGroup']['hotel_group_logo_dir'] . "/thumb_".h($hotelGroup['HotelGroup']['hotel_group_logo'])), array('alt'=>h($hotelGroup['HotelGroup']['name'])));
+			} else {
+				echo $this->Html->image('/app/webroot/img/admin/thumb_no_image.png', array('alt'=>h($hotelGroup['HotelGroup']['name'])));
+			}
+		?>&nbsp;		
+		</td>
 		<td><?php if(h($hotelGroup['HotelGroup']['status'])) { echo "Active"; } else { echo "Inactive"; } ?>&nbsp;</td>
 	
 		

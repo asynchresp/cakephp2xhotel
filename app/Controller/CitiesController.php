@@ -56,7 +56,7 @@ class CitiesController extends AppController {
 			}
 		}
 		$countries = $this->City->Country->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
-		$states = $this->City->State->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
+		//$states = $this->City->State->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
 		$this->set(compact('countries', 'states'));
 	}
 

@@ -10,6 +10,31 @@ App::uses('AppModel', 'Model');
 class HotelGroup extends AppModel {
 
 /**
+ * Imag Upload
+ *
+ * @var array
+ */    
+    public $actsAs = array(
+        'Upload.Upload' => array(
+            'hotel_group_logo'=> array(
+                'deleteOnUpdate'=>true,
+                'mode'=>0777,
+                'fields' => array(
+                    'dir' => 'hotel_group_logo_dir'
+                ),
+                'pathMethod'=>'primaryKey',
+                'path'=>'{ROOT}webroot{DS}img{DS}hotel_group_logo{DS}',
+                'thumbnailMethod'=>'php',
+                'thumbnailSizes' => array(
+                    'big' => '400w',
+                    'small' => '120w',
+                    'thumb' => '80w'
+                )
+            )   
+        )
+    );
+	
+/**
  * Validation rules
  *
  * @var array
@@ -26,6 +51,16 @@ class HotelGroup extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
+		'site_id' => array(
+			'notempty' => array(
+				'rule' => array('notempty'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),		
 		'description' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
@@ -37,15 +72,10 @@ class HotelGroup extends AppModel {
 			),
 		),
 		'hotel_group_logo' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
+                    'rule' => array('isValidExtension', array('jpg','jpeg','png'),false),
+                    'message' => 'Only support jpg,png extension',
+                     
+         ),
 		'meta_title' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),

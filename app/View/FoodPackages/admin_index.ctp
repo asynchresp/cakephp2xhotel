@@ -5,8 +5,8 @@
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
-			<th><?php echo $this->Paginator->sort('food_menu_type_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('title'); ?></th>
+			<th><?php echo $this->Paginator->sort('food_menu_type_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('status'); ?></th>
 			
 			<?php /* ?><th><?php echo $this->Paginator->sort('child_age_below1'); ?></th>
@@ -32,10 +32,10 @@
 	<?php foreach ($foodPackages as $foodPackage): ?>
 	<tr>
 		<td><?php echo h($foodPackage['FoodPackage']['id']); ?>&nbsp;</td>
+		<td><?php echo h($foodPackage['FoodPackage']['title']); ?>&nbsp;</td>
 		<td>
 			<?php echo $this->Html->link($foodPackage['FoodMenuType']['name'], array('controller' => 'food_menu_types', 'action' => 'view', $foodPackage['FoodMenuType']['id'])); ?>
 		</td>
-		<td><?php echo h($foodPackage['FoodPackage']['title']); ?>&nbsp;</td>
 		<td><?php if(h($foodPackage['FoodPackage']['status'])) { echo "Active"; } else { echo "Inactive"; } ?>&nbsp;</td>
 		
 		<?php /* ?><td><?php echo h($foodPackage['FoodPackage']['child_age_below1']); ?>&nbsp;</td>

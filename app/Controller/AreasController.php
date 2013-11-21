@@ -56,8 +56,8 @@ class AreasController extends AppController {
 			}
 		}
 		$countries = $this->Area->Country->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
-		$states = $this->Area->State->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
-		$cities = $this->Area->City->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
+		//$states = $this->Area->State->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
+		//$cities = $this->Area->City->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
 		$this->set(compact('countries', 'states', 'cities'));
 	}
 

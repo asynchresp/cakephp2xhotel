@@ -8,11 +8,12 @@
 			<th><?php echo $this->Paginator->sort('name'); ?></th>
 			<th><?php echo $this->Paginator->sort('hotel_facility_category_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('hf_order'); ?></th>
-			<th><?php echo $this->Paginator->sort('show_at_checkout'); ?></th>
+			
 			<th><?php echo $this->Paginator->sort('status'); ?></th>
 			
 			
-			<?php /* ?><th><?php echo $this->Paginator->sort('site_id'); ?></th>
+			<?php /* ?><th><?php echo $this->Paginator->sort('show_at_checkout'); ?></th>
+			<th><?php echo $this->Paginator->sort('site_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('description'); ?></th>
 			<th><?php echo $this->Paginator->sort('hf_image'); ?></th>
 			<th><?php echo $this->Paginator->sort('price_for_adults'); ?></th>

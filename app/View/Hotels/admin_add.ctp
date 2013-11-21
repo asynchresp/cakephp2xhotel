@@ -1,35 +1,78 @@
+<script language="javascript" type="text/javascript">
+
+	function getStatesByAjax(countryId) {
+		jQuery.ajax({
+            type:'POST',
+ 			url:'<?php echo Router::url(array('controller'=>'hotels','action'=>'getstate'),false);?>',
+            data:'country_id='+countryId,
+            success:function(data){
+                $('#stateDiv').html(data);
+				getCitiesByAjax(0);
+            },
+            error:function(message){
+                alert(message);
+            }
+        });	
+	}
+
+	function getCitiesByAjax(stateId){
+       
+        jQuery.ajax({
+            type:'POST',
+			url:'<?php echo Router::url(array('controller'=>'hotels','action'=>'getcity'),false);?>',
+            data:'state_id='+stateId,
+            success:function(data){
+                $('#cityDiv').html(data);
+            },
+            error:function(message){
+                alert(message);
+            }
+        });
+       
+    }	
+</script>
+
 <div class="hotels form">
     <div class="um_box_mid_content_top"><span class="umstyle1"><?php echo __('Add Hotel'); ?></span></div>
         <div class="content_mid">
-<?php echo $this->Form->create('Hotel'); ?>
+<?php echo $this->Form->create('Hotel',array('type'=>'file')); ?>
 	<fieldset>
 		<!--<legend><?php // echo __('Add Hotel'); ?></legend>-->
 	<?php
-		//echo $this->Form->input('site_id');
-		echo $this->Form->input('hotel_group_id');
+		echo $this->Form->input('site_id', array('selected'=>'6'));
+		echo $this->Form->input('hotel_group_id', array('selected'=>'3'));
 		echo $this->Form->input('name');
 		echo $this->Form->input('short_description');
 		echo $this->Form->input('long_description', array('class'=>'ckeditor'));
 		//echo $this->Form->input('hotel_logo');
 		echo $this->Form->input('hotel_logo', array('type' => 'file'));
 		echo $this->Form->input('hotel_order');
-		echo $this->Form->input('point_near_by_hotel');
+		//echo $this->Form->input('point_near_by_hotel');
 		echo $this->Form->input('hotel_type_id');
-		echo $this->Form->input('hotel_theme_id');
+		//echo $this->Form->input('hotel_theme_id');
+		echo $this->Form->input('HotelTheme');
 		echo $this->Form->input('area');
 		echo $this->Form->input('address_line1');
 		echo $this->Form->input('address_line2');
-		echo $this->Form->input('country_id');
+		/*echo $this->Form->input('country_id');
 		echo $this->Form->input('state_id');
-		echo $this->Form->input('city_id');
+		echo $this->Form->input('city_id');*/
+		echo $this->Form->input('country_id', array('id'=>'HotelCountryId', 'label'=>'Country','class'=>'{validate:{required : true, messages:{required:"Please enter Country"}}}','onchange'=>"getStatesByAjax(this.value);",'empty'=>'Select Country'));
+		echo '<div id="stateDiv">';
+		echo $this->Form->input('state_id', array('id'=>'HotelStateId', 'label'=>'State','class'=>'{validate:{required : true, messages:{required:"Please enter State"}}}','onchange'=>"getCitiesByAjax(this.value);",'empty'=>'Select State'));
+		echo '</div>';	
+		echo '<div id="cityDiv">';
+		echo $this->Form->input('city_id',array('id'=>'HotelCityId','label'=>'City','class'=>'{validate:{required : true, messages:{required:"Please select City"}}}','empty'=>'Select City'));
+		echo '</div>';			
 		echo $this->Form->input('latitude');
 		echo $this->Form->input('longitude');
 		echo $this->Form->input('star_rating_id');
 		echo $this->Form->input('checkindatetime');
 		echo $this->Form->input('checkoutdatetime');
 		echo $this->Form->input('hotel_facility_category_id');
-		echo $this->Form->input('hotel_facility_id');
-		/*echo $this->Form->input('hotel_image');
+		echo $this->Form->input('HotelFacility');
+		/*echo $this->Form->input('hotel_facility_id');
+		echo $this->Form->input('hotel_image');
 		echo $this->Form->input('hotel_video');*/
 		echo $this->Form->input('hotel_image', array('type' => 'file'));
 		echo $this->Form->input('hotel_video', array('type' => 'file'));
@@ -50,14 +93,13 @@
 		$attributes = array('legend' => false);
 		echo $this->Form->radio('status', $options, $attributes);
 				
-		echo $this->Form->input('HotelGroup');
-		echo $this->Form->input('HotelCancellationPolicy');
-		echo $this->Form->input('HotelFacility');
-		echo $this->Form->input('HotelFacilityCategory');
-		echo $this->Form->input('HotelModificationPolicy');
-		echo $this->Form->input('HotelTheme');
+		//echo $this->Form->input('HotelGroup');
+		//echo $this->Form->input('HotelCancellationPolicy');
+		//echo $this->Form->input('HotelFacilityCategory');
+		//echo $this->Form->input('HotelModificationPolicy');
+		//echo $this->Form->input('HotelTheme');
 		echo $this->Form->input('PointNearByHotel');
-		echo $this->Form->input('StarRating');
+		//echo $this->Form->input('StarRating');
 		echo $this->Form->input('Tax');
 	?>
 	</fieldset>

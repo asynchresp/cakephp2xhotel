@@ -5,7 +5,7 @@
 	<fieldset>
 		<!--<legend><?php // echo __('Add Hotel Group'); ?></legend>-->
 	<?php
-		//echo $this->Form->input('site_id');
+		echo $this->Form->input('site_id', array('selected'=>'6'));
 		echo $this->Form->input('name');
 		echo $this->Form->input('description', array('class'=>'ckeditor'));
 		//echo $this->Form->input('hotel_group_logo');
@@ -21,7 +21,7 @@
 		$attributes = array('legend' => false);
 		echo $this->Form->radio('status', $options, $attributes);		
 		
-		echo $this->Form->input('Hotel');
+		//echo $this->Form->input('Hotel');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>

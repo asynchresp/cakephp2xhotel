@@ -17,7 +17,7 @@
 		$options = array('1' => 'Active', '0' => 'Inactive');
 		$attributes = array('legend' => false);
 		echo $this->Form->radio('status', $options, $attributes);			
-		echo $this->Form->input('HotelRoom');
+		//echo $this->Form->input('HotelRoom');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>

@@ -55,8 +55,8 @@ class HotelGroupsController extends AppController {
 				$this->Session->setFlash(__('The hotel group could not be saved. Please, try again.'));
 			}
 		}
-		$sites = $this->HotelGroup->Site->find('list');
-		$hotels = $this->HotelGroup->Hotel->find('list');
+		$sites = $this->HotelGroup->Site->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
+		$hotels = $this->HotelGroup->Hotel->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
 		$this->set(compact('sites', 'hotels'));
 	}
 
@@ -82,8 +82,8 @@ class HotelGroupsController extends AppController {
 			$options = array('conditions' => array('HotelGroup.' . $this->HotelGroup->primaryKey => $id));
 			$this->request->data = $this->HotelGroup->find('first', $options);
 		}
-		$sites = $this->HotelGroup->Site->find('list');
-		$hotels = $this->HotelGroup->Hotel->find('list');
+		$sites = $this->HotelGroup->Site->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
+		$hotels = $this->HotelGroup->Hotel->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
 		$this->set(compact('sites', 'hotels'));
 	}
 

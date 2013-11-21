@@ -13,6 +13,30 @@ App::uses('AppModel', 'Model');
  */
 class HotelFacilityCategory extends AppModel {
 
+/**
+ * Imag Upload
+ *
+ * @var array
+ */    
+    public $actsAs = array(
+        'Upload.Upload' => array(
+            'hfc_image'=> array(
+                'deleteOnUpdate'=>true,
+                'mode'=>0777,
+                'fields' => array(
+                    'dir' => 'hfc_image_dir'
+                ),
+                'pathMethod'=>'primaryKey',
+                'path'=>'{ROOT}webroot{DS}img{DS}hfc_image{DS}',
+                'thumbnailMethod'=>'php',
+                'thumbnailSizes' => array(
+                    'big' => '400w',
+                    'small' => '120w',
+                    'thumb' => '80w'
+                )
+            )   
+        )
+    );
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
@@ -52,15 +76,10 @@ class HotelFacilityCategory extends AppModel {
 			),
 		),
 		'hfc_image' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
+                    'rule' => array('isValidExtension', array('jpg','jpeg','png'),false),
+                    'message' => 'Only support jpg,png extension',
+                     
+         ),
 		'status' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),

@@ -7,6 +7,7 @@
             data:'country_id='+countryId,
             success:function(data){
                 $('#stateDiv').html(data);
+				getCitiesByAjax(0);
             },
             error:function(message){
                 alert(message);
@@ -67,7 +68,9 @@
 		echo $this->Form->input('food_menu_type_id');
 		echo $this->Form->input('food_package_id');
 		echo $this->Form->input('hotel_facility_category_id');
-		echo $this->Form->input('hotel_facility_id');
+		//echo $this->Form->input('hotel_facility_id');
+		echo $this->Form->input('hotel_facility_id', array('type' => 'hidden'));
+		echo $this->Form->input('HotelFacility');
 		echo $this->Form->input('room_price');
 		echo $this->Form->input('pricing_tax_status');
 		echo $this->Form->input('tax_id');
@@ -100,11 +103,11 @@
 		$attributes = array('legend' => false);
 		echo $this->Form->radio('status', $options, $attributes);
 		echo $this->Form->input('Coupon');
-		echo $this->Form->input('FoodMenuType');
+		/*echo $this->Form->input('FoodMenuType');
 		echo $this->Form->input('FoodPackage');
 		echo $this->Form->input('HotelFacility');
 		echo $this->Form->input('HotelFacilityCategory');
-		echo $this->Form->input('Tax');
+		echo $this->Form->input('Tax');*/
 		echo $this->Form->input('TourPackage');
 	?>
 	</fieldset>

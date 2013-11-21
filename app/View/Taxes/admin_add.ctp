@@ -7,6 +7,7 @@
             data:'country_id='+countryId,
             success:function(data){
                 $('#stateDiv').html(data);
+				getCitiesByAjax(0);
             },
             error:function(message){
                 alert(message);

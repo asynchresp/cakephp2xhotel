@@ -5,17 +5,30 @@
 	<fieldset>
 		<!--<legend><?php // echo __('Edit Hotel'); ?></legend>-->
 	<?php
-		//echo $this->Form->input('id');
-		echo $this->Form->input('site_id');
-		echo $this->Form->input('hotel_group_id');
+		$data = $this->request->data;
+		echo $this->Form->input('id');
+		echo $this->Form->input('site_id', array('empty'=>'Select Site'));
+		echo $this->Form->input('hotel_group_id', array('empty'=>'Select Group'));
 		echo $this->Form->input('name');
 		echo $this->Form->input('short_description');
 		echo $this->Form->input('long_description', array('class'=>'ckeditor'));
-		echo $this->Form->input('hotel_logo');
+		echo $this->Form->input('hotel_logo',array('type'=>'file'));
+		$filename = ROOT.DS."app".DS."webroot".DS."img".DS."hotel_logo".DS.h($data['Hotel']['hotel_logo_dir']).DS.h($data['Hotel']['hotel_logo']);
+		$fileExistChk = 0;
+		if(file_exists($filename)) {
+			$fileExistChk = 1;
+			echo $this->Html->image('/app/webroot/img/hotel_logo/' . h($data['Hotel']['hotel_logo_dir'] . "/thumb_".h($data['Hotel']['hotel_logo'])), array('alt'=>h($data['Hotel']['name'])));
+		} else {
+			echo $this->Html->image('/app/webroot/img/admin/thumb_no_image.png', array('alt'=>h($data['Hotel']['name'])));
+		}
+		if($fileExistChk == 1) {	
+        echo $this->Form->input('hotel.hotel_logo.remove', array('type' => 'checkbox', 'label' => 'Remove existing file'));
+		}		
 		echo $this->Form->input('hotel_order');
-		echo $this->Form->input('point_near_by_hotel');
+		//echo $this->Form->input('point_near_by_hotel');
 		echo $this->Form->input('hotel_type_id');
-		echo $this->Form->input('hotel_theme_id');
+		//echo $this->Form->input('hotel_theme_id');
+		echo $this->Form->input('HotelTheme');
 		echo $this->Form->input('area');
 		echo $this->Form->input('address_line1');
 		echo $this->Form->input('address_line2');
@@ -28,11 +41,28 @@
 		echo $this->Form->input('checkindatetime');
 		echo $this->Form->input('checkoutdatetime');
 		echo $this->Form->input('hotel_facility_category_id');
-		echo $this->Form->input('hotel_facility_id');
-		/*echo $this->Form->input('hotel_image');
+		echo $this->Form->input('HotelFacility');
+		/*echo $this->Form->input('hotel_facility_id');
+		echo $this->Form->input('hotel_image');
 		echo $this->Form->input('hotel_video');*/
 		echo $this->Form->input('hotel_image', array('type' => 'file'));
+		$filename = ROOT.DS."app".DS."webroot".DS."img".DS."hotel_image".DS.h($data['Hotel']['hotel_image_dir']).DS.h($data['Hotel']['hotel_image']);
+		$fileExistChk = 0;
+		if(file_exists($filename)) {
+			$fileExistChk = 1;
+			echo $this->Html->image('/app/webroot/img/hotel_image/' . h($data['Hotel']['hotel_image_dir'] . "/thumb_".h($data['Hotel']['hotel_image'])), array('alt'=>h($data['Hotel']['name'])));
+		} else {
+			echo $this->Html->image('/app/webroot/img/admin/thumb_no_image.png', array('alt'=>h($data['Hotel']['name'])));
+		}
+		if($fileExistChk == 1) {	
+        echo $this->Form->input('hotel.hotel_image.remove', array('type' => 'checkbox', 'label' => 'Remove existing file'));
+		}		
 		echo $this->Form->input('hotel_video', array('type' => 'file'));
+		//echo $filename = ROOT.DS."app".DS."webroot".DS."img".DS."hotel_video".DS.h($data['Hotel']['hotel_video_dir']).DS.h($data['Hotel']['hotel_video']);
+		$videofile = FULL_BASE_URL.'/hotel/app/webroot/img/hotel_video/' . h($data['Hotel']['hotel_video_dir']) . "/".h($data['Hotel']['hotel_video']);
+		
+		//echo $this->Html->media($videofile, array('fullBase' => true,'text' => 'Fallback text'));
+		//echo $this->Html->media(array($videofile, array('src' => 'video.ogg', 'type' => "video/ogg; codecs='theora, vorbis'")),array('autoplay'));
 		
 		echo $this->Form->input('pricing_tax_status');
 		echo $this->Form->input('hotel_tax');
@@ -49,14 +79,13 @@
 		$attributes = array('legend' => false);
 		echo $this->Form->radio('status', $options, $attributes);
 				
-		echo $this->Form->input('HotelGroup');
+		/*echo $this->Form->input('HotelGroup');
 		echo $this->Form->input('HotelCancellationPolicy');
 		echo $this->Form->input('HotelFacility');
 		echo $this->Form->input('HotelFacilityCategory');
-		echo $this->Form->input('HotelModificationPolicy');
-		echo $this->Form->input('HotelTheme');
+		echo $this->Form->input('HotelModificationPolicy');*/
 		echo $this->Form->input('PointNearByHotel');
-		echo $this->Form->input('StarRating');
+		//echo $this->Form->input('StarRating');
 		echo $this->Form->input('Tax');
 	?>
 	</fieldset>

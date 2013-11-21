@@ -25,8 +25,15 @@
 		</dd>
 		<dt><?php echo __('Hotel Group Logo'); ?></dt>
 		<dd>
-			<?php echo h($hotelGroup['HotelGroup']['hotel_group_logo']); ?>
-			&nbsp;
+			<?php //echo h($hotelGroup['HotelGroup']['hotel_group_logo']); ?>
+			<?php
+			$filename = ROOT.DS."app".DS."webroot".DS."img".DS."hotel_group_logo".DS.h($hotelGroup['HotelGroup']['hotel_group_logo_dir']).DS.h($hotelGroup['HotelGroup']['hotel_group_logo']);
+			if(file_exists($filename)) {
+				echo $this->Html->image('/app/webroot/img/hotel_group_logo/' . h($hotelGroup['HotelGroup']['hotel_group_logo_dir'] . "/small_".h($hotelGroup['HotelGroup']['hotel_group_logo'])), array('alt'=>h($hotelGroup['HotelGroup']['name'])));
+			} else {
+				echo $this->Html->image('/app/webroot/img/admin/small_no_image.png', array('alt'=>h($hotelGroup['HotelGroup']['name'])));
+			}
+			?>
 		</dd>
 		<dt><?php echo __('Group Order'); ?></dt>
 		<dd>

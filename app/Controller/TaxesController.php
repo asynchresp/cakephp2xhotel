@@ -57,8 +57,8 @@ class TaxesController extends AppController {
 		}
 		$sites = $this->Tax->Site->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
 		$countries = $this->Tax->Country->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
-		$states = $this->Tax->State->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
-		$cities = $this->Tax->City->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
+		//$states = $this->Tax->State->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
+		//$cities = $this->Tax->City->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
 		$hotelRooms = $this->Tax->HotelRoom->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
 		$hotels = $this->Tax->Hotel->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
 		$tourPackages = $this->Tax->TourPackage->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));

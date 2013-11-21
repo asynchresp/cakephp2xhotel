@@ -57,8 +57,8 @@ class PointNearByHotelsController extends AppController {
 		}
 		$sites = $this->PointNearByHotel->Site->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
 		$countries = $this->PointNearByHotel->Country->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
-		$states = $this->PointNearByHotel->State->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
-		$cities = $this->PointNearByHotel->City->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
+		//$states = $this->PointNearByHotel->State->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
+		//$cities = $this->PointNearByHotel->City->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
 		$hotels = $this->PointNearByHotel->Hotel->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
 		$this->set(compact('sites', 'countries', 'states', 'cities', 'hotels'));
 	}

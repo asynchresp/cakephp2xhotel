@@ -35,7 +35,15 @@
 		</dd>
 		<dt><?php echo __('Hf Image'); ?></dt>
 		<dd>
-			<?php echo h($hotelFacility['HotelFacility']['hf_image']); ?>
+			<?php //echo h($hotelFacility['HotelFacility']['hf_image']); ?>
+			<?php
+			$filename = ROOT.DS."app".DS."webroot".DS."img".DS."hf_image".DS.h($hotelFacility['HotelFacility']['hf_image_dir']).DS.h($hotelFacility['HotelFacility']['hf_image']);
+			if(file_exists($filename)) {
+				echo $this->Html->image('/app/webroot/img/hf_image/' . h($hotelFacility['HotelFacility']['hf_image_dir'] . "/small_".h($hotelFacility['HotelFacility']['hf_image'])), array('alt'=>h($hotelFacility['HotelFacility']['name'])));
+			} else {
+				echo $this->Html->image('/app/webroot/img/admin/small_no_image.png', array('alt'=>h($hotelFacility['HotelFacility']['name'])));
+			}
+			?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Show At Checkout'); ?></dt>
