@@ -1,1 +1,21 @@
+
+ALTER TABLE `hotel_groups` ADD `hotel_group_logo_dir` VARCHAR( 255 ) NOT NULL AFTER `hotel_group_logo` 
+
+ALTER TABLE `hotels` ADD `hotel_logo_dir` VARCHAR( 255 ) NOT NULL AFTER `hotel_logo` 
+
+
+ALTER TABLE `hotels`  ADD `hotel_image_dir` VARCHAR(255) NOT NULL AFTER `hotel_image`
+
+ALTER TABLE `hotels` ADD `hotel_video_dir` VARCHAR( 255 ) NOT NULL AFTER `hotel_video`
+
+
+ALTER TABLE `hotel_facility_categories`  ADD `hfc_image_dir` VARCHAR(255) NOT NULL AFTER `hfc_image`
+
+
+
+
+
+
+
+
 Help Taken By Heera Singh Koranga Dt: 27-SEP-2013 
