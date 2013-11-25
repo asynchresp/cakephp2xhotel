@@ -67,7 +67,8 @@
 		echo $this->Form->input('latitude');
 		echo $this->Form->input('longitude');
 		echo $this->Form->input('star_rating_id');
-		echo $this->Form->input('checkindatetime');
+		//echo $this->Form->input('checkindatetime');
+		echo $datePicker->picker('checkindatetime'); 
 		echo $this->Form->input('checkoutdatetime');
 		echo $this->Form->input('hotel_facility_category_id');
 		echo $this->Form->input('HotelFacility');

@@ -34,15 +34,22 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		echo $this->fetch('css');
 		echo $this->fetch('script');
 	?>
+	<?php echo $this->Html->script(array('jscalendar/jscal2', 'jscalendar/lang/en')); ?>
+<?php echo $html->css('jscal2', 'stylesheet')."\n"; ?>
+<?php echo $html->css('border-radius', 'stylesheet')."\n"; ?>
+<?php echo $html->css('steel/steel', 'stylesheet')."\n"; ?>
+<?php //echo $html->css('gold/gold', 'stylesheet')."\n"; ?>
+<?php //echo $html->css('matrix/matrix', 'stylesheet')."\n"; ?>
+<?php //echo $html->css('win2k/win2k', 'stylesheet')."\n"; ?> 
 </head>
 <body>
 	<div id="container">
 		<div id="header">
 			<h1><?php //echo $this->Html->link($cakeDescription, 'http://cakephp.org'); ?>
 			<ul>
-				<li><?php echo $this->Html->link(__('Home'), FULL_BASE_URL.'/bnbhotel/index'); ?></li>
-				<li><?php echo $this->Html->link(__('Hotels'), FULL_BASE_URL.'/bnbhotel/admin/hotelgroups'); ?></li>
-				<li><?php echo $this->Html->link(__('Extra'), FULL_BASE_URL.'/bnbhotel/admin/countries'); ?></li>
+				<li><?php echo $this->Html->link(__('Home'), FULL_BASE_URL.'/testing/hotel/index'); ?></li>
+				<li><?php echo $this->Html->link(__('Hotels'), FULL_BASE_URL.'/testing/hotel/admin/hotelgroups'); ?></li>
+				<li><?php echo $this->Html->link(__('Extra'), FULL_BASE_URL.'/testing/hotel/admin/countries'); ?></li>
 				<?php /* ?><li><?php echo $this->Html->link(__('Hotels'), array('controller' => 'hotelgroups', 'action' => 'index')); ?></li>
 				<li><?php echo $this->Html->link(__('Home'), FULL_BASE_URL.'/hotel'); ?></li>
 				<li><?php echo $this->Html->link(__('Hotels'), array('controller' => 'hotelgroups', 'action' => 'index')); ?></li>
