@@ -37,7 +37,13 @@ $cakeDescription = __d('cake_dev', 'Orange BNB - Single Platform for Hotel(s), T
 		echo $this->fetch('css');
 		echo $this->fetch('script');
                 echo $this->Html->script('jquery-1.10.1.min')."\n";
+                echo $this->Html->script('jquery-ui-1.10.3.custom')."\n";
+                echo $this->Html->script('jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.min')."\n";
+                echo $this->Html->css('jquery-ui-1.10.3.custom/css/ui-lightness/jquery-ui-1.10.3.custom.min')."\n";
                 echo $this->Html->script('/js/ckeditor/ckeditor')."\n";
+                echo $this->Html->script('jquery-ui-timepicker-addon')."\n";
+                echo $this->Html->script('jquery-ui-sliderAccess')."\n";
+                echo $this->Html->css('jquery-ui-timepicker-addon')."\n";
 
 	?>
 </head>

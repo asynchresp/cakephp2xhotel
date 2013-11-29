@@ -67,8 +67,9 @@
 		echo $this->Form->input('latitude');
 		echo $this->Form->input('longitude');
 		echo $this->Form->input('star_rating_id');
-		echo $this->Form->input('checkindatetime');
-		echo $this->Form->input('checkoutdatetime');
+		echo $this->Form->input('checkindatetime',array('id'=>'checkindatetime','type'=>'text'));
+		echo $this->Form->input('checkoutdatetime',array('id'=>'checkoutdatetime','type'=>'text'));
+		
 		echo $this->Form->input('hotel_facility_category_id');
 		echo $this->Form->input('HotelFacility');
 		/*echo $this->Form->input('hotel_facility_id');
@@ -107,3 +108,19 @@
 </div>
 </div>
 <?php echo $this->element('left_nav');?>
+
+<script>
+  $(function() {
+//    $( "#checkindatetime" ).datetimepicker();
+    
+    $( "#checkindatetime" ).datetimepicker({
+        addSliderAccess: true,
+	sliderAccessArgs: { touchonly: false }
+    });
+    
+    $( "#checkoutdatetime" ).datetimepicker({
+        addSliderAccess: true,
+	sliderAccessArgs: { touchonly: false }
+    });
+  });
+  </script>

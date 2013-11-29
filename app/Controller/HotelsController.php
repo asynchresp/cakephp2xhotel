@@ -48,6 +48,12 @@ class HotelsController extends AppController {
 	public function admin_add() {
 		if ($this->request->is('post')) {
 			$this->Hotel->create();
+                        
+                        $this->request->data['Hotel']['checkindatetime'] = date('Y-m-d H:i:00', strtotime($this->request->data['Hotel']['checkindatetime']));
+                        
+                        pr($this->request->data);
+                        
+//                        die;
 			if ($this->Hotel->save($this->request->data)) {
 				$this->Session->setFlash(__('The hotel has been saved'));
 				return $this->redirect(array('action' => 'index'));
