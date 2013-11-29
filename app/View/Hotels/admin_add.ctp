@@ -114,11 +114,13 @@
 //    $( "#checkindatetime" ).datetimepicker();
     
     $( "#checkindatetime" ).datetimepicker({
+        dateFormat:'d M, y',
         addSliderAccess: true,
 	sliderAccessArgs: { touchonly: false }
     });
     
     $( "#checkoutdatetime" ).datetimepicker({
+        dateFormat:'d M, y',
         addSliderAccess: true,
 	sliderAccessArgs: { touchonly: false }
     });

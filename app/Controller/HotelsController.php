@@ -49,9 +49,11 @@ class HotelsController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Hotel->create();
                         
-                        $this->request->data['Hotel']['checkindatetime'] = date('Y-m-d H:i:00', strtotime($this->request->data['Hotel']['checkindatetime']));
                         
-                        pr($this->request->data);
+                        $this->request->data['Hotel']['checkindatetime'] = date('Y-m-d H:i:00', strtotime($this->request->data['Hotel']['checkindatetime']));
+                        $this->request->data['Hotel']['checkoutdatetime'] = date('Y-m-d H:i:00', strtotime($this->request->data['Hotel']['checkoutdatetime']));
+                        
+//                        pr($this->request->data);
                         
 //                        die;
 			if ($this->Hotel->save($this->request->data)) {
