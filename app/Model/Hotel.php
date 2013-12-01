@@ -107,12 +107,12 @@ class Hotel extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			//),
 		//),
-		'site_id' => array(
+		'user_id' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
-				//'required' => false,
+				'required' => true,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
@@ -330,16 +330,23 @@ class Hotel extends AppModel {
  * @var array
  */
 	public $belongsTo = array(
-		'Site' => array(
-			'className' => 'Site',
-			'foreignKey' => 'site_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
-		),
-		'HotelGroup' => array(
-			'className' => 'HotelGroup',
-			'foreignKey' => 'hotel_group_id',
+//		'Site' => array(
+//			'className' => 'Site',
+//			'foreignKey' => 'site_id',
+//			'conditions' => '',
+//			'fields' => '',
+//			'order' => ''
+//		),
+//		'HotelGroup' => array(
+//			'className' => 'HotelGroup',
+//			'foreignKey' => 'hotel_group_id',
+//			'conditions' => '',
+//			'fields' => '',
+//			'order' => ''
+//		),
+                'User' => array(
+			'className' => 'User',
+			'foreignKey' => 'user_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''

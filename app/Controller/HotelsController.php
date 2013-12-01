@@ -46,6 +46,7 @@ class HotelsController extends AppController {
  * @return void
  */
 	public function admin_add() {
+            
 		if ($this->request->is('post')) {
 			$this->Hotel->create();
                         
@@ -63,9 +64,20 @@ class HotelsController extends AppController {
 				$this->Session->setFlash(__('The hotel could not be saved. Please, try again.'));
 			}
 		}
-		$sites = $this->Hotel->Site->find('list');
-		$hotelGroups = $this->Hotel->HotelGroup->find('list');
-		$hotelTypes = $this->Hotel->HotelType->find('list');
+//		$sites = $this->Hotel->Site->find('list');
+//		$hotelGroups = $this->Hotel->HotelGroup->find('list');
+		
+                $this->Hotel->User->bindModel(array('belongsTo'=>array('UserGroup')));
+                $res=$this->Hotel->User->find('all',array('fields'=>array('id','first_name','last_name'),'conditions'=>array('active'=>'1','UserGroup.alias_name'=>'hotel_owner')));
+            
+                $users=array();
+                foreach($res as $v){
+                    $users[$v['User']['id']]=$v['User']['first_name'].''.$v['User']['last_name'];
+
+                }
+
+                
+                $hotelTypes = $this->Hotel->HotelType->find('list');
 		$hotelThemes = $this->Hotel->HotelTheme->find('list');
 		//$countries = $this->Hotel->Country->find('list');
 		$countries = $this->Hotel->Country->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
@@ -85,7 +97,7 @@ class HotelsController extends AppController {
 		$pointNearByHotels = $this->Hotel->PointNearByHotel->find('list');
 		$starRatings = $this->Hotel->StarRating->find('list');
 		$taxes = $this->Hotel->Tax->find('list');
-		$this->set(compact('sites', 'hotelGroups', 'hotelTypes', 'hotelThemes', 'countries', 'states', 'cities', 'starRatings', 'hotelFacilityCategories', 'hotelFacilities', 'hotelCancellationPolicies', 'hotelModificationPolicies', 'hotelGroups', 'hotelCancellationPolicies', 'hotelFacilities', 'hotelFacilityCategories', 'hotelModificationPolicies', 'hotelThemes', 'pointNearByHotels', 'starRatings', 'taxes'));
+		$this->set(compact('users','hotelTypes', 'hotelThemes', 'countries', 'states', 'cities', 'starRatings', 'hotelFacilityCategories', 'hotelFacilities', 'hotelCancellationPolicies', 'hotelModificationPolicies', 'hotelGroups', 'hotelCancellationPolicies', 'hotelFacilities', 'hotelFacilityCategories', 'hotelModificationPolicies', 'hotelThemes', 'pointNearByHotels', 'starRatings', 'taxes'));
 	}
 
 /**
