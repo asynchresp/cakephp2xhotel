@@ -20,6 +20,7 @@ class HotelsController extends AppController {
  *
  * @return void
  */
+ 
 	public function admin_index() {
 		$this->Hotel->recursive = 0;
 		$this->set('hotels', $this->Paginator->paginate());
@@ -88,7 +89,7 @@ class HotelsController extends AppController {
 		$hotelFacilities = $this->Hotel->HotelFacility->find('list');
 		$hotelCancellationPolicies = $this->Hotel->HotelCancellationPolicy->find('list');
 		$hotelModificationPolicies = $this->Hotel->HotelModificationPolicy->find('list');
-		$hotelGroups = $this->Hotel->HotelGroup->find('list');
+		//$hotelGroups = $this->Hotel->HotelGroup->find('list');
 		$hotelCancellationPolicies = $this->Hotel->HotelCancellationPolicy->find('list');
 		$hotelFacilities = $this->Hotel->HotelFacility->find('list');
 		$hotelFacilityCategories = $this->Hotel->HotelFacilityCategory->find('list');
@@ -125,7 +126,15 @@ class HotelsController extends AppController {
 			$selState = $this->request->data['State']['id'];
 		}
 		//$sites = $this->Hotel->Site->find('list');
-		$hotelGroups = $this->Hotel->HotelGroup->find('list');
+		//$hotelGroups = $this->Hotel->HotelGroup->find('list');
+		$this->Hotel->User->bindModel(array('belongsTo'=>array('UserGroup')));
+		$res=$this->Hotel->User->find('all',array('fields'=>array('id','first_name','last_name'),'conditions'=>array('active'=>'1','UserGroup.alias_name'=>'hotel_owner')));
+		
+		$users=array();
+		foreach($res as $v){
+			$users[$v['User']['id']]=$v['User']['first_name'].''.$v['User']['last_name'];
+		}
+		
 		$hotelTypes = $this->Hotel->HotelType->find('list');
 		$hotelThemes = $this->Hotel->HotelTheme->find('list');
 		$countries = $this->Hotel->Country->find('list');
@@ -136,7 +145,7 @@ class HotelsController extends AppController {
 		$hotelFacilities = $this->Hotel->HotelFacility->find('list');
 		$hotelCancellationPolicies = $this->Hotel->HotelCancellationPolicy->find('list');
 		$hotelModificationPolicies = $this->Hotel->HotelModificationPolicy->find('list');
-		$hotelGroups = $this->Hotel->HotelGroup->find('list');
+		//$hotelGroups = $this->Hotel->HotelGroup->find('list');
 		$hotelCancellationPolicies = $this->Hotel->HotelCancellationPolicy->find('list');
 		$hotelFacilities = $this->Hotel->HotelFacility->find('list');
 		$hotelFacilityCategories = $this->Hotel->HotelFacilityCategory->find('list');
@@ -145,7 +154,7 @@ class HotelsController extends AppController {
 		$pointNearByHotels = $this->Hotel->PointNearByHotel->find('list');
 		$starRatings = $this->Hotel->StarRating->find('list');
 		$taxes = $this->Hotel->Tax->find('list');
-		$this->set(compact('sites', 'hotelGroups', 'hotelTypes', 'hotelThemes', 'countries', 'states', 'cities', 'starRatings', 'hotelFacilityCategories', 'hotelFacilities', 'hotelCancellationPolicies', 'hotelModificationPolicies', 'hotelGroups', 'hotelCancellationPolicies', 'hotelFacilities', 'hotelFacilityCategories', 'hotelModificationPolicies', 'hotelThemes', 'pointNearByHotels', 'starRatings', 'taxes'));
+		$this->set(compact('users', 'hotelTypes', 'hotelThemes', 'countries', 'states', 'cities', 'starRatings', 'hotelFacilityCategories', 'hotelFacilities', 'hotelCancellationPolicies', 'hotelModificationPolicies', 'hotelGroups', 'hotelCancellationPolicies', 'hotelFacilities', 'hotelFacilityCategories', 'hotelModificationPolicies', 'hotelThemes', 'pointNearByHotels', 'starRatings', 'taxes'));
 	}
 
 /**
