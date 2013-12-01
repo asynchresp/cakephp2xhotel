@@ -72,7 +72,7 @@
 								}
 								echo"</td>";
 								echo "<td>".date('d-M-Y',strtotime($row['User']['created']))."</td>";
-								echo "<td>";
+								echo "<td nowrap>";
 //									echo "<span class='icon'><a href='".$this->Html->url('/viewUser/'.$row['User']['id'])."'><img src='".SITE_URL."usermgmt/img/view.png' border='0' alt='View' title='View'></a></span>";
                                                                         
                                                                         echo "<span class='icon'><a href='".$this->Html->url('/viewUser/'.$row['User']['id'])."'>View</a></span>";

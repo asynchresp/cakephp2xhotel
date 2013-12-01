@@ -39,8 +39,10 @@
 	<fieldset>
 		<!--<legend><?php // echo __('Add Hotel'); ?></legend>-->
 	<?php
-		echo $this->Form->input('site_id', array('selected'=>'6'));
-		echo $this->Form->input('hotel_group_id', array('selected'=>'3'));
+//		echo $this->Form->input('site_id', array('selected'=>'6'));
+//		echo $this->Form->input('hotel_group_id', array('selected'=>'3'));
+                echo $this->Form->input('user_id',array('empty'=>''));
+                
 		echo $this->Form->input('name');
 		echo $this->Form->input('short_description');
 		echo $this->Form->input('long_description', array('class'=>'ckeditor'));

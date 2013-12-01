@@ -1,4 +1,7 @@
 <?php 
+
+$groupName=strtolower($this->UserAuth->getGroupName());
+
 $controller=  strtolower($this->request->params['controller']);
 $action=  strtolower($this->request->params['action']);
 
@@ -21,7 +24,9 @@ $cmsControllerArr=array('activity_types','hotel_cancellation_policies','hotel_in
 	<h3><?php // echo __('Actions'); ?></h3>
 	<ul>
             
-                <li class='<?php echo ((in_array($controller,$generalControllerArr))?'has-sub active':'has-sub');?>'><?php echo $this->Html->link(__('General'),'#'); ?> 
+            <?php if($groupName!='hotel_owner'){ ?>    
+            
+            <li class='<?php echo ((in_array($controller,$generalControllerArr))?'has-sub active':'has-sub');?>'><?php echo $this->Html->link(__('General'),'#'); ?> 
                     <ul>
                         <li><?php echo $this->Html->link(__('All Site'), array('controller' => 'sites','action' => 'index')); ?>
                         <li><?php echo $this->Html->link(__('New Site'), array('controller' => 'sites','action' => 'add')); ?>
@@ -33,7 +38,7 @@ $cmsControllerArr=array('activity_types','hotel_cancellation_policies','hotel_in
                         <li><?php echo $this->Html->link(__('New City'), array('controller' => 'cities', 'action' => 'add')); ?> </li>
                     </ul>
                 </li>
-            
+            <?php }?>
             
                 <li class='<?php echo ((in_array($controller,$hotelManagementControllerArr))?'has-sub active':'has-sub');?>'><?php echo $this->Html->link(__('Hotel Management'),'#'); ?> 
                     <ul>
