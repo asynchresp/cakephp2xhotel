@@ -124,7 +124,7 @@ class HotelsController extends AppController {
 			$selCountry = $this->request->data['Country']['id'];
 			$selState = $this->request->data['State']['id'];
 		}
-		$sites = $this->Hotel->Site->find('list');
+		//$sites = $this->Hotel->Site->find('list');
 		$hotelGroups = $this->Hotel->HotelGroup->find('list');
 		$hotelTypes = $this->Hotel->HotelType->find('list');
 		$hotelThemes = $this->Hotel->HotelTheme->find('list');

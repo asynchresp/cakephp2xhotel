@@ -41,8 +41,7 @@
 	<?php
 //		echo $this->Form->input('site_id', array('selected'=>'6'));
 //		echo $this->Form->input('hotel_group_id', array('selected'=>'3'));
-                echo $this->Form->input('user_id',array('empty'=>''));
-                
+        echo $this->Form->input('user_id',array('empty'=>'Select User'));
 		echo $this->Form->input('name');
 		echo $this->Form->input('short_description');
 		echo $this->Form->input('long_description', array('class'=>'ckeditor'));
@@ -113,8 +112,6 @@
 
 <script>
   $(function() {
-//    $( "#checkindatetime" ).datetimepicker();
-    
     $( "#checkindatetime" ).datetimepicker({
         dateFormat:'d M, y',
         addSliderAccess: true,
@@ -127,4 +124,4 @@
 	sliderAccessArgs: { touchonly: false }
     });
   });
-  </script>
+</script>

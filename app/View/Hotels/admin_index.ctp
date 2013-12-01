@@ -7,7 +7,7 @@
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('name'); ?></th>
 			<th><?php echo $this->Paginator->sort('hotel_type_id'); ?></th>
-			<th><?php echo $this->Paginator->sort('hotel_group_id'); ?></th>
+			<?php /* ?><th><?php echo $this->Paginator->sort('hotel_group_id'); ?></th><?php */ ?>
 			<th><?php echo $this->Paginator->sort('area'); ?></th>
 			<th><?php echo $this->Paginator->sort('city_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('state_id'); ?></th>
@@ -53,9 +53,9 @@
 		<td>
 			<?php echo $this->Html->link($hotel['HotelType']['name'], array('controller' => 'hotel_types', 'action' => 'view', $hotel['HotelType']['id'])); ?>
 		</td>
-		<td>
+		<?php /* ?><td>
 			<?php echo $this->Html->link($hotel['HotelGroup']['name'], array('controller' => 'hotel_groups', 'action' => 'view', $hotel['HotelGroup']['id'])); ?>
-		</td>
+		</td><?php */ ?>
 		<td><?php echo h($hotel['Hotel']['area']); ?>&nbsp;</td>
 		<td>
 			<?php echo $this->Html->link($hotel['City']['name'], array('controller' => 'cities', 'action' => 'view', $hotel['City']['id'])); ?>

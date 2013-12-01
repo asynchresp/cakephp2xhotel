@@ -7,8 +7,9 @@
 	<?php
 		$data = $this->request->data;
 		echo $this->Form->input('id');
-		echo $this->Form->input('site_id', array('empty'=>'Select Site'));
-		echo $this->Form->input('hotel_group_id', array('empty'=>'Select Group'));
+		//echo $this->Form->input('site_id', array('empty'=>'Select Site'));
+		// $this->Form->input('hotel_group_id', array('empty'=>'Select Group'));
+		echo $this->Form->input('user_id',array('empty'=>'Select User'));
 		echo $this->Form->input('name');
 		echo $this->Form->input('short_description');
 		echo $this->Form->input('long_description', array('class'=>'ckeditor'));
