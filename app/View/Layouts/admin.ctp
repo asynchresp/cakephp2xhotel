@@ -45,6 +45,7 @@ $cakeDescription = __d('cake_dev', 'Orange BNB - Single Platform for Hotel(s), T
                 echo $this->Html->script('jquery-ui-sliderAccess')."\n";
                 echo $this->Html->css('jquery-ui-timepicker-addon')."\n";
 
+                echo $this->Html->script('jquery.blockUI')."\n";
 	?>
 </head>
 <body>
