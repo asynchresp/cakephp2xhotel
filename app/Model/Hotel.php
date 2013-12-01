@@ -38,7 +38,7 @@ class Hotel extends AppModel {
  * @var array
  */    
     public $actsAs = array(
-        'Upload.Upload' => array(
+       /* 'Upload.Upload' => array(
             'hotel_logo'=> array(
                 'deleteOnUpdate'=>true,
                 'mode'=>0777,
@@ -86,9 +86,8 @@ class Hotel extends AppModel {
 					'thumb' => '80w'
 				)
 			)			
-			
 			 
-        )
+        )*/
     );
 	
 /**
@@ -97,16 +96,16 @@ class Hotel extends AppModel {
  * @var array
  */
 	public $validate = array(
-		//'hotel_facility_id' => array(
-			//'numeric' => array(
-				//'rule' => array('numeric'),
+		'hotel_facility_id' => array(
+			'numeric' => array(
+				'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-//			),
-//		),
+			),
+		),
 		'user_id' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
@@ -117,7 +116,7 @@ class Hotel extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'hotel_group_id' => array(
+		/*'hotel_group_id' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
 				//'message' => 'Your custom message here',
@@ -126,7 +125,7 @@ class Hotel extends AppModel {
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
-		),				
+		),	*/			
 		
 		'name' => array(
 			'notempty' => array(
@@ -158,21 +157,21 @@ class Hotel extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'hotel_logo' => array(
+		/*'hotel_logo' => array(
                     'rule' => array('isValidExtension', array('jpg','jpeg','png'),false),
                     'message' => 'Only support jpg,png extension',
                      
-         ),		
-		//'point_near_by_hotel' => array(
-			//'numeric' => array(
-				//'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			//),
-		//),
+         ),	*/	
+		'point_near_by_hotel' => array(
+			'numeric' => array(
+				'rule' => array('numeric'),
+				'message' => 'Your custom message here',
+				'allowEmpty' => false,
+				'required' => false,
+				'last' => false, // Stop validation after this rule
+				'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
 		'hotel_type_id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
@@ -293,7 +292,7 @@ class Hotel extends AppModel {
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
-		),
+		),*/
 		'hotel_image' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
@@ -303,12 +302,12 @@ class Hotel extends AppModel {
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
-		),*/
-		'hotel_image' => array(
+		),
+		/*'hotel_image' => array(
                     'rule' => array('isValidExtension', array('jpg','jpeg','png'),false),
                     'message' => 'Only support jpg,png extension',
                      
-         ),
+         ),*/
 		 
 		'status' => array(
 			'numeric' => array(
@@ -344,7 +343,7 @@ class Hotel extends AppModel {
 //			'fields' => '',
 //			'order' => ''
 //		),
-                'User' => array(
+         'User' => array(
 			'className' => 'User',
 			'foreignKey' => 'user_id',
 			'conditions' => '',
