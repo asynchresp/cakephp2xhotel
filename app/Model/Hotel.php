@@ -38,7 +38,7 @@ class Hotel extends AppModel {
  * @var array
  */    
     public $actsAs = array(
-       /* 'Upload.Upload' => array(
+        'Upload.Upload' => array(
             'hotel_logo'=> array(
                 'deleteOnUpdate'=>true,
                 'mode'=>0777,
@@ -85,9 +85,9 @@ class Hotel extends AppModel {
 					'small' => '120w',
 					'thumb' => '80w'
 				)
-			)			
+			)		
 			 
-        )*/
+        )
     );
 	
 /**
@@ -96,7 +96,7 @@ class Hotel extends AppModel {
  * @var array
  */
 	public $validate = array(
-		'hotel_facility_id' => array(
+		/*'hotel_facility_id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
@@ -105,7 +105,7 @@ class Hotel extends AppModel {
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
-		),
+		),*/
 		'user_id' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
@@ -157,12 +157,12 @@ class Hotel extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		/*'hotel_logo' => array(
+		'hotel_logo' => array(
                     'rule' => array('isValidExtension', array('jpg','jpeg','png'),false),
                     'message' => 'Only support jpg,png extension',
                      
-         ),	*/	
-		'point_near_by_hotel' => array(
+         ),	
+		/*'point_near_by_hotel' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
 				'message' => 'Your custom message here',
@@ -171,7 +171,7 @@ class Hotel extends AppModel {
 				'last' => false, // Stop validation after this rule
 				'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
-		),
+		),	*/
 		'hotel_type_id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
@@ -182,7 +182,7 @@ class Hotel extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'hotel_theme_id' => array(
+		/*'hotel_theme_id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
@@ -191,7 +191,7 @@ class Hotel extends AppModel {
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
-		),		
+		),*/		
 		
 		'area' => array(
 			'notempty' => array(
@@ -292,7 +292,7 @@ class Hotel extends AppModel {
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
-		),*/
+		),
 		'hotel_image' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
@@ -302,12 +302,12 @@ class Hotel extends AppModel {
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
-		),
-		/*'hotel_image' => array(
+		),*/
+		'hotel_image' => array(
                     'rule' => array('isValidExtension', array('jpg','jpeg','png'),false),
                     'message' => 'Only support jpg,png extension',
                      
-         ),*/
+         ),
 		 
 		'status' => array(
 			'numeric' => array(
@@ -329,21 +329,21 @@ class Hotel extends AppModel {
  * @var array
  */
 	public $belongsTo = array(
-//		'Site' => array(
-//			'className' => 'Site',
-//			'foreignKey' => 'site_id',
-//			'conditions' => '',
-//			'fields' => '',
-//			'order' => ''
-//		),
-//		'HotelGroup' => array(
-//			'className' => 'HotelGroup',
-//			'foreignKey' => 'hotel_group_id',
-//			'conditions' => '',
-//			'fields' => '',
-//			'order' => ''
-//		),
-         'User' => array(
+		/*'Site' => array(
+			'className' => 'Site',
+			'foreignKey' => 'site_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		),
+		'HotelGroup' => array(
+			'className' => 'HotelGroup',
+			'foreignKey' => 'hotel_group_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		),*/
+        'User' => array(
 			'className' => 'User',
 			'foreignKey' => 'user_id',
 			'conditions' => '',
@@ -357,13 +357,13 @@ class Hotel extends AppModel {
 			'fields' => '',
 			'order' => ''
 		),
-		'HotelTheme' => array(
+		/*'HotelTheme' => array(
 			'className' => 'HotelTheme',
 			'foreignKey' => 'hotel_theme_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
-		),
+		),*/
 		'Country' => array(
 			'className' => 'Country',
 			'foreignKey' => 'country_id',
@@ -392,7 +392,7 @@ class Hotel extends AppModel {
 			'fields' => '',
 			'order' => ''
 		),
-		'HotelFacilityCategory' => array(
+		/*'HotelFacilityCategory' => array(
 			'className' => 'HotelFacilityCategory',
 			'foreignKey' => 'hotel_facility_category_id',
 			'conditions' => '',
@@ -405,7 +405,7 @@ class Hotel extends AppModel {
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
-		),
+		),*/
 		'HotelCancellationPolicy' => array(
 			'className' => 'HotelCancellationPolicy',
 			'foreignKey' => 'hotel_cancellation_policy_id',
@@ -489,7 +489,7 @@ class Hotel extends AppModel {
  * @var array
  */
 	public $hasAndBelongsToMany = array(
-		'HotelGroup' => array(
+		/*'HotelGroup' => array(
 			'className' => 'HotelGroup',
 			'joinTable' => 'hotel_groups_hotels',
 			'foreignKey' => 'hotel_id',
@@ -518,7 +518,7 @@ class Hotel extends AppModel {
 			'finderQuery' => '',
 			'deleteQuery' => '',
 			'insertQuery' => ''
-		),
+		),*/
 		'HotelFacility' => array(
 			'className' => 'HotelFacility',
 			'joinTable' => 'hotels_hotel_facilities',
@@ -549,7 +549,7 @@ class Hotel extends AppModel {
 			'deleteQuery' => '',
 			'insertQuery' => ''
 		),
-		'HotelModificationPolicy' => array(
+		/*'HotelModificationPolicy' => array(
 			'className' => 'HotelModificationPolicy',
 			'joinTable' => 'hotels_hotel_modification_policies',
 			'foreignKey' => 'hotel_id',
@@ -563,7 +563,7 @@ class Hotel extends AppModel {
 			'finderQuery' => '',
 			'deleteQuery' => '',
 			'insertQuery' => ''
-		),
+		),*/
 		'HotelTheme' => array(
 			'className' => 'HotelTheme',
 			'joinTable' => 'hotels_hotel_themes',
@@ -594,7 +594,7 @@ class Hotel extends AppModel {
 			'deleteQuery' => '',
 			'insertQuery' => ''
 		),
-		'StarRating' => array(
+		/*'StarRating' => array(
 			'className' => 'StarRating',
 			'joinTable' => 'hotels_star_ratings',
 			'foreignKey' => 'hotel_id',
@@ -608,7 +608,7 @@ class Hotel extends AppModel {
 			'finderQuery' => '',
 			'deleteQuery' => '',
 			'insertQuery' => ''
-		),
+		),*/
 		'Tax' => array(
 			'className' => 'Tax',
 			'joinTable' => 'hotels_taxes',

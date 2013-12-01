@@ -53,15 +53,34 @@
 //echo $this->Form->input('site_id', array('selected'=>'6'));
 		//echo $this->Form->input('hotel_group_id', array('selected'=>'3'));
         echo $this->Form->input('user_id',array('empty'=>'Select User'));
+		echo $this->Form->input('hotel_type_id');
+		echo $this->Form->input('star_rating_id');
 		echo $this->Form->input('name');
 		echo $this->Form->input('short_description');
 		echo $this->Form->input('long_description', array('class'=>'ckeditor'));
-		echo $this->Form->input('hotel_logo');
-		//echo $this->Form->input('hotel_logo', array('type' => 'file'));
+		//echo $this->Form->input('hotel_logo');
+		echo $this->Form->input('hotel_logo', array('type' => 'file'));
+		echo $this->Form->input('hotel_image', array('type' => 'file'));
+		echo $this->Form->input('hotel_video', array('type' => 'file'));
 		echo $this->Form->input('hotel_order');
-		echo $this->Form->input('point_near_by_hotel');
-		echo $this->Form->input('hotel_type_id');
-		echo $this->Form->input('hotel_theme_id');
+		echo $this->Form->input('checkindatetime',array('id'=>'checkindatetime','type'=>'text'));
+		echo $this->Form->input('checkoutdatetime',array('id'=>'checkoutdatetime','type'=>'text'));		
+		//echo $this->Form->input('point_near_by_hotel');
+		//echo $this->Form->input('hotel_theme_id');
+		
+		//echo $this->Form->input('hotel_facility_category_id');
+		//echo $this->Form->input('hotel_facility_id');
+		echo $this->Form->input('pricing_tax_status');
+		echo $this->Form->input('hotel_tax');
+		echo $this->Form->input('nearby_location_tag');
+		echo $this->Form->input('hotel_cancellation_policy_id');
+		echo $this->Form->input('hotel_modification_policy_id');
+		echo $this->Form->input('HotelFacility');
+		echo $this->Form->input('HotelFacilityCategory');
+		echo $this->Form->input('HotelTheme');
+		echo $this->Form->input('PointNearByHotel');
+		echo $this->Form->input('Tax');
+		
 		echo $this->Form->input('area');
 		echo $this->Form->input('address_line1');
 		echo $this->Form->input('address_line2');
@@ -74,43 +93,26 @@
             echo '</div>';
             echo $this->Form->input('latitude',array('id'=>'lat'));
             echo $this->Form->input('longitude',array('id'=>'lng'));
-
-            
     
 //<!--            <a title="Get Lat Long" onclick="getLatLongBox()" />Find Lat Long</a>-->
             echo '<div id="getLatLongDiv">';
                 echo $this->Form->input('gadres',array('id'=>'gadres','label'=>false,'onclick'=>'this.select()','placeholder'=>'Type address with city name, street name to get more accurate lat long.','style'=>'width:89%','after'=>'<a title="Find Lat & Long" onclick="codeAddress();" style="background-color: #ADD8E6;border-radius: 3px;margin-left: 5px;padding: 7px;cursor:pointer" />Get</a>'));
                 echo '<div id="latlongmap" style="width:600px; height:320px;"></div>';
-        echo '</div>';
-		echo $this->Form->input('star_rating_id');
-		echo $this->Form->input('checkindatetime',array('id'=>'checkindatetime','type'=>'text'));
-		echo $this->Form->input('checkoutdatetime',array('id'=>'checkoutdatetime','type'=>'text'));
-		echo $this->Form->input('hotel_facility_category_id');
-		echo $this->Form->input('hotel_facility_id');
-		echo $this->Form->input('hotel_image');
-		echo $this->Form->input('hotel_video');
-		echo $this->Form->input('pricing_tax_status');
-		echo $this->Form->input('hotel_tax');
+        echo '</div>';		
 		echo $this->Form->input('meta_title');
 		echo $this->Form->input('meta_description');
 		echo $this->Form->input('meta_keyword');
 		echo $this->Form->input('main_keyword_tag');
-		echo $this->Form->input('nearby_location_tag');
-		echo $this->Form->input('hotel_cancellation_policy_id');
-		echo $this->Form->input('hotel_modification_policy_id');
+		
+		
+		//echo $this->Form->input('HotelGroup');
+		//echo $this->Form->input('HotelCancellationPolicy');
+		//echo $this->Form->input('HotelModificationPolicy');
+		//echo $this->Form->input('StarRating');
 		echo $this->Form->label('hotel.status');
 		$options = array('1' => 'Active', '0' => 'Inactive');
 		$attributes = array('legend' => false);
 		echo $this->Form->radio('status', $options, $attributes);
-		echo $this->Form->input('HotelGroup');
-		echo $this->Form->input('HotelCancellationPolicy');
-		echo $this->Form->input('HotelFacility');
-		echo $this->Form->input('HotelFacilityCategory');
-		echo $this->Form->input('HotelModificationPolicy');
-		echo $this->Form->input('HotelTheme');
-		echo $this->Form->input('PointNearByHotel');
-		echo $this->Form->input('StarRating');
-		echo $this->Form->input('Tax');
             ?>
         </fieldset>
         <?php echo $this->Form->end(__('Submit')); ?>
