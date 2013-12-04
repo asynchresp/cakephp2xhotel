@@ -23,7 +23,7 @@
 
 /** General Style Info **/
 body {
-	background: #FFB35D;
+/*	background: #FFB35D;*/
 	color: #fff;
 	font-family:'lucida grande',verdana,helvetica,arial,sans-serif;
 	font-size:90%;
@@ -79,12 +79,44 @@ p {
 }
 
 #header{
-	padding: 10px 20px;
+	/*padding: 10px 20px;*/
 }
+
+#header .logos {
+    background: url("../img/cake.icon.png") no-repeat;
+    height: 49px;
+}
+
+#header .navigations {
+    /*border: 4px solid #000000;*/
+    float: left;
+    width: 100%;
+    background: #ffa84c; /* Old browsers */
+    background: -moz-linear-gradient(top, #ffa84c 0%, #ff7b0d 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffa84c), color-stop(100%,#ff7b0d)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #ffa84c 0%,#ff7b0d 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #ffa84c 0%,#ff7b0d 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #ffa84c 0%,#ff7b0d 100%); /* IE10+ */
+    background: linear-gradient(to bottom, #ffa84c 0%,#ff7b0d 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffa84c', endColorstr='#ff7b0d',GradientType=0 ); /* IE6-9 */
+    padding: 8px;
+    
+}
+
+#header .navigations li{
+    float: left;
+    margin-right: 5px;
+}
+
+#header .navigations li a{
+    color: white;
+}
+
+/*
 #header h1 {
 	line-height:20px;
 	background: #FFD5A5 url('../img/cake.icon.png') no-repeat left;
-	/*.background: #003d4c url('../img/bnb-logo.png') no-repeat left;*/
+	.background: #003d4c url('../img/bnb-logo.png') no-repeat left;
 	color: #fff;
 	padding: 0px 30px;
 }
@@ -96,10 +128,15 @@ p {
 }
 #header h1 a:hover {
 	color: #fff;
-	/*background: #003d4c;*/
+	background: #003d4c;
 	background: #FFB35D;
 	text-decoration: underline;
-}
+}*/
+
+
+
+
+
 #content{
 	background: #fff;
 	clear: both;
