@@ -29,7 +29,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 	</title>
 	<?php
 		echo $this->Html->meta('icon');
-		echo $this->Html->css('cake.generic');
+		echo $this->Html->css('front_end');
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');
@@ -37,19 +37,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 </head>
 <body>
 	<div id="container">
-		<div id="header">
-			<h1><?php //echo $this->Html->link($cakeDescription, 'http://cakephp.org'); ?>
-			<ul>
-				<li><?php echo $this->Html->link(__('Home'), FULL_BASE_URL.'/bnbhotel/index'); ?></li>
-				<li><?php echo $this->Html->link(__('Hotels'), FULL_BASE_URL.'/bnbhotel/admin/hotelgroups'); ?></li>
-				<li><?php echo $this->Html->link(__('Extra'), FULL_BASE_URL.'/bnbhotel/admin/countries'); ?></li>
-				<?php /* ?><li><?php echo $this->Html->link(__('Hotels'), array('controller' => 'hotelgroups', 'action' => 'index')); ?></li>
-				<li><?php echo $this->Html->link(__('Home'), FULL_BASE_URL.'/hotel'); ?></li>
-				<li><?php echo $this->Html->link(__('Hotels'), array('controller' => 'hotelgroups', 'action' => 'index')); ?></li>
-				<li><?php echo $this->Html->link(__('Extra'), array('controller' => 'countries', 'action' => 'index')); ?></li>
-			<li><?php echo $this->Html->link(__('Site'), array('controller' => 'sites', 'action' => 'index')); ?></li><?php */ ?>
-			</ul></h1>
-		</div>
+		<div id="header"><?php echo $this->element('front_header');?></div>
 		<div id="content">
 
 			<?php echo $this->Session->flash(); ?>
@@ -65,6 +53,6 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 			?><?php */ ?>
 		</div>
 	</div>
-	<?php echo $this->element('sql_dump'); ?>
+	<?php // echo $this->element('sql_dump'); ?>
 </body>
 </html>

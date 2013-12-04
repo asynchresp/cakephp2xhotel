@@ -25,6 +25,13 @@ class HotelsController extends AppController {
 		$this->Hotel->recursive = 0;
 		$this->set('hotels', $this->Paginator->paginate());
 	}
+        
+        public function home() {
+		$this->Hotel->recursive = 0;
+		$this->set('hotels', $this->Paginator->paginate());
+	}
+        
+        
 
 /**
  * view method
