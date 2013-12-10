@@ -109,6 +109,64 @@ CREATE TABLE IF NOT EXISTS `reserved_tax_details` (
 
 =================================================================
 05-DEC-2013 End Rservation Model Scheema
-=======================================================
+=================================================================
+
+=================================================================
+Agent Tour Package Model Scheema
+=================================================================
+CREATE TABLE IF NOT EXISTS `agent_tour_packages` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `site_id` int(11) NOT NULL DEFAULT '0',
+  `name` varchar(255) DEFAULT NULL,
+  `short_description` tinytext,
+  `long_description` text,
+  `tp_order` int(11) DEFAULT NULL,
+  `no_person` tinyint(5) DEFAULT NULL,
+  `activity_type_id` int(11) DEFAULT NULL,
+  `st_pt_state` varchar(255) DEFAULT NULL,
+  `st_pt_city` varchar(255) DEFAULT NULL,
+  `st_pt_area` varchar(255) DEFAULT NULL,
+  `end_pt_state` varchar(255) DEFAULT NULL,
+  `end_pt_city` varchar(255) DEFAULT NULL,
+  `end_pt_area` varchar(255) DEFAULT NULL,
+  `popular_point_id` int(11) DEFAULT NULL,
+  `st_date` datetime DEFAULT NULL,
+  `end_date` datetime DEFAULT NULL,
+  `price_per_person` decimal(10,2) DEFAULT NULL,
+  `pricing_tax_status` tinyint(1) DEFAULT '0',
+  `tax_id` int(11) DEFAULT NULL,
+  `child_age_below1` tinyint(5) DEFAULT NULL,
+  `price_age_below1` decimal(10,2) DEFAULT NULL,
+  `child_age_below2` tinyint(5) DEFAULT NULL,
+  `price_age_below2` decimal(10,2) DEFAULT NULL,
+  `child_age_below3` tinyint(5) DEFAULT NULL,
+  `price_age_below3` decimal(10,2) DEFAULT NULL,
+  `child_above_age1` tinyint(5) DEFAULT NULL,
+  `price_above_age1` decimal(10,2) DEFAULT NULL,
+  `child_above_age2` tinyint(5) DEFAULT NULL,
+  `price_above_age2` decimal(10,2) DEFAULT NULL,
+  `child_above_age3` tinyint(5) DEFAULT NULL,
+  `price_above_age3` decimal(10,2) DEFAULT NULL,
+  `commision` tinyint(10) DEFAULT NULL,
+  `special_price` decimal(10,2) DEFAULT NULL,
+  `special_price_earning` decimal(10,2) DEFAULT NULL,
+  `commision_customer` decimal(10,2) DEFAULT NULL,
+  `commision_customer_earining` decimal(10,2) DEFAULT NULL,
+  `commision_agent` decimal(10,2) DEFAULT NULL,
+  `commision_agent_earining` decimal(10,2) DEFAULT NULL,
+  `tp_keyword` text,
+  `meta_title` varchar(255) DEFAULT NULL,
+  `meta_description` text,
+  `meta_keyword` tinytext,
+  `status` tinyint(1) DEFAULT '0',
+  `modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `created` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+========================================================================================
+
+
+
 
 Help Taken By Heera Singh Koranga Dt: 27-SEP-2013 
