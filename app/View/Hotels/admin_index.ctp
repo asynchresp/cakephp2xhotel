@@ -1,5 +1,7 @@
 <div class="hotels index">
-     <div class="um_box_mid_content_top"><span class="umstyle1"><?php echo __('Hotels'); ?></span></div>
+     <div class="um_box_mid_content_top"><span class="umstyle1"><?php echo __('Hotels'); ?></span>
+         <span style="float: right">Add New Hotel</span>
+     </div>
         <div class="content_mid">
 	<!--<h2><?php // echo __('Hotels'); ?></h2>-->
 	<table cellpadding="0" cellspacing="0">
