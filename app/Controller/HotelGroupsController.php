@@ -56,7 +56,7 @@ class HotelGroupsController extends AppController {
 			}
 		}
 		$sites = $this->HotelGroup->Site->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
-		$hotels = $this->HotelGroup->Hotel->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
+		//$hotels = $this->HotelGroup->Hotel->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
 		$this->set(compact('sites', 'hotels'));
 	}
 
@@ -83,7 +83,7 @@ class HotelGroupsController extends AppController {
 			$this->request->data = $this->HotelGroup->find('first', $options);
 		}
 		$sites = $this->HotelGroup->Site->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
-		$hotels = $this->HotelGroup->Hotel->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
+		//$hotels = $this->HotelGroup->Hotel->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
 		$this->set(compact('sites', 'hotels'));
 	}
 

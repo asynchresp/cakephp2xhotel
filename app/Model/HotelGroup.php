@@ -140,7 +140,7 @@ class HotelGroup extends AppModel {
  *
  * @var array
  */
-	public $hasMany = array(
+	/*public $hasMany = array(
 		'Hotel' => array(
 			'className' => 'Hotel',
 			'foreignKey' => 'hotel_group_id',
@@ -154,7 +154,7 @@ class HotelGroup extends AppModel {
 			'finderQuery' => '',
 			'counterQuery' => ''
 		)
-	);
+	);*/
 
 
 /**
@@ -162,7 +162,7 @@ class HotelGroup extends AppModel {
  *
  * @var array
  */
-	public $hasAndBelongsToMany = array(
+	/*public $hasAndBelongsToMany = array(
 		'Hotel' => array(
 			'className' => 'Hotel',
 			'joinTable' => 'hotel_groups_hotels',
@@ -178,6 +178,6 @@ class HotelGroup extends AppModel {
 			'deleteQuery' => '',
 			'insertQuery' => ''
 		)
-	);
+	);*/
 
 }
