@@ -14,7 +14,7 @@ else
 
 $hotelManagementControllerArr=array('hotel_groups','hotels','hotel_rooms','hotel_themes','hotel_types','hotel_facility_categories','hotel_facilities','room_types','food_menu_types','food_packages');
 $generalControllerArr=array('sites','countries','states','cities','areas');
-$promoControllerArr=array('tour_packages','coupons');
+$promoControllerArr=array('tour_packages','agent_tour_packages','coupons');
 $cmsControllerArr=array('activity_types','hotel_cancellation_policies','hotel_informative_pages','hotel_modification_policies','point_near_by_hotels','popular_points','taxes');
 
 
@@ -73,6 +73,8 @@ $cmsControllerArr=array('activity_types','hotel_cancellation_policies','hotel_in
                     <ul>
                         <li><?php echo $this->Html->link(__('All Tour Packages'), array('controller' => 'tour_packages', 'action' => 'index')); ?> </li>
                         <li><?php echo $this->Html->link(__('New Tour Package'), array('controller' => 'tour_packages', 'action' => 'add')); ?> </li>
+						 <li><?php echo $this->Html->link(__('All Agent Tour Packages'), array('controller' => 'agent_tour_packages', 'action' => 'index')); ?> </li>
+                        <li><?php echo $this->Html->link(__('New Agent Tour Package'), array('controller' => 'agent_tour_packages', 'action' => 'add')); ?> </li>
                         <li><?php echo $this->Html->link(__('All Coupons'), array('controller' => 'coupons', 'action' => 'index')); ?> </li>
                         <li><?php echo $this->Html->link(__('New Coupon'), array('controller' => 'coupons', 'action' => 'add')); ?> </li>
                     </ul>
