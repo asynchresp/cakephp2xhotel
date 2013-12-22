@@ -172,3 +172,10 @@ msgstr "Popular Point Image"
 
 msgid "Pp Video"
 msgstr "Popular Point Video"
+
+msgid "Hfc Image"
+msgstr "Facility Category Image"
+
+msgid "Hfc Order"
+msgstr "Order"
+
