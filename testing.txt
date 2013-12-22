@@ -13,160 +13,94 @@ ALTER TABLE `hotel_facility_categories`  ADD `hfc_image_dir` VARCHAR(255) NOT NU
 
 
 
-05-DEC-2013 Begin Rservation Model Scheema
-=======================================================
+==================================================
+ Begin Agent Tour Package Scheema Dt 22-Dec-2013
+==================================================
 
-
-
-CREATE TABLE IF NOT EXISTS `reservation_details` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NOT NULL,
-  `hotel_id` int(11) NOT NULL,
-  `hotel_name` varchar(255) NOT NULL,
-  `check_in` datetime NOT NULL,
-  `check_out` datetime NOT NULL,
-  `no_adult` tinyint(3) NOT NULL,
-  `no_children` tinyint(3) NOT NULL,
-  `no_of_room` tinyint(3) NOT NULL,
-  `no_of_night` tinyint(3) NOT NULL,
-  `coupon_code_apply` tinyint(1) NOT NULL DEFAULT '0',
-  `coupon_code_id` int(11) NOT NULL,
-  `addon_total` decimal(10,2) NOT NULL DEFAULT '0.00',
-  `tax_total` decimal(10,2) NOT NULL DEFAULT '0.00',
-  `sub_total` decimal(10,2) NOT NULL DEFAULT '0.00',
-  `grand_total` decimal(10,2) NOT NULL DEFAULT '0.00',
-  `comment` text NOT NULL,
-  `customer_id` int(11) NOT NULL,
-  `title` varchar(100) NOT NULL,
-  `first_name` varchar(255) NOT NULL,
-  `last_name` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `mobile` varchar(100) NOT NULL,
-  `payment_mode` varchar(255) NOT NULL,
-  `bank_name` varchar(255) NOT NULL,
-  `card_number` int(175) NOT NULL,
-  `expiry_date` date NOT NULL,
-  `card_holder_name` varchar(255) NOT NULL,
-  `cvv_code` tinyint(10) NOT NULL,
-  `transaction_id` varchar(255) NOT NULL,
-  `reservation_status` tinyint(1) NOT NULL DEFAULT '0',
-  `modified_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `created_date` datetime NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
-=================================================================
-
-CREATE TABLE IF NOT EXISTS `reserved_facility_details` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `reservation_id` int(11) NOT NULL,
-  `hotel_id` int(11) NOT NULL,
-  `hotel_name` varchar(255) NOT NULL,
-  `hotel_facility_id` int(11) NOT NULL,
-  `hotel_facility_name` varchar(255) NOT NULL,
-  `facility_qty` tinyint(10) NOT NULL,
-  `facility_price` decimal(10,2) NOT NULL,
-  `facility_status` tinyint(1) NOT NULL DEFAULT '0',
-  `modified_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `created_date` datetime NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
-=================================================================
-
-CREATE TABLE IF NOT EXISTS `reserved_room_details` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `reservation_id` int(11) NOT NULL,
-  `hotel_id` int(11) NOT NULL,
-  `hotel_name` varchar(255) NOT NULL,
-  `room_type_id` int(11) NOT NULL,
-  `room_type_name` varchar(255) NOT NULL,
-  `hotel_room_id` int(11) NOT NULL,
-  `hotel_room_name` varchar(255) NOT NULL,
-  `no_booked_rooms` tinyint(10) NOT NULL,
-  `room_price` decimal(10,2) NOT NULL,
-  `room_status` tinyint(1) NOT NULL DEFAULT '0',
-  `modified_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `created_date` datetime NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
-=================================================================
-
-CREATE TABLE IF NOT EXISTS `reserved_tax_details` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `reservation_id` int(11) NOT NULL,
-  `hotel_id` int(11) NOT NULL,
-  `hotel_name` varchar(255) NOT NULL,
-  `tax_id` int(11) NOT NULL,
-  `tax_name` varchar(255) NOT NULL,
-  `tax_total` decimal(10,2) NOT NULL,
-  `tax_status` tinyint(1) NOT NULL DEFAULT '0',
-  `modified_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `created_date` datetime NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
-=================================================================
-05-DEC-2013 End Rservation Model Scheema
-=================================================================
-
-=================================================================
-Agent Tour Package Model Scheema
-=================================================================
 CREATE TABLE IF NOT EXISTS `agent_tour_packages` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `site_id` int(11) NOT NULL DEFAULT '0',
-  `name` varchar(255) DEFAULT NULL,
-  `short_description` tinytext,
-  `long_description` text,
-  `tp_order` int(11) DEFAULT NULL,
-  `no_person` tinyint(5) DEFAULT NULL,
-  `activity_type_id` int(11) DEFAULT NULL,
-  `st_pt_state` varchar(255) DEFAULT NULL,
-  `st_pt_city` varchar(255) DEFAULT NULL,
-  `st_pt_area` varchar(255) DEFAULT NULL,
-  `end_pt_state` varchar(255) DEFAULT NULL,
-  `end_pt_city` varchar(255) DEFAULT NULL,
-  `end_pt_area` varchar(255) DEFAULT NULL,
-  `popular_point_id` int(11) DEFAULT NULL,
-  `st_date` datetime DEFAULT NULL,
-  `end_date` datetime DEFAULT NULL,
-  `price_per_person` decimal(10,2) DEFAULT NULL,
+  `site_id` int(11) DEFAULT NULL,
+  `name` varchar(255) NOT NULL,
+  `short_description` tinytext NOT NULL,
+  `long_description` longtext NOT NULL,
+  `tp_order` int(11) NOT NULL,
+  `no_person` int(11) NOT NULL,
+  `activity_type_id` int(11) NOT NULL,
+  `st_pt_state` varchar(255) NOT NULL,
+  `st_pt_city` varchar(255) NOT NULL,
+  `st_pt_area` varchar(255) NOT NULL,
+  `end_pt_state` varchar(255) NOT NULL,
+  `end_pt_area` varchar(255) NOT NULL,
+  `popular_point_id` int(11) NOT NULL,
+  `st_date` datetime NOT NULL,
+  `end_date` datetime NOT NULL,
+  `price_per_person` decimal(10,2) NOT NULL,
   `pricing_tax_status` tinyint(1) DEFAULT '0',
-  `tax_id` int(11) DEFAULT NULL,
-  `child_age_below1` tinyint(5) DEFAULT NULL,
-  `price_age_below1` decimal(10,2) DEFAULT NULL,
-  `child_age_below2` tinyint(5) DEFAULT NULL,
-  `price_age_below2` decimal(10,2) DEFAULT NULL,
-  `child_age_below3` tinyint(5) DEFAULT NULL,
-  `price_age_below3` decimal(10,2) DEFAULT NULL,
-  `child_above_age1` tinyint(5) DEFAULT NULL,
-  `price_above_age1` decimal(10,2) DEFAULT NULL,
-  `child_above_age2` tinyint(5) DEFAULT NULL,
-  `price_above_age2` decimal(10,2) DEFAULT NULL,
-  `child_above_age3` tinyint(5) DEFAULT NULL,
-  `price_above_age3` decimal(10,2) DEFAULT NULL,
-  `commision` tinyint(10) DEFAULT NULL,
-  `special_price` decimal(10,2) DEFAULT NULL,
-  `special_price_earning` decimal(10,2) DEFAULT NULL,
-  `commision_customer` decimal(10,2) DEFAULT NULL,
-  `commision_customer_earining` decimal(10,2) DEFAULT NULL,
-  `commision_agent` decimal(10,2) DEFAULT NULL,
-  `commision_agent_earining` decimal(10,2) DEFAULT NULL,
-  `tp_keyword` text,
-  `meta_title` varchar(255) DEFAULT NULL,
-  `meta_description` text,
-  `meta_keyword` tinytext,
+  `tax_id` int(11) NOT NULL,
+  `child_age_below1` tinyint(5) NOT NULL,
+  `price_age_below1` decimal(10,2) NOT NULL,
+  `child_age_below2` tinyint(5) NOT NULL,
+  `price_age_below2` decimal(10,2) NOT NULL,
+  `child_age_below3` tinyint(5) NOT NULL,
+  `price_age_below3` decimal(10,2) NOT NULL,
+  `child_above_age1` tinyint(5) NOT NULL,
+  `price_above_age1` decimal(10,2) NOT NULL,
+  `child_above_age2` tinyint(5) NOT NULL,
+  `price_above_age2` decimal(10,2) NOT NULL,
+  `child_above_age3` tinyint(5) NOT NULL,
+  `price_above_age3` decimal(10,2) NOT NULL,
+  `commision` int(11) NOT NULL,
+  `special_price` decimal(10,2) NOT NULL,
+  `special_price_earning` decimal(10,2) NOT NULL,
+  `commision_customer` decimal(10,2) NOT NULL,
+  `commision_customer_earining` decimal(10,2) NOT NULL,
+  `commision_agent` decimal(10,2) NOT NULL,
+  `commision_agent_earining` decimal(10,2) NOT NULL,
+  `keyword` text NOT NULL,
+  `meta_title` varchar(255) NOT NULL,
+  `meta_description` text NOT NULL,
+  `meta_keyword` text NOT NULL,
   `status` tinyint(1) DEFAULT '0',
   `modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `created` datetime DEFAULT NULL,
+  `created` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
-========================================================================================
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 
+CREATE TABLE IF NOT EXISTS `agent_tour_packages_activity_types` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `agent_tour_package_id` int(11) NOT NULL,
+  `activity_type_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+
+CREATE TABLE IF NOT EXISTS `agent_tour_packages_taxes` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `agent_tour_package_id` int(11) NOT NULL,
+  `tax_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+
+CREATE TABLE IF NOT EXISTS `agent_tour_packages_popular_points` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `agent_tour_package_id` int(11) NOT NULL,
+  `popular_point_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+
+CREATE TABLE IF NOT EXISTS `agent_tour_packages_sites` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `agent_tour_package_id` int(11) NOT NULL,
+  `site_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ; 	
+
+================================================
+ End Agent Tour Package Scheema Dt 22-Dec-2013
+================================================
 
 
 Help Taken By Heera Singh Koranga Dt: 27-SEP-2013 
