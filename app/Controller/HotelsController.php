@@ -22,7 +22,15 @@ class HotelsController extends AppController {
  */
  
 	public function admin_index() {
-		$this->Hotel->recursive = 0;
+		$logedinUserId=$this->UserAuth->getUserId();
+                $groupId=$this->UserAuth->getGroupId();
+                                
+                if($groupId!='1'){
+                     $this->paginate=array('conditions'=>array('user_id'=>$logedinUserId));
+                }
+                
+               
+                $this->Hotel->recursive = 0;
 		$this->set('hotels', $this->Paginator->paginate());
 	}
         
