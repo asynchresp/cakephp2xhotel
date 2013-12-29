@@ -134,7 +134,8 @@ class UserAuthComponent extends Component {
 	 * @return string
 	 */
 	public function getGroupName() {
-		return $this->Session->read('UserAuth.UserGroup.name');
+//		return $this->Session->read('UserAuth.UserGroup.name');
+		return $this->Session->read('UserAuth.UserGroup.alias_name');
 	}
 	/**
 	 * Used to check is admin logged in

@@ -14,7 +14,7 @@ $action=  strtolower($this->request->params['action']);
 	<li class="<?php echo (($action=='viewuser')?'active':'');?>"><?php echo $this->Html->link(__("Profile",true),"/viewUser/".$this->UserAuth->getUserId()) ?></li>
 	<li class="<?php echo (($action=='edituser')?'active':'');?>"><?php echo $this->Html->link(__("Edit Profile",true),"/editUser/".$this->UserAuth->getUserId()) ?></li>
 <?php   } else {?>
-	<li class="<?php echo (($action=='index')?'active':'');?>"><?php echo $this->Html->link(__("Profile",true),"/myprofile") ?></li>
+	<li class="<?php echo (($action=='myprofile')?'active':'');?>"><?php echo $this->Html->link(__("Profile",true),"/myprofile") ?></li>
 <?php   } ?>
 	<li class="<?php echo (($action=='changepassword')?'active':'');?>"><?php echo $this->Html->link(__("Change Password",true),"/changePassword") ?></li>
         </ul>

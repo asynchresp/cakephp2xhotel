@@ -74,6 +74,19 @@ class UsersController extends UserMgmtAppController {
 		$user = $this->User->read(null, $userId);
 		$this->set('user', $user);
 	}
+        
+        
+        function commonRedirect($groupName,$redirectUrl){
+            $groupName=strtolower($groupName);
+            
+            if($groupName=='hotel_owner'){
+                $redirectUrl='/admin/hotels';
+            }
+//            echo $redirectUrl; die;
+            $this->redirect($redirectUrl);
+        }
+        
+        
 	/**
 	 * Used to logged in the site
 	 *
@@ -82,7 +95,9 @@ class UsersController extends UserMgmtAppController {
 	 */
 	public function login() {
             if($this->UserAuth->isLogged()){
-                $this->redirect('/dashboard');
+//                $this->redirect('/dashboard');
+                $redirect='/dashboard';
+                $this->commonRedirect($this->UserAuth->getGroupName(),$redirect);
             }
             
 		if ($this->request -> isPost()) {
@@ -129,7 +144,9 @@ class UsersController extends UserMgmtAppController {
 					$OriginAfterLogin=$this->Session->read('Usermgmt.OriginAfterLogin');
 					$this->Session->delete('Usermgmt.OriginAfterLogin');
 					$redirect = (!empty($OriginAfterLogin)) ? $OriginAfterLogin : LOGIN_REDIRECT_URL;
-					$this->redirect($redirect);
+					
+                                        $this->commonRedirect($this->UserAuth->getGroupName(),$redirect);
+//                                        $this->redirect($redirect);
 				} else {
 					$this->Session->setFlash(__('Incorrect Email/Username or Password'));
 					return;
