@@ -8,7 +8,7 @@
 			<?php echo h($hotelRoom['HotelRoom']['id']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Country'); ?></dt>
+		<?php /* ?><dt><?php echo __('Country'); ?></dt>
 		<dd>
 			<?php echo $this->Html->link($hotelRoom['Country']['name'], array('controller' => 'countries', 'action' => 'view', $hotelRoom['Country']['id'])); ?>
 			&nbsp;
@@ -22,7 +22,7 @@
 		<dd>
 			<?php echo $this->Html->link($hotelRoom['City']['name'], array('controller' => 'cities', 'action' => 'view', $hotelRoom['City']['id'])); ?>
 			&nbsp;
-		</dd>
+		</dd><?php */ ?>
 		<dt><?php echo __('Hotel'); ?></dt>
 		<dd>
 			<?php echo $this->Html->link($hotelRoom['Hotel']['name'], array('controller' => 'hotels', 'action' => 'view', $hotelRoom['Hotel']['id'])); ?>
@@ -50,7 +50,7 @@
 		</dd>
 		<dt><?php echo __('Long Description'); ?></dt>
 		<dd>
-			<?php echo h($hotelRoom['HotelRoom']['long_description']); ?>
+			<?php echo html_entity_decode(h($hotelRoom['HotelRoom']['long_description'])); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Max Adults'); ?></dt>
@@ -80,27 +80,62 @@
 		</dd>
 		<dt><?php echo __('Room Image1'); ?></dt>
 		<dd>
-			<?php echo h($hotelRoom['HotelRoom']['room_image1']); ?>
+			<?php
+			$filename1 = ROOT.DS."app".DS."webroot".DS."img".DS."room_image1".DS.h($hotelRoom['HotelRoom']['id']).DS.h($hotelRoom['HotelRoom']['room_image1']);
+			if(file_exists($filename1)) {
+				echo $this->Html->image('/app/webroot/img/room_image1/' . h($hotelRoom['HotelRoom']['id'] . "/small_".h($hotelRoom['HotelRoom']['room_image1'])), array('alt'=>h($hotelRoom['HotelRoom']['name'])));
+			} else {
+				echo $this->Html->image('/app/webroot/img/admin/small_no_image.png', array('alt'=>h($hotelRoom['HotelRoom']['name'])));
+			}
+			?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Room Image2'); ?></dt>
 		<dd>
-			<?php echo h($hotelRoom['HotelRoom']['room_image2']); ?>
+			<?php
+			$filename2 = ROOT.DS."app".DS."webroot".DS."img".DS."room_image2".DS.h($hotelRoom['HotelRoom']['id']).DS.h($hotelRoom['HotelRoom']['room_image2']);
+			if(file_exists($filename2)) {
+				echo $this->Html->image('/app/webroot/img/room_image2/' . h($hotelRoom['HotelRoom']['id'] . "/small_".h($hotelRoom['HotelRoom']['room_image2'])), array('alt'=>h($hotelRoom['HotelRoom']['name'])));
+			} else {
+				echo $this->Html->image('/app/webroot/img/admin/small_no_image.png', array('alt'=>h($hotelRoom['HotelRoom']['name'])));
+			}
+			?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Room Image3'); ?></dt>
 		<dd>
-			<?php echo h($hotelRoom['HotelRoom']['room_image3']); ?>
+			<?php
+			$filename3 = ROOT.DS."app".DS."webroot".DS."img".DS."room_image3".DS.h($hotelRoom['HotelRoom']['id']).DS.h($hotelRoom['HotelRoom']['room_image3']);
+			if(file_exists($filename3)) {
+				echo $this->Html->image('/app/webroot/img/room_image3/' . h($hotelRoom['HotelRoom']['id'] . "/small_".h($hotelRoom['HotelRoom']['room_image3'])), array('alt'=>h($hotelRoom['HotelRoom']['name'])));
+			} else {
+				echo $this->Html->image('/app/webroot/img/admin/small_no_image.png', array('alt'=>h($hotelRoom['HotelRoom']['name'])));
+			}
+			?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Room Image4'); ?></dt>
 		<dd>
-			<?php echo h($hotelRoom['HotelRoom']['room_image4']); ?>
+			<?php
+			$filename4 = ROOT.DS."app".DS."webroot".DS."img".DS."room_image4".DS.h($hotelRoom['HotelRoom']['id']).DS.h($hotelRoom['HotelRoom']['room_image4']);
+			if(file_exists($filename4)) {
+				echo $this->Html->image('/app/webroot/img/room_image4/' . h($hotelRoom['HotelRoom']['id'] . "/small_".h($hotelRoom['HotelRoom']['room_image4'])), array('alt'=>h($hotelRoom['HotelRoom']['name'])));
+			} else {
+				echo $this->Html->image('/app/webroot/img/admin/small_no_image.png', array('alt'=>h($hotelRoom['HotelRoom']['name'])));
+			}
+			?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Room Image5'); ?></dt>
 		<dd>
-			<?php echo h($hotelRoom['HotelRoom']['room_image5']); ?>
+			<?php
+			$filename5 = ROOT.DS."app".DS."webroot".DS."img".DS."room_image5".DS.h($hotelRoom['HotelRoom']['id']).DS.h($hotelRoom['HotelRoom']['room_image5']);
+			if(file_exists($filename5)) {
+				echo $this->Html->image('/app/webroot/img/room_image5/' . h($hotelRoom['HotelRoom']['id'] . "/small_".h($hotelRoom['HotelRoom']['room_image5'])), array('alt'=>h($hotelRoom['HotelRoom']['name'])));
+			} else {
+				echo $this->Html->image('/app/webroot/img/admin/small_no_image.png', array('alt'=>h($hotelRoom['HotelRoom']['name'])));
+			}
+			?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Room Video'); ?></dt>

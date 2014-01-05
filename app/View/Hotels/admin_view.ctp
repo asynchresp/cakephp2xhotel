@@ -12,12 +12,12 @@
 		<dd>
 			<?php echo $this->Html->link($hotel['Site']['name'], array('controller' => 'sites', 'action' => 'view', $hotel['Site']['id'])); ?>
 			&nbsp;
-		</dd><?php */ ?>
+		</dd>
 		<dt><?php echo __('Hotel Group'); ?></dt>
 		<dd>
 			<?php echo $this->Html->link($hotel['HotelGroup']['name'], array('controller' => 'hotel_groups', 'action' => 'view', $hotel['HotelGroup']['id'])); ?>
 			&nbsp;
-		</dd>
+		</dd><?php */ ?>
 		<dt><?php echo __('Name'); ?></dt>
 		<dd>
 			<?php echo h($hotel['Hotel']['name']); ?>
@@ -53,11 +53,11 @@
 			<?php echo $this->Html->link($hotel['HotelType']['name'], array('controller' => 'hotel_types', 'action' => 'view', $hotel['HotelType']['id'])); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Hotel Theme'); ?></dt>
+		<?php /* ?><dt><?php echo __('Hotel Theme'); ?></dt>
 		<dd>
 			<?php echo $this->Html->link($hotel['HotelTheme']['name'], array('controller' => 'hotel_themes', 'action' => 'view', $hotel['HotelTheme']['id'])); ?>
 			&nbsp;
-		</dd>
+		</dd><?php */ ?>
 		<dt><?php echo __('Area'); ?></dt>
 		<dd>
 			<?php echo h($hotel['Hotel']['area']); ?>
@@ -113,7 +113,7 @@
 			<?php echo h($hotel['Hotel']['checkoutdatetime']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Hotel Facility Category'); ?></dt>
+		<?php /* ?><dt><?php echo __('Hotel Facility Category'); ?></dt>
 		<dd>
 			<?php echo $this->Html->link($hotel['HotelFacilityCategory']['name'], array('controller' => 'hotel_facility_categories', 'action' => 'view', $hotel['HotelFacilityCategory']['id'])); ?>
 			&nbsp;
@@ -122,10 +122,18 @@
 		<dd>
 			<?php echo $this->Html->link($hotel['HotelFacility']['name'], array('controller' => 'hotel_facilities', 'action' => 'view', $hotel['HotelFacility']['id'])); ?>
 			&nbsp;
-		</dd>
+		</dd><?php */ ?>
 		<dt><?php echo __('Hotel Image'); ?></dt>
 		<dd>
-			<?php echo h($hotel['Hotel']['hotel_image']); ?>
+			<?php //echo h($hotel['Hotel']['hotel_image']); ?>
+			<?php
+			$filename = ROOT.DS."app".DS."webroot".DS."img".DS."hotel_image".DS.h($hotel['Hotel']['id']).DS.h($hotel['Hotel']['hotel_image']);
+			if(file_exists($filename)) {
+				echo $this->Html->image('/app/webroot/img/hotel_image/' . h($hotel['Hotel']['id'] . "/small_".h($hotel['Hotel']['hotel_image'])), array('alt'=>h($hotel['Hotel']['name'])));
+			} else {
+				echo $this->Html->image('/app/webroot/img/admin/small_no_image.png', array('alt'=>h($hotel['Hotel']['name'])));
+			}
+			?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Hotel Video'); ?></dt>
@@ -197,7 +205,7 @@
 </div>
 </div>
 <?php echo $this->element('left_nav');?>
-<div class="related">
+<?php /* ?><div class="related">
 	<h3><?php echo __('Related Coupons'); ?></h3>
 	<?php if (!empty($hotel['Coupon'])): ?>
 	<table cellpadding = "0" cellspacing = "0">
@@ -1027,4 +1035,4 @@
 			<li><?php echo $this->Html->link(__('New Tax'), array('controller' => 'taxes', 'action' => 'add')); ?> </li>
 		</ul>
 	</div>
-</div>
+</div><?php */ ?>

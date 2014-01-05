@@ -34,37 +34,35 @@
 <div class="hotelRooms form">
      <div class="um_box_mid_content_top"><span class="umstyle1"><?php echo __('Add Hotel Room'); ?></span></div>
     <div class="content_mid">
-<?php echo $this->Form->create('HotelRoom'); ?>
+<?php echo $this->Form->create('HotelRoom',array('type'=>'file')); ?>
 	<fieldset>
 		<!--<legend><?php // echo __('Add Hotel Room'); ?></legend>-->
 	<?php
-		/*echo $this->Form->input('country_id');
-		echo $this->Form->input('state_id');
-		echo $this->Form->input('city_id');*/
-		echo $this->Form->input('country_id', array('id'=>'HotelRoomCountryId', 'label'=>'Country','class'=>'{validate:{required : true, messages:{required:"Please enter Country"}}}','onchange'=>"getStatesByAjax(this.value);",'empty'=>'Select Country'));
+		/* echo $this->Form->input('country_id', array('id'=>'HotelRoomCountryId', 'label'=>'Country','class'=>'{validate:{required : true, messages:{required:"Please enter Country"}}}','onchange'=>"getStatesByAjax(this.value);",'empty'=>'Select Country'));
 		echo '<div id="stateDiv">';
 		echo $this->Form->input('state_id', array('id'=>'HotelRoomStateId', 'label'=>'State','class'=>'{validate:{required : true, messages:{required:"Please enter State"}}}','onchange'=>"getCitiesByAjax(this.value);",'empty'=>'Select State'));
 		echo '</div>';	
 		echo '<div id="cityDiv">';
 		echo $this->Form->input('city_id',array('id'=>'HotelRoomCityId','label'=>'City','class'=>'{validate:{required : true, messages:{required:"Please select City"}}}','empty'=>'Select City'));
-		echo '</div>';		
+		echo '</div>';	*/	
 		echo $this->Form->input('hotel_id');
 		echo $this->Form->input('room_type_id');
 		echo $this->Form->input('inventory');
 		echo $this->Form->input('name');
 		echo $this->Form->input('short_description');
-		echo $this->Form->input('long_description');
+		echo $this->Form->input('long_description', array('class'=>'ckeditor'));
+		//echo $this->Form->input('long_description');
 		echo $this->Form->input('max_adults');
 		echo $this->Form->input('max_childs');
 		echo $this->Form->input('extra_guest_occupancy');
 		echo $this->Form->input('no_of_beds');
 		echo $this->Form->input('room_order');
-		echo $this->Form->input('room_image1');
-		echo $this->Form->input('room_image2');
-		echo $this->Form->input('room_image3');
-		echo $this->Form->input('room_image4');
-		echo $this->Form->input('room_image5');
-		echo $this->Form->input('room_video');
+		echo $this->Form->input('room_image1',array('type'=>'file'));
+		echo $this->Form->input('room_image2',array('type'=>'file'));
+		echo $this->Form->input('room_image3',array('type'=>'file'));
+		echo $this->Form->input('room_image4',array('type'=>'file'));
+		echo $this->Form->input('room_image5',array('type'=>'file'));
+		echo $this->Form->input('room_video',array('type'=>'file'));
 		echo $this->Form->input('food_menu_type_id');
 		echo $this->Form->input('food_package_id');
 		echo $this->Form->input('hotel_facility_category_id');

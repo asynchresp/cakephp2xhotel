@@ -44,7 +44,7 @@ class Tax extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'city_id' => array(
+		/*'city_id' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
 				//'message' => 'Your custom message here',
@@ -53,7 +53,7 @@ class Tax extends AppModel {
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
-		),
+		),*/
 		'name' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
@@ -122,14 +122,14 @@ class Tax extends AppModel {
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
-		),
+		)/*,
 		'City' => array(
 			'className' => 'City',
 			'foreignKey' => 'city_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
-		)
+		)*/
 	);
 
 /**

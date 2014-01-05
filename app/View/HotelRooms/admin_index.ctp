@@ -7,7 +7,6 @@
 			<th><?php echo $this->Paginator->sort('name'); ?></th>
 			<th><?php echo $this->Paginator->sort('room_type_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('hotel_id'); ?></th>
-			<th><?php echo $this->Paginator->sort('city_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('inventory'); ?></th>
 			<th><?php echo $this->Paginator->sort('room_price'); ?></th>
 			<th><?php echo $this->Paginator->sort('status'); ?></th>
@@ -15,6 +14,7 @@
 			<?php /* ?><th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('country_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('state_id'); ?></th>
+				<th><?php echo $this->Paginator->sort('city_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('max_adults'); ?></th>
 			<th><?php echo $this->Paginator->sort('max_childs'); ?></th>
 			<th><?php echo $this->Paginator->sort('extra_guest_occupancy'); ?></th>
@@ -70,9 +70,6 @@
 		<td>
 			<?php echo $this->Html->link($hotelRoom['Hotel']['name'], array('controller' => 'hotels', 'action' => 'view', $hotelRoom['Hotel']['id'])); ?>
 		</td>
-		<td>
-			<?php echo $this->Html->link($hotelRoom['City']['name'], array('controller' => 'cities', 'action' => 'view', $hotelRoom['City']['id'])); ?>
-		</td>
 		<td><?php echo h($hotelRoom['HotelRoom']['inventory']); ?>&nbsp;</td>
 		<td><?php echo h($hotelRoom['HotelRoom']['room_price']); ?>&nbsp;</td>
 		<td><?php if(h($hotelRoom['HotelRoom']['status']) == 1) { echo "Active"; } else { echo "Inactive"; } ?>&nbsp;</td>
@@ -83,6 +80,9 @@
 		</td>
 		<td>
 			<?php echo $this->Html->link($hotelRoom['State']['name'], array('controller' => 'states', 'action' => 'view', $hotelRoom['State']['id'])); ?>
+		</td>
+		<td>
+			<?php echo $this->Html->link($hotelRoom['City']['name'], array('controller' => 'cities', 'action' => 'view', $hotelRoom['City']['id'])); ?>
 		</td>
 		<td><?php echo h($hotelRoom['HotelRoom']['short_description']); ?>&nbsp;</td>
 		<td><?php echo h($hotelRoom['HotelRoom']['long_description']); ?>&nbsp;</td>

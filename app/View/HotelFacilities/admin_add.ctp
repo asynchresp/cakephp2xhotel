@@ -5,12 +5,13 @@
 	<fieldset>
 		<!--<legend><?php // echo __('Add Hotel Facility'); ?></legend>-->
 	<?php
-		//echo $this->Form->input('site_id');
-		echo $this->Form->input('hotel_facility_category_id');
+		/*echo $this->Form->input('site_id');
+		echo $this->Form->input('hotel_facility_category_id');*/
+		echo $this->Form->input('HotelFacilityCategory');
+		echo $this->Form->input('Hotel');
 		echo $this->Form->input('name');
 		echo $this->Form->input('description', array('class'=>'ckeditor'));
 		echo $this->Form->input('hf_order');
-		//echo $this->Form->input('hf_image');
 		echo $this->Form->input('hf_image', array('type' => 'file'));		
 		echo $this->Form->input('show_at_checkout');
 		echo $this->Form->input('price_for_adults');
@@ -21,15 +22,12 @@
 		echo $this->Form->input('meta_title');
 		echo $this->Form->input('meta_description');
 		echo $this->Form->input('meta_keyword');
-		//echo $this->Form->input('status');
 		echo $this->Form->label('hotelfacility.status');
 		$options = array('1' => 'Active', '0' => 'Inactive');
 		$attributes = array('legend' => false);
 		echo $this->Form->radio('status', $options, $attributes);
 				
-		/*echo $this->Form->input('HotelFacilityCategory');
-		echo $this->Form->input('HotelRoom');
-		echo $this->Form->input('Hotel');*/
+		//echo $this->Form->input('HotelRoom');/
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>

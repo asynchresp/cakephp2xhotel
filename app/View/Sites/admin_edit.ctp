@@ -41,17 +41,19 @@
 		$data = $this->request->data;
 		
 		echo $this->Form->input('id');
+		echo $this->Form->input('user_id',array('empty'=>'Select User'));
 		echo $this->Form->input('name');
 		echo $this->Form->input('description', array('class'=>'ckeditor'));
 		echo $this->Form->input('site_base_url');
 		echo $this->Form->input('site_base_path');
 		 
 		echo $this->Form->input('site_logo',array('type'=>'file'));
-		$filename = ROOT.DS."app".DS."webroot".DS."img".DS."site_logo".DS.h($data['Site']['site_logo_dir']).DS.h($data['Site']['site_logo']);
+		if(!empty($data['Site']['site_logo_dir'])) { $siteLogoDir = $data['Site']['site_logo_dir']; } else { $siteLogoDir = $data['Site']['id']; }
+		$filename = ROOT.DS."app".DS."webroot".DS."img".DS."site_logo".DS.h($siteLogoDir).DS.h($data['Site']['site_logo']);
 		$fileExistChk = 0;
 		if(file_exists($filename)) {
 			$fileExistChk = 1;
-			echo $this->Html->image('/app/webroot/img/site_logo/' . h($data['Site']['site_logo_dir'] . "/thumb_".h($data['Site']['site_logo'])), array('alt'=>h($data['Site']['name'])));
+			echo $this->Html->image('/app/webroot/img/site_logo/' . h($siteLogoDir . "/thumb_".h($data['Site']['site_logo'])), array('alt'=>h($data['Site']['name'])));
 		} else {
 			echo $this->Html->image('/app/webroot/img/admin/thumb_no_image.png', array('alt'=>h($data['Site']['name'])));
 		}
@@ -60,6 +62,7 @@
 		}
 		echo $this->Form->input('site_bckgrd_color');
 		echo $this->Form->input('site_foregrd_color');
+		echo "<b>".$this->Form->label('site.Address Detail:')."</b>";
 		echo $this->Form->input('address_line1');
 		echo $this->Form->input('address_line2');
 		echo $this->Form->input('zipcode');
@@ -72,7 +75,19 @@
 		echo '</div>';	
 		echo '<div id="cityDiv">';
 		echo $this->Form->input('city_id',array('id'=>'SiteCityId','label'=>'City','empty'=>'','class'=>'{validate:{required : true, messages:{required:"Please select City"}}}','empty'=>'Select City'));
-		echo '</div>';		
+		echo '</div>';
+
+		echo "<b>".$this->Form->label('site.Account Detail:')."</b>";
+		echo $this->Form->input('acc_holder_name');
+		echo $this->Form->input('acc_bank_name');
+		echo $this->Form->input('acc_number');
+		echo $this->Form->input('ifsc_code');
+		echo "<b>".$this->Form->label('site.Tax Detail:')."</b>";
+		echo $this->Form->input('service_tax_num');
+		echo $this->Form->input('sales_tax_num');
+		echo $this->Form->input('luxury_tax_num');		
+		echo $this->Form->input('pan_card_num');
+		echo "<b>".$this->Form->label('site.SEO Detail:')."</b>";
 		echo $this->Form->input('meta_title');
 		echo $this->Form->input('meta_description');
 		echo $this->Form->input('meta_keyword');

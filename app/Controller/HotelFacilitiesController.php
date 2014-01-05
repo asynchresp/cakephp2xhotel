@@ -55,12 +55,13 @@ class HotelFacilitiesController extends AppController {
 				$this->Session->setFlash(__('The hotel facility could not be saved. Please, try again.'));
 			}
 		}
-		$sites = $this->HotelFacility->Site->find('list');
+		//$sites = $this->HotelFacility->Site->find('list');
 		$hotelFacilityCategories = $this->HotelFacility->HotelFacilityCategory->find('list');
 		$hotelFacilityCategories = $this->HotelFacility->HotelFacilityCategory->find('list');
-		$hotelRooms = $this->HotelFacility->HotelRoom->find('list');
 		$hotels = $this->HotelFacility->Hotel->find('list');
-		$this->set(compact('sites', 'hotelFacilityCategories', 'hotelFacilityCategories', 'hotelRooms', 'hotels'));
+		/*$hotelRooms = $this->HotelFacility->HotelRoom->find('list');
+		$this->set(compact('sites', 'hotelFacilityCategories', 'hotelFacilityCategories', 'hotelRooms', 'hotels'));*/
+		$this->set(compact('hotelFacilityCategories', 'hotelFacilityCategories', 'hotels'));
 	}
 
 /**
