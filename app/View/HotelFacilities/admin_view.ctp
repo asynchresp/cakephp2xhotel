@@ -12,12 +12,12 @@
 		<dd>
 			<?php echo $this->Html->link($hotelFacility['Site']['name'], array('controller' => 'sites', 'action' => 'view', $hotelFacility['Site']['id'])); ?>
 			&nbsp;
-		</dd><?php */ ?>
+		</dd>
 		<dt><?php echo __('Hotel Facility Category'); ?></dt>
 		<dd>
 			<?php echo $this->Html->link($hotelFacility['HotelFacilityCategory']['name'], array('controller' => 'hotel_facility_categories', 'action' => 'view', $hotelFacility['HotelFacilityCategory']['id'])); ?>
 			&nbsp;
-		</dd>
+		</dd><?php */ ?>
 		<dt><?php echo __('Name'); ?></dt>
 		<dd>
 			<?php echo h($hotelFacility['HotelFacility']['name']); ?>

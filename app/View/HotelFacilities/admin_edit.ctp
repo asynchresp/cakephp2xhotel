@@ -9,13 +9,12 @@
 		//pr($data);
 		echo $this->Form->input('id');
 		//echo $this->Form->input('site_id');
-		echo $this->Form->input('hotel_facility_category_id');
+		//echo $this->Form->input('hotel_facility_category_id');
+		echo $this->Form->input('HotelFacilityCategory');
+		echo $this->Form->input('Hotel');
 		echo $this->Form->input('name');
 		echo $this->Form->input('description', array('class'=>'ckeditor'));
 		echo $this->Form->input('hf_order');
-		//echo $this->Form->input('hf_image');
-	
-		
 		echo $this->Form->input('hf_image', array('type' => 'file'));
 		$filename = ROOT.DS."app".DS."webroot".DS."img".DS."hf_image".DS.h($data['HotelFacility']['hf_image_dir']).DS.h($data['HotelFacility']['hf_image']);
 		if(file_exists($filename)) {
@@ -31,18 +30,17 @@
 		echo $this->Form->input('price_above_age');
 		echo $this->Form->input('no_extra_charges');
 		echo $this->Form->input('depends_upon_bill');
+		echo "<b>".$this->Form->label('SEO Detail:')."</b>";
 		echo $this->Form->input('meta_title');
 		echo $this->Form->input('meta_description');
 		echo $this->Form->input('meta_keyword');
-		//echo $this->Form->input('status');
 		echo $this->Form->label('hotelfacility.status');
 		$options = array('1' => 'Active', '0' => 'Inactive');
 		$attributes = array('legend' => false);
 		echo $this->Form->radio('status', $options, $attributes);		
 		
-		/*echo $this->Form->input('HotelFacilityCategory');
-		echo $this->Form->input('HotelRoom');
-		echo $this->Form->input('Hotel');*/
+		
+		//echo $this->Form->input('HotelRoom');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>

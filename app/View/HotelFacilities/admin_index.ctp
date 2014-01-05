@@ -6,9 +6,8 @@
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('name'); ?></th>
-			<th><?php echo $this->Paginator->sort('hotel_facility_category_id'); ?></th>
-			<th><?php echo $this->Paginator->sort('hf_order'); ?></th>
-			
+			<?php /* ?><th><?php echo $this->Paginator->sort('hotel_facility_category_id'); ?></th>
+			<th><?php echo $this->Paginator->sort('hf_order'); ?></th><?php */ ?>
 			<th><?php echo $this->Paginator->sort('status'); ?></th>
 			
 			
@@ -32,10 +31,10 @@
 	<tr>
 		<td><?php echo h($hotelFacility['HotelFacility']['id']); ?>&nbsp;</td>
 		<td><?php echo h($hotelFacility['HotelFacility']['name']); ?>&nbsp;</td>
-		<td>
+		<?php /* ?><td>
 			<?php echo $this->Html->link($hotelFacility['HotelFacilityCategory']['name'], array('controller' => 'hotel_facility_categories', 'action' => 'view', $hotelFacility['HotelFacilityCategory']['id'])); ?>
 		</td>
-		<td><?php echo h($hotelFacility['HotelFacility']['hf_order']); ?>&nbsp;</td>
+		<td><?php echo h($hotelFacility['HotelFacility']['hf_order']); ?>&nbsp;</td><?php */ ?>
 		<td><?php if(h($hotelFacility['HotelFacility']['status']) == 1) { echo "Active"; } else { echo "Inactive"; } ?>&nbsp;</td>
 
 		<?php /* ?><td>

@@ -56,6 +56,17 @@ class Site extends AppModel {
  * @var array
  */
 	public $validate = array(
+	
+		'user_id' => array(
+			'notempty' => array(
+				'rule' => array('notempty'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				'required' => true,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
 		'name' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
@@ -198,6 +209,13 @@ class Site extends AppModel {
 		'City' => array(
 			'className' => 'City',
 			'foreignKey' => 'city_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		),
+		'User' => array(
+			'className' => 'User',
+			'foreignKey' => 'user_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
@@ -353,7 +371,7 @@ class Site extends AppModel {
 			'finderQuery' => '',
 			'counterQuery' => ''
 		),
-		'Hotel' => array(
+		/*'Hotel' => array(
 			'className' => 'Hotel',
 			'foreignKey' => 'site_id',
 			'dependent' => false,
@@ -365,7 +383,7 @@ class Site extends AppModel {
 			'exclusive' => '',
 			'finderQuery' => '',
 			'counterQuery' => ''
-		),
+		),*/
 		'PointNearByHotel' => array(
 			'className' => 'PointNearByHotel',
 			'foreignKey' => 'site_id',

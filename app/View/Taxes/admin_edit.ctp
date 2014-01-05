@@ -47,11 +47,11 @@
 		echo $this->Form->input('city_id');*/
 		echo $this->Form->input('country_id', array('id' => 'TaxCountryId', 'label' => 'Country','class'=>'{validate:{required : true, messages:{required:"Please enter Country"}}}','onchange'=>"getStatesByAjax(this.value);",'empty'=>'Select Country'));
 		echo '<div id="stateDiv">';
-		echo $this->Form->input('state_id', array('id' => 'TaxStateId', 'label' => 'State','class'=>'{validate:{required : true, messages:{required:"Please enter State"}}}','onchange'=>"getCitiesByAjax(this.value);",'empty'=>'Select State'));
+		echo $this->Form->input('state_id', array('id' => 'TaxStateId', 'label' => 'State','class'=>'{validate:{required : true, messages:{required:"Please enter State"}}}','empty'=>'Select State'));
 		echo '</div>';	
-		echo '<div id="cityDiv">';
+		/*echo '<div id="cityDiv">';
 		echo $this->Form->input('city_id',array('id'=>'TaxCityId','label'=>'City','empty'=>'','class'=>'{validate:{required : true, messages:{required:"Please select City"}}}','empty'=>'Select City'));
-		echo '</div>';			
+		echo '</div>';*/			
 		echo $this->Form->input('name');
 		echo $this->Form->input('description', array('class'=>'ckeditor'));
 		echo $this->Form->input('tax_percentage');

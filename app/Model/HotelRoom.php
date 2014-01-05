@@ -23,15 +23,115 @@ App::uses('AppModel', 'Model');
  * @property Tax $Tax
  * @property TourPackage $TourPackage
  */
-class HotelRoom extends AppModel {
+class HotelRoom extends AppModel { 	
 
+/**
+ * Imag Upload
+ *
+ * @var array
+ */    
+    public $actsAs = array(
+        'Upload.Upload' => array(
+            'room_image1'=> array(
+                'deleteOnUpdate'=>true,
+                'mode'=>0777,
+                'fields' => array(
+                  //  'dir' => 'room_image1_dir'
+                ),
+                'pathMethod'=>'primaryKey',
+                'path'=>'{ROOT}webroot{DS}img{DS}room_image1{DS}',
+                'thumbnailMethod'=>'php',
+                'thumbnailSizes' => array(
+                    'big' => '400w',
+                    'small' => '120w',
+                    'thumb' => '80w'
+                )
+            ),
+			'room_image2'=> array(
+                'deleteOnUpdate'=>true,
+                'mode'=>0777,
+                'fields' => array(
+                  //  'dir' => 'room_image1_dir'
+                ),
+                'pathMethod'=>'primaryKey',
+                'path'=>'{ROOT}webroot{DS}img{DS}room_image2{DS}',
+                'thumbnailMethod'=>'php',
+                'thumbnailSizes' => array(
+                    'big' => '400w',
+                    'small' => '120w',
+                    'thumb' => '80w'
+                )
+            ),
+			'room_image3'=> array(
+                'deleteOnUpdate'=>true,
+                'mode'=>0777,
+                'fields' => array(
+                  //  'dir' => 'room_image1_dir'
+                ),
+                'pathMethod'=>'primaryKey',
+                'path'=>'{ROOT}webroot{DS}img{DS}room_image3{DS}',
+                'thumbnailMethod'=>'php',
+                'thumbnailSizes' => array(
+                    'big' => '400w',
+                    'small' => '120w',
+                    'thumb' => '80w'
+                )
+            ),
+			'room_image4'=> array(
+                'deleteOnUpdate'=>true,
+                'mode'=>0777,
+                'fields' => array(
+                  //  'dir' => 'room_image1_dir'
+                ),
+                'pathMethod'=>'primaryKey',
+                'path'=>'{ROOT}webroot{DS}img{DS}room_image4{DS}',
+                'thumbnailMethod'=>'php',
+                'thumbnailSizes' => array(
+                    'big' => '400w',
+                    'small' => '120w',
+                    'thumb' => '80w'
+                )
+            ),
+			'room_image5'=> array(
+                'deleteOnUpdate'=>true,
+                'mode'=>0777,
+                'fields' => array(
+                  //  'dir' => 'room_image1_dir'
+                ),
+                'pathMethod'=>'primaryKey',
+                'path'=>'{ROOT}webroot{DS}img{DS}room_image5{DS}',
+                'thumbnailMethod'=>'php',
+                'thumbnailSizes' => array(
+                    'big' => '400w',
+                    'small' => '120w',
+                    'thumb' => '80w'
+                )
+            ),
+			'room_video'=> array(
+                'deleteOnUpdate'=>true,
+                'mode'=>0777,
+                'fields' => array(
+                  //  'dir' => 'room_image1_dir'
+                ),
+                'pathMethod'=>'primaryKey',
+                'path'=>'{ROOT}webroot{DS}img{DS}room_video{DS}',
+                'thumbnailMethod'=>'php',
+                'thumbnailSizes' => array(
+                    'big' => '400w',
+                    'small' => '120w',
+                    'thumb' => '80w'
+                )
+            ) 
+        )
+    );
+	
 /**
  * Validation rules
  *
  * @var array
  */
 	public $validate = array(
-		'country_id' => array(
+		/*'country_id' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
 				//'message' => 'Your custom message here',
@@ -60,7 +160,7 @@ class HotelRoom extends AppModel {
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
-		),
+		),*/
 		'hotel_id' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
@@ -163,15 +263,14 @@ class HotelRoom extends AppModel {
 		),
 		
 		'room_image1' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
+				'rule' => array('isValidExtension', array('jpg','jpeg','png'),false),
+                'message' => 'Only support jpg,png extension',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
 		),
+		
 		'room_price' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
@@ -212,7 +311,7 @@ class HotelRoom extends AppModel {
  * @var array
  */
 	public $belongsTo = array(
-		'Country' => array(
+		/*'Country' => array(
 			'className' => 'Country',
 			'foreignKey' => 'country_id',
 			'conditions' => '',
@@ -232,7 +331,7 @@ class HotelRoom extends AppModel {
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
-		),
+		),*/
 		'Hotel' => array(
 			'className' => 'Hotel',
 			'foreignKey' => 'hotel_id',

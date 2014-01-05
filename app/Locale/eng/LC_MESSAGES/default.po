@@ -121,15 +121,14 @@ msgstr "Tour Packages"
 msgid "New Tour Package"
 msgstr "Add Tour Package"
 
-
 msgid "Country"
-msgstr "Select Country"
+msgstr "Country"
 
 msgid "State"
-msgstr "Select State"
+msgstr "State"
 
 msgid "City"
-msgstr "Select City"
+msgstr "City"
 
 msgid "Tp Order"
 msgstr "Tour Package Order"
@@ -179,3 +178,32 @@ msgstr "Facility Category Image"
 msgid "Hfc Order"
 msgstr "Order"
 
+msgid "Checkindatetime"
+msgstr "Check In Date Time"
+
+msgid "Checkoutdatetime"
+msgstr "Check Out Date Time"
+
+msgid "Acc Holder Name"
+msgstr "Account Holder Name"
+
+msgid "Acc Bank Name"
+msgstr "Account Bank Name"
+
+msgid "Acc Number"
+msgstr "Account Number"
+
+msgid "Ifsc Code"
+msgstr "IFSC Code"
+
+msgid "Service Tax Num"
+msgstr "Service Tax Number"
+
+msgid "Sales Tax Num"
+msgstr "Sales Tax Number"
+
+msgid "Luxury Tax Num"
+msgstr "Luxury Tax Number"
+
+msgid "Pan Card Num"
+msgstr "Pan Card Number"

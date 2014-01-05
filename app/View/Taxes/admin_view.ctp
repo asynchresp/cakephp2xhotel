@@ -23,11 +23,11 @@
 			<?php echo $this->Html->link($tax['State']['name'], array('controller' => 'states', 'action' => 'view', $tax['State']['id'])); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('City'); ?></dt>
+		<?php /* ?><dt><?php echo __('City'); ?></dt>
 		<dd>
 			<?php echo $this->Html->link($tax['City']['name'], array('controller' => 'cities', 'action' => 'view', $tax['City']['id'])); ?>
 			&nbsp;
-		</dd>
+		</dd><?php */ ?>
 		<dt><?php echo __('Name'); ?></dt>
 		<dd>
 			<?php echo h($tax['Tax']['name']); ?>

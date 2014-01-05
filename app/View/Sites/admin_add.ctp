@@ -38,6 +38,7 @@
 	<fieldset>
 		<!--<legend><?php // echo __('Add Site'); ?></legend>-->
 	<?php
+		echo $this->Form->input('user_id',array('empty'=>'Select User'));
 		echo $this->Form->input('name');
 		echo $this->Form->input('description', array('class'=>'ckeditor'));
 		echo $this->Form->input('site_base_url');
@@ -46,6 +47,7 @@
 		
 		echo $this->Form->input('site_bckgrd_color');
 		echo $this->Form->input('site_foregrd_color');
+		echo "<b>".$this->Form->label('site.Address Detail:')."</b>";
 		echo $this->Form->input('address_line1');
 		echo $this->Form->input('address_line2');
 		echo $this->Form->input('zipcode');
@@ -59,6 +61,18 @@
 		echo '<div id="cityDiv">';
 		echo $this->Form->input('city_id',array('id'=>'SiteCityId','label'=>'City','empty'=>'','class'=>'{validate:{required : true, messages:{required:"Please select City"}}}','empty'=>'Select City'));
 		echo '</div>';			
+
+		echo "<b>".$this->Form->label('site.Account Detail:')."</b>";
+		echo $this->Form->input('acc_holder_name');
+		echo $this->Form->input('acc_bank_name');
+		echo $this->Form->input('acc_number');
+		echo $this->Form->input('ifsc_code');
+		echo "<b>".$this->Form->label('site.Tax Detail:')."</b>";
+		echo $this->Form->input('service_tax_num');
+		echo $this->Form->input('sales_tax_num');
+		echo $this->Form->input('luxury_tax_num');		
+		echo $this->Form->input('pan_card_num');
+		echo "<b>".$this->Form->label('site.SEO Detail:')."</b>";
 		echo $this->Form->input('meta_title');
 		echo $this->Form->input('meta_description');
 		echo $this->Form->input('meta_keyword');

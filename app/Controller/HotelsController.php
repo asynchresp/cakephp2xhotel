@@ -85,7 +85,7 @@ class HotelsController extends AppController {
                 }
 
                 
-                $hotelTypes = $this->Hotel->HotelType->find('list');
+        $hotelTypes = $this->Hotel->HotelType->find('list');
 		$hotelThemes = $this->Hotel->HotelTheme->find('list');
 		//$countries = $this->Hotel->Country->find('list');
 		$countries = $this->Hotel->Country->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));

@@ -7,12 +7,12 @@
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('name'); ?></th>
 			<th><?php echo $this->Paginator->sort('tax_percentage'); ?></th>
-			<th><?php echo $this->Paginator->sort('status'); ?></th>
-			<th><?php echo $this->Paginator->sort('city_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('state_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('country_id'); ?></th>
 			
-			<?php /* ?><th><?php echo $this->Paginator->sort('site_id'); ?></th>
+				<th><?php echo $this->Paginator->sort('status'); ?></th>
+			<?php /* ?><th><?php echo $this->Paginator->sort('city_id'); ?></th>
+			<th><?php echo $this->Paginator->sort('site_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('description'); ?></th>
 			<th><?php echo $this->Paginator->sort('modified'); ?></th>
 			<th><?php echo $this->Paginator->sort('created'); ?></th><?php */ ?>
@@ -22,16 +22,16 @@
 	<tr>
 		<td><?php echo h($tax['Tax']['id']); ?>&nbsp;</td>
 		<td><?php echo h($tax['Tax']['name']); ?>&nbsp;</td>
-		<td>
+		<td><?php echo h($tax['Tax']['tax_percentage']); echo "%"; ?>&nbsp;</td>
+		<?php /* ?><td>
 			<?php echo $this->Html->link($tax['City']['name'], array('controller' => 'cities', 'action' => 'view', $tax['City']['id'])); ?>
-		</td>
+		</td><?php */ ?>
 		<td>
 			<?php echo $this->Html->link($tax['State']['name'], array('controller' => 'states', 'action' => 'view', $tax['State']['id'])); ?>
 		</td>
 		<td>
 			<?php echo $this->Html->link($tax['Country']['name'], array('controller' => 'countries', 'action' => 'view', $tax['Country']['id'])); ?>
 		</td>
-		<td><?php echo h($tax['Tax']['tax_percentage']); ?>&nbsp;</td>
 		<td><?php if(h($tax['Tax']['status']) == 1) { echo "Active"; } else { echo "Inactive"; } ?>&nbsp;</td>
 		
 		<?php /* ?><td>

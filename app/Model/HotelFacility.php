@@ -39,9 +39,29 @@ class HotelFacility extends AppModel {
  */
 	public $validate = array(
 	
-		'hotel_facility_category_id' => array(
+		/*'hotel_facility_category_id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),*/
+		'HotelFacilityCategory' => array(
+			'notempty' => array(
+				'rule' => array('notempty'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'Hotel' => array(
+			'notempty' => array(
+				'rule' => array('notempty'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -114,7 +134,8 @@ class HotelFacility extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),		
-		/*'HotelFacilityCategory' => array(
+		
+		/*'HotelRoom' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
 				//'message' => 'Your custom message here',
@@ -123,27 +144,7 @@ class HotelFacility extends AppModel {
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
-		),
-		'HotelRoom' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
-		'Hotel' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),*/	
+		), */	
 	);
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
@@ -153,7 +154,7 @@ class HotelFacility extends AppModel {
  * @var array
  */
 	public $belongsTo = array(
-		'Site' => array(
+		/*'Site' => array(
 			'className' => 'Site',
 			'foreignKey' => 'site_id',
 			'conditions' => '',
@@ -166,7 +167,7 @@ class HotelFacility extends AppModel {
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
-		)
+		)*/
 	);
 
 /**
@@ -175,7 +176,7 @@ class HotelFacility extends AppModel {
  * @var array
  */
 	public $hasMany = array(
-		'HotelRoom' => array(
+		/*'HotelRoom' => array(
 			'className' => 'HotelRoom',
 			'foreignKey' => 'hotel_facility_id',
 			'dependent' => false,
@@ -187,7 +188,7 @@ class HotelFacility extends AppModel {
 			'exclusive' => '',
 			'finderQuery' => '',
 			'counterQuery' => ''
-		),
+		),*/
 		'Hotel' => array(
 			'className' => 'Hotel',
 			'foreignKey' => 'hotel_facility_id',
@@ -225,7 +226,7 @@ class HotelFacility extends AppModel {
 			'deleteQuery' => '',
 			'insertQuery' => ''
 		),
-		'HotelRoom' => array(
+		/*'HotelRoom' => array(
 			'className' => 'HotelRoom',
 			'joinTable' => 'hotel_rooms_hotel_facilities',
 			'foreignKey' => 'hotel_facility_id',
@@ -239,7 +240,7 @@ class HotelFacility extends AppModel {
 			'finderQuery' => '',
 			'deleteQuery' => '',
 			'insertQuery' => ''
-		),
+		),*/
 		'Hotel' => array(
 			'className' => 'Hotel',
 			'joinTable' => 'hotels_hotel_facilities',

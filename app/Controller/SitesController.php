@@ -55,10 +55,13 @@ class SitesController extends AppController {
 				$this->Session->setFlash(__('The site could not be saved. Please, try again.'));
 			}
 		}
+		
+// $res=$this->Hotel->User->find('all',array('fields'=>array('id','first_name','last_name'),'conditions'=>array('active'=>'1','UserGroup.alias_name'=>'hotel_owner')));
+		$users = $this->Site->User->find('list',array('fields'=>array('id','first_name','last_name'),'conditions'=>array('active'=>1),'order'=>'first_name'));
 		$countries = $this->Site->Country->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
 		//$states = $this->Site->State->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
 		//$cities = $this->Site->City->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
-		$this->set(compact('countries', 'states', 'cities'));
+		$this->set(compact('users','countries', 'states', 'cities'));
 	}
 
 /**
@@ -76,10 +79,9 @@ class SitesController extends AppController {
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
 			
-//                        pr($this->request->data);
-//                        die;
+//                        pr($this->request->data);  die;
                     
-                        if ($this->Site->save($this->request->data)) {
+            if ($this->Site->save($this->request->data)) {
 				$this->Session->setFlash(__('The site has been saved'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
@@ -92,10 +94,12 @@ class SitesController extends AppController {
 			$selCountry = $this->request->data['Country']['id'];
 			$selState = $this->request->data['State']['id'];
 		}
+		
+		$users = $this->Site->User->find('list',array('fields'=>array('id','first_name','last_name'),'conditions'=>array('active'=>1),'order'=>'first_name'));
 		$countries = $this->Site->Country->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
 		$states = $this->Site->State->find('list',array('conditions'=>array('country_id'=>$selCountry,'status'=>1),'order'=>'name'));
 		$cities = $this->Site->City->find('list',array('conditions'=>array('state_id'=>$selState,'status'=>1),'order'=>'name'));
-		$this->set(compact('countries', 'states', 'cities'));
+		$this->set(compact('users', 'countries', 'states', 'cities'));
 	}
 
 /**
